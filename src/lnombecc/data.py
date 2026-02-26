@@ -24,9 +24,9 @@ MP2_COMMON = {**COMMON, "calc": "DF-MP2"}
 
 STEP_SETTINGS = {
     1: {"scfiguess": "small", "lcorthr": "tight"},
-    2: {"scfiguess": "off", "lcorthr": "vtight"},
-    3: {"scfiguess": "off"},
-    4: {"scfiguess": "restart"},
+    2: {"scfiguess": "small", "lcorthr": "vtight"},
+    3: {"scfiguess": "small"},
+    4: {"scfiguess": "small"},
 }
 
 def with_basis(base: dict, basis: str) -> dict:
