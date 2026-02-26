@@ -10,7 +10,7 @@ from ase.db import connect
 import ase.io
 import numpy as np
 
-from typing import Literal
+from typing import Literal, Dict
 
 from lnombecc.data import calculation_defaults
 from quacc import get_settings, change_settings
@@ -224,6 +224,8 @@ def setup_lnombecc_inputs(
                         **inputs,
                     )
                     struct.info["folder"] = folder
+                    struct.info["dist"] = row.data["dist"]
+                    struct.info["count"] = row.data["count"]
 
                     two_body_calculators[row_idx][sub_calc][calc_key] = struct
                     if write_inputs_dir is not None:
@@ -262,7 +264,8 @@ def setup_lnombecc_inputs(
                         **inputs,
                     )
                     struct.info["folder"] = folder
-
+                    struct.info["dist"] = row.data["dist"]
+                    struct.info["count"] = row.data["count"]
                     three_body_calculators[row_idx][sub_calc][calc_key] = struct
                     if write_inputs_dir is not None:
                         Path(write_inputs_dir,"3B_calcs",folder,str(sub_calc),str(calc_key)).mkdir(exist_ok=True, parents=True)
@@ -321,56 +324,331 @@ def run_lnombecc(
                 ):
                 static_job(calculators_1b[row_idx][calc_key], **calc_parameters)
 
-    # for row_idx, sub_calc_dict in calculators_2b.items():
-    #     for sub_calc, calc_dict in sub_calc_dict.items():
-    #         for calc_key, struct in calc_dict.items():
-    #             calc_folder = Path(run_directory, "2B_calcs", struct.info["folder"], str(sub_calc))
-    #             calc_parameters = struct.calc.parameters
-    #             with change_settings(
-    #                 {
-    #                     "RESULTS_DIR": calc_folder,
-    #                     "CREATE_UNIQUE_DIR": False,
-    #                     "GZIP_FILES": False,
-    #                 }                
-    #                 ):
-    #                 static_job(calculators_2b[row_idx][sub_calc][calc_key], **calc_parameters)
+    for row_idx, sub_calc_dict in calculators_2b.items():
+        for sub_calc, calc_dict in sub_calc_dict.items():
+            for calc_key, struct in calc_dict.items():
+                calc_folder = Path(run_directory, "2B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
+                output_file = Path(calc_folder, f"mrcc.out")
+                if output_file.exists():
+                    with open(output_file, "r") as f:
+                        last_lines = f.readlines()[-5:]
+                        if any("Normal termination of mrcc." in line for line in last_lines):
+                            print(f"Calculation in {calc_folder} is already finished. Skipping.")
+                            continue
 
-    # for row_idx, sub_calc_dict in calculators_3b.items():
-    #     for sub_calc, calc_dict in sub_calc_dict.items():
-    #         # If calculations are finished, skip
-    #         calc_finished = True
-    #         for calc_key, struct in calc_dict.items():
-    #             calc_folder = Path(run_directory, "3B_calcs", struct.info["folder"], str(sub_calc))
-    #             # Check the "Normal termination" string in the output file to determine if the calculation is finished
-    #             output_file = Path(calc_folder, f"mrcc_{calc_key}.out")
-    #             if output_file.exists():
-    #                 with open(output_file, "r") as f:
-    #                     # Read last 5 lines of the output file to check for "Normal termination of mrcc."
-    #                     last_lines = f.readlines()[-5:]
-    #                     if any("Normal termination of mrcc." in line for line in last_lines):
-    #                         print(f"Calculation in {calc_folder} is already finished. Skipping.")
-    #                         continue
-    #             else:
-    #                 calc_finished = False
-    #                 break
+                calc_parameters = struct.calc.parameters
+                with change_settings(
+                    {
+                        "RESULTS_DIR": calc_folder,
+                        "CREATE_UNIQUE_DIR": False,
+                        "GZIP_FILES": False,
+                    }                
+                    ):
+                    static_job(calculators_2b[row_idx][sub_calc][calc_key], **calc_parameters)
+
+    for row_idx, sub_calc_dict in calculators_3b.items():
+        for sub_calc, calc_dict in sub_calc_dict.items():
+            for calc_key, struct in calc_dict.items():
+                calc_folder = Path(run_directory, "3B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
+                output_file = Path(calc_folder, f"mrcc.out")
+                if output_file.exists():
+                    with open(output_file, "r") as f:
+                        last_lines = f.readlines()[-5:]
+                        if any("Normal termination of mrcc." in line for line in last_lines):
+                            print(f"Calculation in {calc_folder} is already finished. Skipping.")
+                            continue
+
+                calc_parameters = struct.calc.parameters
+                with change_settings(
+                    {
+                        "RESULTS_DIR": calc_folder,
+                        "CREATE_UNIQUE_DIR": False,
+                        "GZIP_FILES": False,
+                    }                
+                    ):
+                    static_job(calculators_3b[row_idx][sub_calc][calc_key], **calc_parameters)
+
+def analyze_lnombecc_outputs(
+    run_directory: str | Path = "./LNOMBECC_calcs",
+    calculators_1b_filepath: str | Path = "calculators_1b.npy",
+    calculators_2b_filepath: str | Path = "calculators_2b.npy",
+    calculators_3b_filepath: str | Path = "calculators_3b.npy",
+    calculation_type: Literal["lattice", "relative"] = "lattice",
+) -> Dict :
+    """
+    Analyze the outputs of the LNO-MBE-CCSD(T) calculations and compile the results into a JSON file.
+    
+    Parameters
+    ----------
+    run_directory : str | Path, optional
+        The directory where the calculation outputs are stored, by default "./LNOMBECC_calcs".
+    calculators_1b_filepath : str | Path, optional
+        The file path to the npy file containing the calculators for the 1-body fragments, by default "calculators_1b.npy".
+    calculators_2b_filepath : str | Path, optional
+        The file path to the npy file containing the calculators for the 2-body fragments, by default "calculators_2b.npy".
+    calculators_3b_filepath : str | Path, optional
+        The file path to the npy file containing the calculators for the 3-body fragments, by default "calculators_3b.npy".
+
+    Returns
+    -------
+    None
+    """
+
+    elatt_contributions = {
+        "1B": 0,
+        "2B": 0,
+        "3B": 0,
+    }
+
+    if calculation_type == "lattice":
+        basis_family = 'acc'
+    elif calculation_type == "relative":
+        basis_family = 'mixcc'
+    else:
+        raise ValueError(f"Unknown calculation_type={calculation_type}")
 
 
+    # Analyse the 1B outputs
+    calculators_1b = np.load(calculators_1b_filepath, allow_pickle=True).item()
 
+    energies_1b = []
+    for row_idx, calc_dict in calculators_1b.items():
+        fragment_calc_energies = {calc_key: {} for calc_key in calc_dict.keys()}
+        for calc_key, struct in calc_dict.items():
+            calc_folder = Path(run_directory, "1B_calcs", struct.info["folder"], str(calc_key))
+            output_file = Path(calc_folder, f"mrcc.out")
+            if not output_file.exists():
+                raise FileNotFoundError(f"Output file {output_file} does not exist.")
 
-    #         for calc_key, struct in calc_dict.items():
-    #             calc_folder = Path(run_directory, "3B_calcs", struct.info["folder"], str(sub_calc))
-    #             calc_parameters = struct.calc.parameters
-    #             with change_settings(
-    #                 {
-    #                     "RESULTS_DIR": calc_folder,
-    #                     "CREATE_UNIQUE_DIR": False,
-    #                     "GZIP_FILES": False,
-    #                 }                
-    #                 ):
-    #                 static_job(calculators_3b[row_idx][sub_calc][calc_key], **calc_parameters)
+            with open(output_file, "r") as f:
+                last_lines = f.readlines()[-5:]
+                if not any("Normal termination of mrcc." in line for line in last_lines):
+                    raise ValueError(f"Calculation in {calc_folder} did not finish normally. Please check the output file.")
+            
+            fragment_calc_energies[calc_key] = read_mrcc_outputs(output_file)
+
+        mp2_cbs_energy = get_cbs_extrapolation(
+            hf_X=fragment_calc_energies[3]["scf_energy"],
+            corr_X=fragment_calc_energies[3]["mp2_corr_energy"],
+            hf_Y=fragment_calc_energies[4]["scf_energy"],
+            corr_Y=fragment_calc_energies[4]["mp2_corr_energy"],
+            X_size = "QZ",
+            Y_size = "5Z",
+            family = basis_family,
+        )[-1]
+        if calculation_type == "lattice":
+            calc_1_delta = fragment_calc_energies[1]["ccsdt_corr_energy"] - fragment_calc_energies[1]["mp2_corr_energy"]
+            calc_2_delta = fragment_calc_energies[2]["ccsdt_corr_energy"] - fragment_calc_energies[2]["mp2_corr_energy"]
+            delta_cc_mp2_energy = calc_2_delta + 0.5*(calc_2_delta - calc_1_delta)
+        elif calculation_type == "relative":
+            delta_cc_mp2_energy = fragment_calc_energies[1]["ccsdt_corr_energy"] - fragment_calc_energies[1]["mp2_corr_energy"]
+        
+        energies_1b += [mp2_cbs_energy + delta_cc_mp2_energy]
+    elatt_contributions["1B"] = np.mean(energies_1b[1:]) - energies_1b[0]
+
+    energies_2b = []
+    calculators_2b = np.load(calculators_2b_filepath, allow_pickle=True).item()
+    for row_idx, sub_calc_dict in calculators_2b.items():
+        count = calc_dict[1].info["count"]
+        for sub_calc, calc_dict in sub_calc_dict.items():
+            fragment_calc_energies = {calc_key: {} for calc_key in calc_dict.keys()}
+            for calc_key, struct in calc_dict.items():
+                calc_folder = Path(run_directory, "2B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
+                output_file = Path(calc_folder, f"mrcc.out")
+                if not output_file.exists():
+                    raise FileNotFoundError(f"Output file {output_file} does not exist.")
+
+                with open(output_file, "r") as f:
+                    last_lines = f.readlines()[-5:]
+                    if not any("Normal termination of mrcc." in line for line in last_lines):
+                        raise ValueError(f"Calculation in {calc_folder} did not finish normally. Please check the output file.")
+                
+                fragment_calc_energies[calc_key] = read_mrcc_outputs(output_file)
+            mp2_cbs_energy = get_cbs_extrapolation(
+                hf_X=fragment_calc_energies[3]["scf_energy"],
+                corr_X=fragment_calc_energies[3]["mp2_corr_energy"],
+                hf_Y=fragment_calc_energies[4]["scf_energy"],
+                corr_Y=fragment_calc_energies[4]["mp2_corr_energy"],
+                X_size = "QZ",
+                Y_size = "5Z",
+                family = basis_family,
+            )[-1]
+            if calculation_type == "lattice":
+                calc_1_delta = fragment_calc_energies[1]["ccsdt_corr_energy"] - fragment_calc_energies[1]["mp2_corr_energy"]
+                calc_2_delta = fragment_calc_energies[2]["ccsdt_corr_energy"] - fragment_calc_energies[2]["mp2_corr_energy"]
+                delta_cc_mp2_energy = calc_2_delta + 0.5*(calc_2_delta - calc_1_delta)
+            elif calculation_type == "relative":
+                delta_cc_mp2_energy = fragment_calc_energies[1]["ccsdt_corr_energy"] - fragment_calc_energies[1]["mp2_corr_energy"]
+
+            sub_calc_dict[sub_calc] = (mp2_cbs_energy + delta_cc_mp2_energy)
+        energies_2b += [(sub_calc_dict[0] + sub_calc_dict[4] + sub_calc_dict[5] + sub_calc_dict[6] - sub_calc_dict[1] - sub_calc_dict[2] - sub_calc_dict[3])*count]
+    elatt_contributions["2B"] = np.sum(energies_2b)
+
+    energies_3b = []
+    calculators_3b = np.load(calculators_3b_filepath, allow_pickle=True).item()
+    for row_idx, sub_calc_dict in calculators_3b.items():
+        for sub_calc, calc_dict in sub_calc_dict.items():
+            fragment_calc_energies = {calc_key: {} for calc_key in calc_dict.keys()}
+            count = calc_dict[1].info["count"]
+            for calc_key, struct in calc_dict.items():
+                calc_folder = Path(run_directory, "3B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
+                output_file = Path(calc_folder, f"mrcc.out")
+                if not output_file.exists():
+                    raise FileNotFoundError(f"Output file {output_file} does not exist.")
+
+                with open(output_file, "r") as f:
+                    last_lines = f.readlines()[-5:]
+                    if not any("Normal termination of mrcc." in line for line in last_lines):
+                        raise ValueError(f"Calculation in {calc_folder} did not finish normally. Please check the output file.")
+                
+                fragment_calc_energies[calc_key] = read_mrcc_outputs(output_file)
+            mp2_cbs_energy = get_cbs_extrapolation(
+                hf_X=fragment_calc_energies[3]["scf_energy"],
+                corr_X=fragment_calc_energies[3]["mp2_corr_energy"],
+                hf_Y=fragment_calc_energies[4]["scf_energy"],
+                corr_Y=fragment_calc_energies[4]["mp2_corr_energy"],
+                X_size = "QZ",
+                Y_size = "5Z",
+                family = basis_family,
+            )[-1]
+            if calculation_type == "lattice":
+                calc_1_delta = fragment_calc_energies[1]["ccsdt_corr_energy"] - fragment_calc_energies[1]["mp2_corr_energy"]
+                calc_2_delta = fragment_calc_energies[2]["ccsdt_corr_energy"] - fragment_calc_energies[2]["mp2_corr_energy"]
+                delta_cc_mp2_energy = calc_2_delta + 0.5*(calc_2_delta - calc_1_delta)
+            elif calculation_type == "relative":
+                delta_cc_mp2_energy = fragment_calc_energies[1]["ccsdt_corr_energy"] - fragment_calc_energies[1]["mp2_corr_energy"]
+
+            energies_3b += [(mp2_cbs_energy + delta_cc_mp2_energy)*count]
+        energies_3b += [(sub_calc_dict[0] + sub_calc_dict[4] + sub_calc_dict[5] + sub_calc_dict[6] - sub_calc_dict[1] - sub_calc_dict[2] - sub_calc_dict[3])*count]
+    elatt_contributions["3B"] = np.sum(energies_3b)
+
+def run_periodic_hf(
+    poscar_filepath: str | Path,
+    gas_filepath: str | Path | None = None,
+)
+    
 
 
 
 # def run_periodic_hf
 
-# def parse_lnombecc_outputs
+def get_cbs_extrapolation(
+    hf_X: float,
+    corr_X: float,
+    hf_Y: float,
+    corr_Y: float,
+    X_size: Literal["DZ", "TZ", "QZ"] = "DZ",
+    Y_size: Literal["TZ", "QZ", "5Z"] = "TZ",
+    family: Literal["def2", "cc", "acc", "mixcc"] = "mixcc",
+) -> tuple[float, float, float]:
+    """
+    Function to perform basis set extrapolation of HF and correlation energies for both the cc-pVXZ and def2-XZVP basis sets
+
+    Parameters
+    ----------
+    hf_X : float
+        HF energy in X basis set
+    corr_X : float
+        Correlation energy in X basis set
+    hf_Y : float
+        HF energy in Y basis set where Y = X+1 cardinal zeta number
+    corr_Y : float
+        Correlation energy in Y basis set
+    X_size : str
+        Cardinal zeta number of X basis set
+    Y_size : str
+        Cardinal zeta number of Y basis set
+    family : str
+        Basis set family. Options are `cc`, `def2`, `acc`, and `mixcc`. Where cc is for non-augmented correlation consistent basis sets, def2 is for def2 basis sets, acc is for augmented correlation consistent basis sets while mixcc is for mixed augmented + non-augmented correlation consistent basis sets
+
+    Returns
+    -------
+    hf_cbs : float
+        HF CBS energy
+    corr_cbs : float
+        Correlation CBS energy
+    tot_cbs : float
+        Total CBS energy
+    """
+
+    # Dictionary of alpha parameters followed by beta parameters in CBS extrapoation. Refer to: Neese, F.; Valeev, E. F. Revisiting the Atomic Natural Orbital Approach for Basis Sets: Robust Systematic Basis Sets for Explicitly Correlated and Conventional Correlated Ab Initio Methods. J. Chem. Theory Comput. 2011, 7 (1), 33-43. https://doi.org/10.1021/ct100396y.
+    alpha_dict = {
+        "def2_2_3": 10.39,
+        "def2_3_4": 7.88,
+        "cc_2_3": 4.42,
+        "cc_3_4": 5.46,
+        "cc_4_5": 5.46,
+        "acc_2_3": 4.30,
+        "acc_3_4": 5.79,
+        "acc_4_5": 5.79,
+        "mixcc_2_3": 4.36,
+        "mixcc_3_4": 5.625,
+        "mixcc_4_5": 5.625,
+    }
+
+    beta_dict = {
+        "def2_2_3": 2.40,
+        "def2_3_4": 2.97,
+        "cc_2_3": 2.46,
+        "cc_3_4": 3.05,
+        "cc_4_5": 3.05,
+        "acc_2_3": 2.51,
+        "acc_3_4": 3.05,
+        "acc_4_5": 3.05,
+        "mixcc_2_3": 2.485,
+        "mixcc_3_4": 3.05,
+        "mixcc_4_5": 3.05,
+    }
+
+    size_to_num = {"DZ": 2, "TZ": 3, "QZ": 4, "5Z": 5}
+
+    X = size_to_num[X_size]
+    Y = size_to_num[Y_size]
+
+    # Check if X and Y are consecutive cardinal zeta numbers
+    if Y != X + 1:
+        raise ValueError("The cardinal number of Y does not equal X+1")
+
+    # Get the corresponding alpha and beta parameters depending on the basis set family
+    alpha = alpha_dict[f"{family}_{X}_{Y}"]
+    beta = beta_dict[f"{family}_{X}_{Y}"]
+
+    # Perform CBS extrapolation for HF and correlation components
+    hf_cbs = hf_X - np.exp(-alpha * np.sqrt(X)) * (hf_Y - hf_X) / (
+        np.exp(-alpha * np.sqrt(Y)) - np.exp(-alpha * np.sqrt(X))
+    )
+    corr_cbs = (X ** (beta) * corr_X - Y ** (beta) * corr_Y) / (
+        X ** (beta) - Y ** (beta)
+    )
+
+    return hf_cbs, corr_cbs, (hf_cbs + corr_cbs)
+
+
+def cleanup_folder(folder: str | Path = ".") -> None:
+    """
+    Clean up the folder by deleting files that match certain patterns.
+    Parameters
+    ----------
+    folder : str | Path, optional
+        The folder to clean up, by default ".".
+
+    Returns
+    -------
+    None
+    """
+
+    folder = Path(folder)
+
+    patterns = [
+        "55*", "56*", "fort.*", "DF*", "MOCOEF*", "MOLDEN*",
+        "OCCUP", "OEINT", "OLDMO", "OSVFILE", "PRINT",
+        "S12MAT*", "SCFDEN*", "SCHOL", "SROOT", "SYMTRA",
+        "TEDAT", "VARS", "localcc.restart", "KEYWD",
+        "iface", "FOCK", "EXIT", "DAO", "COORD.xyz",
+        "pt.rst", "TEINT", "ccsd.rst",
+    ]
+
+    for pattern in patterns:
+        for path in folder.glob(pattern):
+            if path.is_file():
+                path.unlink()
