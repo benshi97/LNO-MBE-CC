@@ -13,7 +13,7 @@ import numpy as np
 from typing import Literal, Dict
 
 from lnombecc.data import calculation_defaults
-from quacc import get_settings, change_settings
+from quacc import get_settings, change_settings, flow
 
 from quacc.calculators.mrcc.mrcc import MrccProfile, MRCC
 from quacc.calculators.mrcc.io import write_mrcc, read_mrcc_outputs
@@ -195,7 +195,6 @@ def setup_lnombecc_inputs(
                     Path(write_inputs_dir,"1B_calcs",folder, str(calc_key)).mkdir(exist_ok=True, parents=True)
                     write_mrcc(Path(write_inputs_dir, "1B_calcs", folder, str(calc_key)) / f"MINP", struct,inputs)
 
-
     
     two_body_calculators = {}
     with connect(two_body_db_filepath) as db:
@@ -305,68 +304,80 @@ def run_lnombecc(
     for row_idx, calc_dict in calculators_1b.items():
         for calc_key, struct in calc_dict.items():
             calc_folder = Path(run_directory, "1B_calcs", struct.info["folder"], str(calc_key))
-            output_file = Path(calc_folder, f"mrcc.out")
-            # Read last 5 lines of the output file to check for "Normal termination of mrcc." string
-            if output_file.exists():
-                with open(output_file, "r") as f:
-                    last_lines = f.readlines()[-5:]
-                    if any("Normal termination of mrcc." in line for line in last_lines):
-                        print(f"Calculation in {calc_folder} is already finished. Skipping.")
-                        continue
-
             calc_parameters = struct.calc.parameters
-            with change_settings(
-                {
-                    "RESULTS_DIR": calc_folder,
-                    "CREATE_UNIQUE_DIR": False,
-                    "GZIP_FILES": False,
-                }                
-                ):
-                static_job(calculators_1b[row_idx][calc_key], **calc_parameters)
+            run_mrcc_calculation(calculators_1b[row_idx][calc_key], calc_parameters, calc_folder)
+            # output_file = Path(calc_folder, f"mrcc.out")
+            # # Read last 5 lines of the output file to check for "Normal termination of mrcc." string
+            # if output_file.exists():
+            #     with open(output_file, "r") as f:
+            #         last_lines = f.readlines()[-5:]
+            #         if any("Normal termination of mrcc." in line for line in last_lines):
+            #             print(f"Calculation in {calc_folder} is already finished. Skipping.")
+            #             continue
+
+            # calc_parameters = struct.calc.parameters
+            # with change_settings(
+            #     {
+            #         "RESULTS_DIR": calc_folder,
+            #         "CREATE_UNIQUE_DIR": False,
+            #         "GZIP_FILES": False,
+            #     }                
+            #     ):
+            #     static_job(calculators_1b[row_idx][calc_key], **calc_parameters)
+            # cleanup_folder(calc_folder)
 
     for row_idx, sub_calc_dict in calculators_2b.items():
         for sub_calc, calc_dict in sub_calc_dict.items():
             for calc_key, struct in calc_dict.items():
                 calc_folder = Path(run_directory, "2B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
-                output_file = Path(calc_folder, f"mrcc.out")
-                if output_file.exists():
-                    with open(output_file, "r") as f:
-                        last_lines = f.readlines()[-5:]
-                        if any("Normal termination of mrcc." in line for line in last_lines):
-                            print(f"Calculation in {calc_folder} is already finished. Skipping.")
-                            continue
-
+                # output_file = Path(calc_folder, f"mrcc.out")
                 calc_parameters = struct.calc.parameters
-                with change_settings(
-                    {
-                        "RESULTS_DIR": calc_folder,
-                        "CREATE_UNIQUE_DIR": False,
-                        "GZIP_FILES": False,
-                    }                
-                    ):
-                    static_job(calculators_2b[row_idx][sub_calc][calc_key], **calc_parameters)
+                run_mrcc_calculation(calculators_2b[row_idx][sub_calc][calc_key], calc_parameters, calc_folder)
+
+
+
+                # if output_file.exists():
+                #     with open(output_file, "r") as f:
+                #         last_lines = f.readlines()[-5:]
+                #         if any("Normal termination of mrcc." in line for line in last_lines):
+                #             print(f"Calculation in {calc_folder} is already finished. Skipping.")
+                #             continue
+
+                # with change_settings(
+                #     {
+                #         "RESULTS_DIR": calc_folder,
+                #         "CREATE_UNIQUE_DIR": False,
+                #         "GZIP_FILES": False,
+                #     }                
+                #     ):
+                #     static_job(calculators_2b[row_idx][sub_calc][calc_key], **calc_parameters)
+                # cleanup_folder(calc_folder)
 
     for row_idx, sub_calc_dict in calculators_3b.items():
         for sub_calc, calc_dict in sub_calc_dict.items():
             for calc_key, struct in calc_dict.items():
                 calc_folder = Path(run_directory, "3B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
-                output_file = Path(calc_folder, f"mrcc.out")
-                if output_file.exists():
-                    with open(output_file, "r") as f:
-                        last_lines = f.readlines()[-5:]
-                        if any("Normal termination of mrcc." in line for line in last_lines):
-                            print(f"Calculation in {calc_folder} is already finished. Skipping.")
-                            continue
-
                 calc_parameters = struct.calc.parameters
-                with change_settings(
-                    {
-                        "RESULTS_DIR": calc_folder,
-                        "CREATE_UNIQUE_DIR": False,
-                        "GZIP_FILES": False,
-                    }                
-                    ):
-                    static_job(calculators_3b[row_idx][sub_calc][calc_key], **calc_parameters)
+                run_mrcc_calculation(calculators_3b[row_idx][sub_calc][calc_key], calc_parameters, calc_folder)
+
+                # output_file = Path(calc_folder, f"mrcc.out")
+                # if output_file.exists():
+                #     with open(output_file, "r") as f:
+                #         last_lines = f.readlines()[-5:]
+                #         if any("Normal termination of mrcc." in line for line in last_lines):
+                #             print(f"Calculation in {calc_folder} is already finished. Skipping.")
+                #             continue
+
+                # calc_parameters = struct.calc.parameters
+                # with change_settings(
+                #     {
+                #         "RESULTS_DIR": calc_folder,
+                #         "CREATE_UNIQUE_DIR": False,
+                #         "GZIP_FILES": False,
+                #     }                
+                #     ):
+                #     static_job(calculators_3b[row_idx][sub_calc][calc_key], **calc_parameters)
+                # cleanup_folder(calc_folder)
 
 # def analyze_lnombecc_outputs(
 #     run_directory: str | Path = "./LNOMBECC_calcs",
@@ -623,20 +634,7 @@ def get_cbs_extrapolation(
 
     return hf_cbs, corr_cbs, (hf_cbs + corr_cbs)
 
-
-def cleanup_folder(folder: str | Path = ".") -> None:
-    """
-    Clean up the folder by deleting files that match certain patterns.
-    Parameters
-    ----------
-    folder : str | Path, optional
-        The folder to clean up, by default ".".
-
-    Returns
-    -------
-    None
-    """
-
+def cleanup_folder(folder: str | Path = "."):
     folder = Path(folder)
 
     patterns = [
@@ -652,3 +650,23 @@ def cleanup_folder(folder: str | Path = ".") -> None:
         for path in folder.glob(pattern):
             if path.is_file():
                 path.unlink()
+
+@flow
+def run_mrcc_calculation(struct, calc_parameters, calc_folder):
+    output_file = Path(calc_folder, f"mrcc.out")
+    if output_file.exists():
+        with open(output_file, "r") as f:
+            last_lines = f.readlines()[-5:]
+            if any("Normal termination of mrcc." in line for line in last_lines):
+                print(f"Calculation in {calc_folder} is already finished. Skipping.")
+                return
+
+    with change_settings(
+        {
+            "RESULTS_DIR": calc_folder,
+            "CREATE_UNIQUE_DIR": False,
+            "GZIP_FILES": False,
+        }        
+        ):
+        static_job(struct, **calc_parameters)
+    cleanup_folder(calc_folder)
