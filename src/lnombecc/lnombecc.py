@@ -192,8 +192,8 @@ def setup_lnombecc_inputs(
                 struct.info["folder"] = folder
                 one_body_calculators[row_idx][calc_key] = struct
                 if write_inputs_dir is not None:
-                    Path(write_inputs_dir,"1B_calcs",folder).mkdir(exist_ok=True, parents=True)
-                    write_mrcc(Path(write_inputs_dir, "1B_calcs", folder) / f"MINP_{calc_key}", struct,inputs)
+                    Path(write_inputs_dir,"1B_calcs",folder, str(calc_key)).mkdir(exist_ok=True, parents=True)
+                    write_mrcc(Path(write_inputs_dir, "1B_calcs", folder, str(calc_key)) / f"MINP", struct,inputs)
 
 
     
@@ -201,19 +201,18 @@ def setup_lnombecc_inputs(
     with connect(two_body_db_filepath) as db:
         num_rows = db.count()
         width = max(1, len(str(max(num_rows - 1, 0)))) + 1
-
-
         for row_idx, row in enumerate(db.select()):
             folder = f"{row_idx:0{width}d}"
             two_body_calculators[row_idx] = {0: {}, 1: {}, 2: {}}
-            for calc_key, calc_settings in calc_type_defaults["2B"].items():
-                dimer_length = len(row.toatoms())
-                ghost_atoms_input = {
-                    0: "serialno\n\n",
-                    1: f"serialno\n1-{int(dimer_length/2)}\n",
-                    2: f"serialno\n{int(dimer_length/2)+1}-{dimer_length}\n",
-                }
-                for sub_calc in [0, 1, 2]:
+            dimer_length = len(row.toatoms())
+            monomer_length = int(dimer_length/2)
+            ghost_atoms_input = {
+                0: "serialno\n\n",
+                1: f"serialno\n1-{monomer_length}\n",
+                2: f"serialno\n{monomer_length+1}-{dimer_length}\n",
+            }
+            for sub_calc in [0, 1, 2]:
+                for calc_key, calc_settings in calc_type_defaults["2B"].items():
                     inputs = {
                         **calc_settings,
                         "mem": memory,
@@ -228,8 +227,8 @@ def setup_lnombecc_inputs(
 
                     two_body_calculators[row_idx][sub_calc][calc_key] = struct
                     if write_inputs_dir is not None:
-                        Path(write_inputs_dir,"2B_calcs",folder,str(sub_calc)).mkdir(exist_ok=True, parents=True)
-                        write_mrcc(Path(write_inputs_dir, "2B_calcs", folder,str(sub_calc)) / f"MINP_{calc_key}", struct,inputs)
+                        Path(write_inputs_dir,"2B_calcs",folder,str(sub_calc),str(calc_key)).mkdir(exist_ok=True, parents=True)
+                        write_mrcc(Path(write_inputs_dir, "2B_calcs", folder,str(sub_calc),str(calc_key)) / f"MINP", struct,inputs)
 
     three_body_calculators = {}
     with connect(three_body_db_filepath) as db:
@@ -237,22 +236,21 @@ def setup_lnombecc_inputs(
         width = max(1, len(str(max(num_rows - 1, 0)))) + 1
         for row_idx, row in enumerate(db.select()):
             folder = f"{row_idx:0{width}d}"
-            three_body_calculators[row_idx] = {}
-            for calc_key, calc_settings in calc_type_defaults["3B"].items():
-                three_body_calculators[row_idx] = {0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, 6: {}}
-                trimer_length = len(row.toatoms())
-                monomer_length = int(trimer_length/3)
-                dimer_length = int(2*trimer_length/3)
-                ghost_atoms_input = {
-                    0: "serialno\n\n",
-                    1: f"serialno\n1-{monomer_length}\n",
-                    2: f"serialno\n{monomer_length+1}-{dimer_length}\n",
-                    3: f"serialno\n{dimer_length+1}-{trimer_length}\n",
-                    4: f"serialno\n1-{dimer_length}\n",
-                    5: f"serialno\n{monomer_length+1}-{trimer_length}\n",
-                    6: f"serialno\n1-{monomer_length},{dimer_length+1}-{trimer_length}\n",
-                }
-                for sub_calc in [0, 1, 2, 3, 4, 5, 6]:
+            three_body_calculators[row_idx] = {0: {}, 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, 6: {}}
+            trimer_length = len(row.toatoms())
+            monomer_length = int(trimer_length/3)
+            dimer_length = int(2*trimer_length/3)
+            ghost_atoms_input = {
+                0: "serialno\n\n",
+                1: f"serialno\n1-{monomer_length}\n",
+                2: f"serialno\n{monomer_length+1}-{dimer_length}\n",
+                3: f"serialno\n{dimer_length+1}-{trimer_length}\n",
+                4: f"serialno\n1-{dimer_length}\n",
+                5: f"serialno\n{monomer_length+1}-{trimer_length}\n",
+                6: f"serialno\n1-{monomer_length},{dimer_length+1}-{trimer_length}\n",
+            }
+            for sub_calc in [0, 1, 2, 3, 4, 5, 6]:
+                for calc_key, calc_settings in calc_type_defaults["3B"].items():
                     inputs = {
                         **calc_settings,
                         "mem": memory,
@@ -267,8 +265,8 @@ def setup_lnombecc_inputs(
 
                     three_body_calculators[row_idx][sub_calc][calc_key] = struct
                     if write_inputs_dir is not None:
-                        Path(write_inputs_dir,"3B_calcs",folder,str(sub_calc)).mkdir(exist_ok=True, parents=True)
-                        write_mrcc(Path(write_inputs_dir, "3B_calcs", folder,str(sub_calc)) / f"MINP_{calc_key}", struct,inputs)
+                        Path(write_inputs_dir,"3B_calcs",folder,str(sub_calc),str(calc_key)).mkdir(exist_ok=True, parents=True)
+                        write_mrcc(Path(write_inputs_dir, "3B_calcs", folder,str(sub_calc),str(calc_key)) / f"MINP", struct,inputs)
     
     # Save the calculators to an npy file
     np.save("calculators_1b.npy", one_body_calculators, allow_pickle=True)
@@ -303,7 +301,7 @@ def run_lnombecc(
 
     for row_idx, calc_dict in calculators_1b.items():
         for calc_key, struct in calc_dict.items():
-            calc_folder = Path(run_directory, "1B_calcs", struct.info["folder"])
+            calc_folder = Path(run_directory, "1B_calcs", struct.info["folder"], str(calc_key))
             calc_parameters = struct.calc.parameters
             with change_settings(
                 {
