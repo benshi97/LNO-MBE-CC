@@ -302,6 +302,15 @@ def run_lnombecc(
     for row_idx, calc_dict in calculators_1b.items():
         for calc_key, struct in calc_dict.items():
             calc_folder = Path(run_directory, "1B_calcs", struct.info["folder"], str(calc_key))
+            output_file = Path(calc_folder, f"mrcc.out")
+            # Read last 5 lines of the output file to check for "Normal termination of mrcc." string
+            if output_file.exists():
+                with open(output_file, "r") as f:
+                    last_lines = f.readlines()[-5:]
+                    if any("Normal termination of mrcc." in line for line in last_lines):
+                        print(f"Calculation in {calc_folder} is already finished. Skipping.")
+                        continue
+
             calc_parameters = struct.calc.parameters
             with change_settings(
                 {
