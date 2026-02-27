@@ -11,6 +11,8 @@ import ase.io
 import numpy as np
 
 from typing import Literal, Dict
+from logging import getLogger
+
 
 from lnombecc.data import calculation_defaults
 from quacc import get_settings, change_settings, flow
@@ -19,8 +21,7 @@ from quacc.calculators.mrcc.mrcc import MrccProfile, MRCC
 from quacc.calculators.mrcc.io import write_mrcc, read_mrcc_outputs
 from quacc.recipes.mrcc.core import static_job
 
-
-
+LOGGER = getLogger(__name__)
 
 def create_fragments(
         poscar_filepath: str | Path,
@@ -600,18 +601,19 @@ def cleanup_folder(folder: str | Path = "."):
 @flow
 def run_mrcc_calculation(struct, calc_parameters, calc_folder):
     output_file = Path(calc_folder, f"mrcc.out")
+    print("hello")
     if output_file.exists():
         with open(output_file, "r") as f:
             last_lines = f.readlines()[-5:]
             if any("Normal termination of mrcc." in line for line in last_lines):
-                print(f"Calculation in {calc_folder} is already finished. Skipping.")
-    else:
-        with change_settings(
-            {
-                "RESULTS_DIR": calc_folder,
-                "CREATE_UNIQUE_DIR": False,
-                "GZIP_FILES": False,
-            }        
-            ):
-            static_job(struct, **calc_parameters)
-        cleanup_folder(calc_folder)
+                LOGGER.info(f"Calculation in {calc_folder} is already finished. Skipping.")
+                return
+    with change_settings(
+        {
+            "RESULTS_DIR": calc_folder,
+            "CREATE_UNIQUE_DIR": False,
+            "GZIP_FILES": False,
+        }        
+        ):
+        static_job(struct, **calc_parameters)
+    cleanup_folder(calc_folder)
