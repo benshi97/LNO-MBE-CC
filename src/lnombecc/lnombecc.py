@@ -399,6 +399,7 @@ def run_periodic_hf(
                     struct,
                     preset=str(preset_path),
                     **calc_parameters,
+                    pmg_kpts = None,
                 )
 
 def analyze_lnombecc_outputs(
