@@ -393,7 +393,7 @@ def run_periodic_hf(
             calc_parameters["kpts"] = (1, 1, 1)
 
         # Skip the calculation if "aborting loop because EDIFF is reached"
-        with open(struct.calc.directory / "OUTCAR", "r") as f:
+        with open(calc_folder / "OUTCAR", "r") as f:
             if any("aborting loop because EDIFF is reached" in line for line in f):
                 LOGGER.info(f"Skipping calculation for {calc_key}.")
                 continue
