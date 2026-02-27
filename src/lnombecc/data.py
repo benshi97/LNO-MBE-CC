@@ -85,3 +85,35 @@ calculation_defaults = {
     ),
 }
 }
+
+vasp_calculation_defaults = {
+    "ismear": 0,
+    "sigma": 0.05,
+    "nelm": 1000,
+    "algo": "Normal",
+    "prec": "Accurate",
+    "precfock": "Normal",
+    "ediff": 1e-5,
+    "encut": 1000,
+    "ibrion": -1,
+    "hfrcut": -1,
+    "kgamma": True,
+    "kspacing": 0.25,
+    "lhfcalc": True,
+    "aexx": 1.0,
+    "lwave": False,
+    "lcharg": False,
+}
+
+vasp_calculation_setup = {
+    'H': '_h',
+    'B': '_h',
+    'C': '_h',
+    'N': '_h',
+    'O': '_h',
+    'F': '_h',
+    'P': '_h',
+    'S': '_h',
+    'Cl': '_h',
+    'Br': '_sv_GW'
+}
