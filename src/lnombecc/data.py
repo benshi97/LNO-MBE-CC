@@ -98,6 +98,7 @@ vasp_calculation_defaults = {
     "ibrion": -1,
     "hfrcut": -1,
     "kgamma": True,
+    "kspacing": 0.25,
     "lhfcalc": True,
     "aexx": 1.0,
     "lwave": False,

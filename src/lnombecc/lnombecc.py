@@ -387,6 +387,17 @@ def run_periodic_hf(
         calc_folder = Path(run_directory, "periodic_HF", calc_key)
         calc_parameters = struct.calc.parameters
 
+        # Change kspacing to kpts for molecule
+        if calc_key == "molecule":
+            calc_parameters.pop("kspacing", None)
+            calc_parameters["kpts"] = (1, 1, 1)
+
+        # Skip the calculation if "aborting loop because EDIFF is reached"
+        with open(struct.calc.directory / "OUTCAR", "r") as f:
+            if any("aborting loop because EDIFF is reached" in line for line in f):
+                LOGGER.info(f"Skipping calculation for {calc_key}.")
+                continue
+
         with change_settings(
             {
                 "RESULTS_DIR": calc_folder,
