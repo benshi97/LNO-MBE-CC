@@ -1,0 +1,4504 @@
+ **********************************************************************
+                          MRCC program system
+ **********************************************************************
+ 
+                              Written by
+     Mihaly Kallay, Peter R. Nagy, David Mester, Laszlo Gyevi-Nagy,
+        Jozsef Csoka, P. Bernat Szabo, Zoltan Rolik, Gyula Samu,
+     Jozsef Csontos, Bence Hegely, Adam Ganyecz, Istvan Ladjanszki,
+       Lorant Szegedy, Bence Ladoczki, Klara Petrov, Mate Farkas,
+                    Pal D. Mezei, and Reka A. Horvath
+ 
+        Department of Physical Chemistry and Materials Science
+            Budapest University of Technology and Economics
+                  Budapest P.O.Box 91, H-1521 Hungary
+ 
+                              www.mrcc.hu
+ 
+                     Release date: August 28, 2023
+
+ ************************ 2026-02-26 19:16:51 *************************
+ Executing minp...
+
+ Reading input from MINP...
+ 
+ Input file:
+ 
+charge=0
+mult=1
+calc=LNO-CCSD(T)
+basis=aug-cc-pVDZ
+symm=off
+verbosity=3
+unit=angs
+scfalg=locfit1
+scfmaxit=200
+scftol=8
+basis_sm=def2-SVP
+usedisk=0
+aocd=extra
+chtol=1d-6
+iesttol=0.001
+scfiguess=small
+lcorthr=tight
+mem=46GB
+ghost=serialno
+
+
+geom=xyz
+12
+
+N      3.60995473454    1.52057191074    4.08577558721
+H      4.42722968319    1.16893531034    4.59786809656
+H      3.96163147006    2.03264798552    3.26841604077
+H      3.09781293566    0.70333789254    3.73416418411
+N      4.08580437245    3.60992628524    6.65101993408
+H      3.73412022664    3.09785482065    5.83367042895
+H      4.59792989480    4.42715858900    6.29942160276
+H      3.26851213636    3.96156461954    7.16312088514
+N      6.65105517382    4.08582522547    3.60997942338
+H      7.16318242072    3.26858901465    3.96157875919
+H      5.83376531255    3.73418533747    3.09787832187
+H      6.29937278831    4.59789384265    4.42732807018
+ 
+ 
+ Checking keyword combinations...
+ 
+ Keywords:
+ 
+ active=none
+ agrid=ld0006-ld0590
+ agrid_pssp=ld0006-ld0194
+ agrid_pssp_sm=ld0006-ld0074
+ basis=aug-cc-pvdz
+ basis_sm=def2-svp
+ basopt=off
+ bfbasis=none
+ bfgsmem=10
+ bfgstol=1.0d-3
+ boysalg=jacobi
+ bpcompo=0.985
+ bpcompv=0.98
+ bpdfo=0.985
+ bpocc=0.99995d0
+ bppdo=0.999d0
+ bppdv=0.98
+ bpedo=0.99995d0
+ bpedv=0.995d0
+ calc=ccsd(t)
+ ccmaxit=50
+ ccprog=ccsd
+ ccsdalg=dfdirect
+ ccsdmkl=seq
+ ccsdrest=off
+ ccsdthreads=2
+ cctol=5
+ charge=0
+ cialg=direct
+ ciguess=off
+ cmpgrp=auto
+ comprest=off
+ coord_sys=ric
+ core=frozen
+ corembed=off
+ csapprox=off
+ cvs=off
+ dboc=off
+ delocsomofact=
+ dendec=cholesky
+ dens=0
+ denscorr=0
+ dfalg=lineq
+ dfbasis_cab=none
+ dfbasis_cor=auto
+ dfbasis_scf=auto
+ dfbasis_scf_sm=auto
+ dfintran=drpa
+ dft=off
+ dhexc=adc(2)
+ diag=david
+ docc=
+ domrad=10.d0
+ drpaalg=auto
+ dual=off
+ dual_df=off
+ ecp=auto
+ edisp=off
+ edisp_embed=off
+ embed=off
+ epairestfact=off
+ epairscale=1.d0
+ etemp=300
+ epert=none
+ eps=
+ espcharge=off
+ excrad=1.0
+ excrad_fin=0.100000000D-02
+ fitting=coulomb
+ fmm=off
+ fmmord=8
+ fnonorb=
+ freq=off
+ gamma=1.d0
+ gauss=spher
+ geom=xyz
+ gopt=off
+ ghost=serialno
+ gtol=7
+ grdens=off
+ grid=auto
+ grid_sm=auto
+ gridbatch_cos=2000
+ grtol=10
+ guido_ct=off
+ hamilton=dc
+ iface=none
+ intalg=auto
+ ip_ea=off
+ itol=12
+ laptol=1.d-3
+ lccoporder=lccfirst
+ lcorthr=tight
+ lccrest=off
+ ldfgrad_tol=8
+ lmp2dens=on
+ lnoepso=3e-6
+ lnoepsv=3e-7
+ localcc=2021
+ localcorrsymm=off
+ locintrf=direct
+ mact=
+ maxact=off
+ maxdim=200
+ maxex=0
+ maxmicroit=100
+ mcscfiguess=hf
+ mem=46gb
+ mmprog=
+ molden=on
+ mpitasks=1
+ mulmet=3
+ mult=1
+ nab=off
+ nacto=0
+ nactv=0
+ naf_amp=3.16d-3
+ naf_cor=1e-2
+ naf_f12=off
+ naf_scf=off
+ nafalg=albe
+ nafdens=off
+ naftyp=jpq
+ nchol=auto
+ ndeps=1e-3
+ nstate=1
+ nsing=0
+ nto=off
+ ntrip=0
+ num_grad=off
+ occ=
+ occri=off
+ oniom=off
+ oniom_eechg=off
+ oniom_pcm=off
+ oniom_qcorr=off
+ optalg=
+ optmaxit=50
+ optetol=1e-6
+ optex=0
+ optgtol=1e-4
+ optstol=1e-3
+ orblocc=off
+ orbloce=off
+ orbloco=boys
+ orblocv=pao
+ orblocguess=cholesky
+ osveps=-1.d0
+ ovirt=off
+ ovltol=1e-7
+ ovosnorb=80.0
+ pao_subsys_tol=1e-3
+ pcm=off
+ popul=off
+ pressure=100000
+ pssp=off
+ ptfreq=0.0
+ ptthreads=2
+ qmreg=
+ qmmm=off
+ qro=off
+ qscf=off
+ redcost_exc=off
+ redcost_tddft=0.985d0
+ refdet=none
+ rest=0
+ rgrid=log3
+ rism=off
+ rohfcore=standard
+ rohftype=semicanonical
+ scfalg=locfit1
+ scf_conv=auto
+ scfdamp=0.0d0
+ scfdamp_mode=off
+ scfdamp_end=200
+ scfdamp_dampstep=0.d0
+ scfdamp_dtol=0.0d0
+ scfdamp_maxfact=0.0d0
+ scfdamp_minfact=0.0d0
+ scfdiis=on
+ scfdiis_dtol=0.0d0
+ scfdiis_end=200
+ scfdiis_start=2
+ scfdiis_step=1
+ scfdiis_watch=off
+ scfdiis_wrange=10
+ scfdiis_wlimit=5
+ scfdiis_delmax=2
+ scfdtol=9
+ scfext=10
+ scfguessdens=
+ scfiguess=small
+ scfloc=pm
+ scflshift=0.20
+ scflshift_end=8
+ scflshift_dtol=0.0
+ scflshift_gaptol=0.20
+ scfmaxit=200
+ scftype=
+ scftol=8
+ scspe=1.d0
+ scsph=1.d0
+ scsps=1.2d0
+ scsps_t=1.2d0
+ scspt=0.33333333333333
+ scspt_t=0.33333333333333
+ scspv=1.d0
+ spairtol=-1.d0
+ sqmprog=
+ subminp=top
+ symm=0
+ talg=lapl
+ temp=298.15
+ test=off
+ theodore=off
+ tlmo=0.999
+ tpao=0.94
+ tprint=off
+ uncontract=off
+ unit=angs
+ usedisk=0
+ verbosity=3
+ wpairtol=3.d-6
+ 
+ Calculating integrals for small-basis SCF...
+
+ ************************ 2026-02-26 19:16:51 *************************
+ Executing integ...
+
+ Allocation of 46.0 Gbytes of memory...
+ 
+ 
+ Number of atoms:                 12
+ Charge:                           0
+ Number of electrons:             30
+ Number of core electrons:         6
+ Spin multiplicity:                1
+ 
+                 Cartesian coordinates [bohr]      Atomic mass [AMU]  Z
+   1  N     6.82182577    2.87346447    7.72099687    14.003074       7
+   2  H     8.36625160    2.20896759    8.68871146     1.007825       1
+   3  H     7.48639849    3.84114800    6.17641118     1.007825       1
+   4  H     5.85401804    1.32911599    7.05654762     1.007825       1
+   5  N     7.72105127    6.82177201   12.56860613    14.003074       7
+   6  H     7.05646455    5.85409719   11.02403942     1.007825       1
+   7  H     8.68882825    8.36611725   11.90418158     1.007825       1
+   8  H     6.17659278    7.48627216   13.53633668     1.007825       1
+   9  N    12.56867272    7.72109067    6.82187243    14.003074       7
+  10  H    13.53645296    6.17673805    7.48629888     1.007825       1
+  11  H    11.02421872    7.05658759    5.85414160     1.007825       1
+  12  H    11.90408933    8.68876012    8.36643752     1.007825       1
+ 
+ This molecule is an asymmetric top.
+ 
+ Point group: C1  
+ Computational point group: C1  
+ 
+ Cartesian coordinates in standard orientation [bohr]
+   1  N    -2.32781524   -3.08227765   -0.05132632
+   2  H    -1.85648167   -2.59200630    1.76547236
+   3  H    -0.68360882   -3.57102787   -0.95770467
+   4  H    -3.42188505   -4.68086114    0.05210933
+   5  N    -2.22326848    3.23093654    0.12028700
+   6  H    -2.42853481    1.36142902   -0.35570017
+   7  H    -0.51022590    3.81505105   -0.57781745
+   8  H    -3.59616905    4.21818413   -0.83045013
+   9  N     4.60498072   -0.03755725   -0.03819779
+  10  H     4.39827603   -0.40343085    1.85560679
+  11  H     3.57394284   -1.37309790   -0.99564102
+  12  H     3.77582269    1.68207475   -0.38330547
+ 
+ Nuclear repulsion energy [au]:         78.052181594413
+ 
+Warning: for H atoms in the case of dfbasis_scf=auto the AO basis is set as dfbasis_scf instead of def2-qzvp(pd)-ri-jk because the AO basis is larger. Set the dfbasis_scf=def2-qzvp(pd)-ri-jk in MINP if that is desired.
+ 
+ 
+ Basis set information:
+ 
+ Maximum angular momentum: g
+ Maximum number of contracted Gaussians:   10
+ Maximum number of primitive Gaussians:    14
+ Spherical harmonic GTOs are used.
+ 
+ 
+ Conventional basis set:
+ 
+   1  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+   2  H  def2-svp [ 4s 1p | 2s 1p ]
+   3  H  def2-svp [ 4s 1p | 2s 1p ]
+   4  H  def2-svp [ 4s 1p | 2s 1p ]
+   5  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+   6  H  def2-svp [ 4s 1p | 2s 1p ]
+   7  H  def2-svp [ 4s 1p | 2s 1p ]
+   8  H  def2-svp [ 4s 1p | 2s 1p ]
+   9  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+  10  H  def2-svp [ 4s 1p | 2s 1p ]
+  11  H  def2-svp [ 4s 1p | 2s 1p ]
+  12  H  def2-svp [ 4s 1p | 2s 1p ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N1pz         1N1py         1N1px         1N2pz         1N2py         1N2px         1N1d-2    
+    1    1N1d-1        1N1d0         1N1d+1        1N1d+2        2H1s          2H2s          2H1pz         2H1py         2H1px         3H1s      
+    2    3H2s          3H1pz         3H1py         3H1px         4H1s          4H2s          4H1pz         4H1py         4H1px         5N1s      
+    3    5N2s          5N3s          5N1pz         5N1py         5N1px         5N2pz         5N2py         5N2px         5N1d-2        5N1d-1    
+    4    5N1d0         5N1d+1        5N1d+2        6H1s          6H2s          6H1pz         6H1py         6H1px         7H1s          7H2s      
+    5    7H1pz         7H1py         7H1px         8H1s          8H2s          8H1pz         8H1py         8H1px         9N1s          9N2s      
+    6    9N3s          9N1pz         9N1py         9N1px         9N2pz         9N2py         9N2px         9N1d-2        9N1d-1        9N1d0     
+    7    9N1d+1        9N1d+2       10H1s         10H2s         10H1pz        10H1py        10H1px        11H1s         11H2s         11H1pz     
+    8   11H1py        11H1px        12H1s         12H2s         12H1pz        12H1py        12H1px     
+ 
+ Maximum number of basis functions per shell:    6
+ Total number of basis functions:     87
+ 
+ 
+ Fitting basis set for the SCF calculation:
+ 
+   1  N  def2-qzvpp-ri-jk [ 14s 10p 6d 2f 1g | 10s 8p 4d 2f 1g ]
+   2  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+   3  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+   4  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+   5  N  def2-qzvpp-ri-jk [ 14s 10p 6d 2f 1g | 10s 8p 4d 2f 1g ]
+   6  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+   7  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+   8  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+   9  N  def2-qzvpp-ri-jk [ 14s 10p 6d 2f 1g | 10s 8p 4d 2f 1g ]
+  10  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+  11  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+  12  H  def2-qzvpp [ 7s 3p 2d 1f | 4s 3p 2d 1f ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N4s          1N5s          1N6s          1N7s          1N8s          1N9s          1N10s     
+    1    1N1pz         1N1py         1N1px         1N2pz         1N2py         1N2px         1N3pz         1N3py         1N3px         1N4pz     
+    2    1N4py         1N4px         1N5pz         1N5py         1N5px         1N6pz         1N6py         1N6px         1N7pz         1N7py     
+    3    1N7px         1N8pz         1N8py         1N8px         1N1d-2        1N1d-1        1N1d0         1N1d+1        1N1d+2        1N2d-2    
+    4    1N2d-1        1N2d0         1N2d+1        1N2d+2        1N3d-2        1N3d-1        1N3d0         1N3d+1        1N3d+2        1N4d-2    
+    5    1N4d-1        1N4d0         1N4d+1        1N4d+2        1N1f-3        1N1f-2        1N1f-1        1N1f0         1N1f+1        1N1f+2    
+    6    1N1f+3        1N2f-3        1N2f-2        1N2f-1        1N2f0         1N2f+1        1N2f+2        1N2f+3        1N1g-4        1N1g-3    
+    7    1N1g-2        1N1g-1        1N1g0         1N1g+1        1N1g+2        1N1g+3        1N1g+4        2H1s          2H2s          2H3s      
+    8    2H4s          2H1pz         2H1py         2H1px         2H2pz         2H2py         2H2px         2H3pz         2H3py         2H3px     
+    9    2H1d-2        2H1d-1        2H1d0         2H1d+1        2H1d+2        2H2d-2        2H2d-1        2H2d0         2H2d+1        2H2d+2    
+   10    2H1f-3        2H1f-2        2H1f-1        2H1f0         2H1f+1        2H1f+2        2H1f+3        3H1s          3H2s          3H3s      
+   11    3H4s          3H1pz         3H1py         3H1px         3H2pz         3H2py         3H2px         3H3pz         3H3py         3H3px     
+   12    3H1d-2        3H1d-1        3H1d0         3H1d+1        3H1d+2        3H2d-2        3H2d-1        3H2d0         3H2d+1        3H2d+2    
+   13    3H1f-3        3H1f-2        3H1f-1        3H1f0         3H1f+1        3H1f+2        3H1f+3        4H1s          4H2s          4H3s      
+   14    4H4s          4H1pz         4H1py         4H1px         4H2pz         4H2py         4H2px         4H3pz         4H3py         4H3px     
+   15    4H1d-2        4H1d-1        4H1d0         4H1d+1        4H1d+2        4H2d-2        4H2d-1        4H2d0         4H2d+1        4H2d+2    
+   16    4H1f-3        4H1f-2        4H1f-1        4H1f0         4H1f+1        4H1f+2        4H1f+3        5N1s          5N2s          5N3s      
+   17    5N4s          5N5s          5N6s          5N7s          5N8s          5N9s          5N10s         5N1pz         5N1py         5N1px     
+   18    5N2pz         5N2py         5N2px         5N3pz         5N3py         5N3px         5N4pz         5N4py         5N4px         5N5pz     
+   19    5N5py         5N5px         5N6pz         5N6py         5N6px         5N7pz         5N7py         5N7px         5N8pz         5N8py     
+   20    5N8px         5N1d-2        5N1d-1        5N1d0         5N1d+1        5N1d+2        5N2d-2        5N2d-1        5N2d0         5N2d+1    
+   21    5N2d+2        5N3d-2        5N3d-1        5N3d0         5N3d+1        5N3d+2        5N4d-2        5N4d-1        5N4d0         5N4d+1    
+   22    5N4d+2        5N1f-3        5N1f-2        5N1f-1        5N1f0         5N1f+1        5N1f+2        5N1f+3        5N2f-3        5N2f-2    
+   23    5N2f-1        5N2f0         5N2f+1        5N2f+2        5N2f+3        5N1g-4        5N1g-3        5N1g-2        5N1g-1        5N1g0     
+   24    5N1g+1        5N1g+2        5N1g+3        5N1g+4        6H1s          6H2s          6H3s          6H4s          6H1pz         6H1py     
+   25    6H1px         6H2pz         6H2py         6H2px         6H3pz         6H3py         6H3px         6H1d-2        6H1d-1        6H1d0     
+   26    6H1d+1        6H1d+2        6H2d-2        6H2d-1        6H2d0         6H2d+1        6H2d+2        6H1f-3        6H1f-2        6H1f-1    
+   27    6H1f0         6H1f+1        6H1f+2        6H1f+3        7H1s          7H2s          7H3s          7H4s          7H1pz         7H1py     
+   28    7H1px         7H2pz         7H2py         7H2px         7H3pz         7H3py         7H3px         7H1d-2        7H1d-1        7H1d0     
+   29    7H1d+1        7H1d+2        7H2d-2        7H2d-1        7H2d0         7H2d+1        7H2d+2        7H1f-3        7H1f-2        7H1f-1    
+   30    7H1f0         7H1f+1        7H1f+2        7H1f+3        8H1s          8H2s          8H3s          8H4s          8H1pz         8H1py     
+   31    8H1px         8H2pz         8H2py         8H2px         8H3pz         8H3py         8H3px         8H1d-2        8H1d-1        8H1d0     
+   32    8H1d+1        8H1d+2        8H2d-2        8H2d-1        8H2d0         8H2d+1        8H2d+2        8H1f-3        8H1f-2        8H1f-1    
+   33    8H1f0         8H1f+1        8H1f+2        8H1f+3        9N1s          9N2s          9N3s          9N4s          9N5s          9N6s      
+   34    9N7s          9N8s          9N9s          9N10s         9N1pz         9N1py         9N1px         9N2pz         9N2py         9N2px     
+   35    9N3pz         9N3py         9N3px         9N4pz         9N4py         9N4px         9N5pz         9N5py         9N5px         9N6pz     
+   36    9N6py         9N6px         9N7pz         9N7py         9N7px         9N8pz         9N8py         9N8px         9N1d-2        9N1d-1    
+   37    9N1d0         9N1d+1        9N1d+2        9N2d-2        9N2d-1        9N2d0         9N2d+1        9N2d+2        9N3d-2        9N3d-1    
+   38    9N3d0         9N3d+1        9N3d+2        9N4d-2        9N4d-1        9N4d0         9N4d+1        9N4d+2        9N1f-3        9N1f-2    
+   39    9N1f-1        9N1f0         9N1f+1        9N1f+2        9N1f+3        9N2f-3        9N2f-2        9N2f-1        9N2f0         9N2f+1    
+   40    9N2f+2        9N2f+3        9N1g-4        9N1g-3        9N1g-2        9N1g-1        9N1g0         9N1g+1        9N1g+2        9N1g+3    
+   41    9N1g+4       10H1s         10H2s         10H3s         10H4s         10H1pz        10H1py        10H1px        10H2pz        10H2py     
+   42   10H2px        10H3pz        10H3py        10H3px        10H1d-2       10H1d-1       10H1d0        10H1d+1       10H1d+2       10H2d-2    
+   43   10H2d-1       10H2d0        10H2d+1       10H2d+2       10H1f-3       10H1f-2       10H1f-1       10H1f0        10H1f+1       10H1f+2    
+   44   10H1f+3       11H1s         11H2s         11H3s         11H4s         11H1pz        11H1py        11H1px        11H2pz        11H2py     
+   45   11H2px        11H3pz        11H3py        11H3px        11H1d-2       11H1d-1       11H1d0        11H1d+1       11H1d+2       11H2d-2    
+   46   11H2d-1       11H2d0        11H2d+1       11H2d+2       11H1f-3       11H1f-2       11H1f-1       11H1f0        11H1f+1       11H1f+2    
+   47   11H1f+3       12H1s         12H2s         12H3s         12H4s         12H1pz        12H1py        12H1px        12H2pz        12H2py     
+   48   12H2px        12H3pz        12H3py        12H3px        12H1d-2       12H1d-1       12H1d0        12H1d+1       12H1d+2       12H2d-2    
+   49   12H2d-1       12H2d0        12H2d+1       12H2d+2       12H1f-3       12H1f-2       12H1f-1       12H1f0        12H1f+1       12H1f+2    
+   50   12H1f+3    
+ 
+ Maximum number of basis functions per shell:   24
+ Total number of basis functions:    501
+ 
+ 
+ Initializing the SAD routines for the initial guess...
+ Checking the files required for the initial guess...
+ Density files have not been found for the initial guess.
+ Generating SCFDENSITIES.N.def2-svp.0
+ Generating SCFDENSITIES.H.def2-svp.0
+ CPU time [min]:     0.213                   Wall time [min]:     0.150
+ 
+ Character table for point group C1:
+ 
+          E  
+    A     1
+ 
+ Number of basis functions per irrep:
+    A      87
+ 
+ 
+ Calculation of overlap integrals...
+ CPU time [min]:     0.217                   Wall time [min]:     0.150
+ 
+ Calculation of the square root of the overlap matrix...
+ Minimum eigenvalue of the overlap matrix: 0.216053E-01
+ CPU time [min]:     0.234                   Wall time [min]:     0.151
+ 
+ Calculation of kinetic energy integrals...
+ CPU time [min]:     0.235                   Wall time [min]:     0.151
+ Calculation of dipole moment integrals...
+ CPU time [min]:     0.236                   Wall time [min]:     0.151
+ Calculation of nuclear attraction integrals...
+ CPU time [min]:     0.237                   Wall time [min]:     0.151
+ 
+ Calculation of prescreening integrals...
+ CPU time [min]:     0.256                   Wall time [min]:     0.151
+ 
+ Calculation of two-center Coulomb integrals...
+   1% done.
+  13% done.
+  24% done.
+  35% done.
+  47% done.
+  60% done.
+  72% done.
+  86% done.
+  97% done.
+ 100% done.
+ CPU time [min]:     0.268                   Wall time [min]:     0.151
+ 
+ Cholesky decomposition of the two-center matrix...
+ Reciprocal of the condition number:  0.662036E-05
+ CPU time [min]:     0.294                   Wall time [min]:     0.152
+ 
+ 
+ Running small-basis SCF...
+
+ ************************ 2026-02-26 19:17:00 *************************
+ Executing scf...
+
+ @scfsetup: integrals calculated directly
+            mrcc/integ direct run
+ @scfsetup: calculating on full matrices
+            not using symmetry adapted basis
+ @scfsetup: diis switched on
+ @scfsetup: number of steps to extrapolate from  10
+ @scfsetup: tolerance in energy deviation    0.100000E-07
+            tolerance in density deviation    0.100000E-08
+ @scfsetup: maximum number of iterations: 200
+ @scfsetup: restricted closed shell hf calc
+ @scfsetup: starting scf from superposition of atomic densities
+ @scfsetup: occupation set:
+            from initial orbitals
+ @scfsetup: Parameter-set for SCF acceleration: normal
+ @scfsetup: diis runs from iteration:   2
+ @scfsetup: diis runs to iteration: 200
+ @scfsetup: diis runs in every iteration
+ @scfsetup: diiswatch is disabled                   
+ @scfsetup: diis dtol criteria to switch on:      0.0000E+00
+           (or the iteration number below is reached)
+ @scfsetup: static damping scheme
+            iteration step criteria to turn damping off: 3
+ @scfsetup: dynamic level shifting
+            tolarance in HOMO-LUMO gap:  0.200
+            tolarance in density deviation:     0.0000E+00
+            iteration step criteria to turn level shifting off: 8
+ Allocation of 46.0 Gbytes of memory...
+ ======================================================================
+ ITERATION STEP   1
+ CPU time [min]:     0.043                   Wall time [min]:     0.009
+ 
+
+ SCF control                  : initial
+ Damping factor/level shift   : 0.000/0.200
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   7.374092157372
+   2   1.365301477272
+   3   0.164369233014
+   4   0.000234340284
+   5   0.000001324681
+   6   0.000000058853
+   7   0.000000003053
+ CPU time [min]:     0.069                   Wall time [min]:     0.009
+ 
+ Constructing local fitting domains...
+ Maximum number of atoms in fitting domains:    7
+ Average number of atoms in fitting domains:    4.8
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     0.192                   Wall time [min]:     0.011
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     0.218                   Wall time [min]:     0.011
+ 
+ Gradient norm:      2.2590E+00
+ RMS of [F,P]:                                         0.04329027399778
+ RMS of difference density:                            0.01590166642261
+ Gap [au]:  0.61282612
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   1 IS       -167.5830815370100879 [AU]
+ ======================================================================
+ ITERATION STEP   2
+ CPU time [min]:     0.231                   Wall time [min]:     0.012
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.139750403444
+   2   0.139393963881
+   3   0.001032707163
+   4   0.000000267229
+   5   0.000000000667
+ CPU time [min]:     0.255                   Wall time [min]:     0.012
+ 
+ Constructing local fitting domains...
+ Maximum number of atoms in fitting domains:    7
+ Average number of atoms in fitting domains:    4.8
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     0.365                   Wall time [min]:     0.014
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     0.391                   Wall time [min]:     0.014
+ 
+ Gradient norm:      2.5334E-01
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00919078024859
+ RMS of difference density:                            0.00731368503540
+ Gap [au]:  0.50342049
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   2 IS       -168.3741291103622757 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        1            7.9105E-01         3.4099E-02       2.0056E+00
+        2            1.6837E+02         1.0000E-09       2.0056E+00
+ ======================================================================
+ ITERATION STEP   3
+ CPU time [min]:     0.406                   Wall time [min]:     0.014
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.170487022496
+   2   0.173243863955
+   3   0.000679652307
+   4   0.000000712866
+   5   0.000000000196
+ CPU time [min]:     0.430                   Wall time [min]:     0.015
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     0.537                   Wall time [min]:     0.017
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     0.563                   Wall time [min]:     0.017
+ 
+ Gradient norm:      9.8655E-02
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00435795949304
+ RMS of difference density:                            0.00219906243875
+ Gap [au]:  0.54750551
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   3 IS       -168.4310068189628566 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        2            5.6878E-02         4.8328E-03       1.5469E-01
+ ======================================================================
+ ITERATION STEP   4
+ CPU time [min]:     0.578                   Wall time [min]:     0.017
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.191203732618
+   2   0.189888500400
+   3   0.001996664501
+   4   0.000000676437
+   5   0.000000003247
+ CPU time [min]:     0.601                   Wall time [min]:     0.018
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     0.709                   Wall time [min]:     0.019
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     0.734                   Wall time [min]:     0.020
+ 
+ Gradient norm:      2.2378E-02
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00055281689543
+ RMS of difference density:                            0.00059330526343
+ Gap [au]:  0.54015637
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   4 IS       -168.4463757337738343 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        3            1.5369E-02         3.8051E-03       7.6277E-02
+ ======================================================================
+ ITERATION STEP   5
+ CPU time [min]:     0.750                   Wall time [min]:     0.020
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.176549554484
+   2   0.177845442374
+   3   0.001557380442
+   4   0.000000317079
+   5   0.000000000151
+ CPU time [min]:     0.773                   Wall time [min]:     0.021
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     0.881                   Wall time [min]:     0.022
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     0.907                   Wall time [min]:     0.023
+ 
+ Gradient norm:      2.1258E-03
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00009627599051
+ RMS of difference density:                            0.00009311558685
+ Gap [au]:  0.53974829
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   5 IS       -168.4468710884240465 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        4            4.9535E-04         4.5654E-04       2.0252E-02
+ ======================================================================
+ ITERATION STEP   6
+ CPU time [min]:     0.921                   Wall time [min]:     0.023
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.224921502621
+   2   0.213693588129
+   3   0.000815954728
+   4   0.000000201897
+   5   0.000000000166
+ CPU time [min]:     0.945                   Wall time [min]:     0.023
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.052                   Wall time [min]:     0.025
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     1.079                   Wall time [min]:     0.025
+ 
+ Gradient norm:      4.9194E-04
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00001576314735
+ RMS of difference density:                            0.00001785583972
+ Gap [au]:  0.53996410
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   6 IS       -168.4468817080126257 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        5            1.0620E-05         8.0513E-05       1.6339E-03
+ ======================================================================
+ ITERATION STEP   7
+ CPU time [min]:     1.094                   Wall time [min]:     0.026
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.180018919595
+   2   0.171516638322
+   3   0.000219810230
+   4   0.000000049649
+   5   0.000000000153
+   6   0.000000000001
+   7   0.000000000000
+ CPU time [min]:     1.118                   Wall time [min]:     0.026
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.225                   Wall time [min]:     0.028
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     1.250                   Wall time [min]:     0.028
+ 
+ Gradient norm:      3.2363E-04
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000623405633
+ RMS of difference density:                            0.00000574281937
+ Gap [au]:  0.53982223
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   7 IS       -168.4468813043426110 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        6           -4.0367E-07         9.5291E-06       1.6831E-04
+ Warning! The energy goes uphill (with respect to previous step).
+ ======================================================================
+ ITERATION STEP   8
+ CPU time [min]:     1.265                   Wall time [min]:     0.029
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.239881630203
+   2   0.231683752418
+   3   0.001635184865
+   4   0.000000280697
+   5   0.000000000155
+   6   0.000000000000
+ CPU time [min]:     1.288                   Wall time [min]:     0.029
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.395                   Wall time [min]:     0.031
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     1.420                   Wall time [min]:     0.031
+ 
+ Gradient norm:      8.0401E-05
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000166509902
+ RMS of difference density:                            0.00000331936921
+ Gap [au]:  0.53982220
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   8 IS       -168.4468811586366428 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        7           -1.4571E-07         4.5690E-06       2.4323E-04
+ Warning! The energy goes uphill (with respect to previous step).
+ ======================================================================
+ ITERATION STEP   9
+ CPU time [min]:     1.435                   Wall time [min]:     0.031
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.177670200862
+   2   0.170559039448
+   3   0.000246888677
+   4   0.000000089981
+   5   0.000000000143
+   6   0.000000000001
+ CPU time [min]:     1.459                   Wall time [min]:     0.032
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.567                   Wall time [min]:     0.033
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     1.593                   Wall time [min]:     0.034
+ 
+ Gradient norm:      7.7568E-06
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000025392716
+ RMS of difference density:                            0.00000051004277
+ Gap [au]:  0.53982013
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   9 IS       -168.4468810512404104 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        8           -1.0740E-07         1.4112E-06       7.2645E-05
+ Warning! The energy goes uphill (with respect to previous step).
+ ======================================================================
+ ITERATION STEP  10
+ CPU time [min]:     1.608                   Wall time [min]:     0.034
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.178770416274
+   2   0.171456949104
+   3   0.000205701626
+   4   0.000000059182
+   5   0.000000000098
+   6   0.000000000000
+ CPU time [min]:     1.632                   Wall time [min]:     0.035
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.739                   Wall time [min]:     0.036
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     1.765                   Wall time [min]:     0.037
+ 
+ Gradient norm:      1.7352E-06
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000006193436
+ RMS of difference density:                            0.00000010365863
+ Gap [au]:  0.53982053
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  10 IS       -168.4468810468865740 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        9           -4.3538E-09         1.9199E-07       6.0216E-06
+ Warning! The energy goes uphill (with respect to previous step).
+ ======================================================================
+ ITERATION STEP  11
+ CPU time [min]:     1.783                   Wall time [min]:     0.037
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.173271437600
+   2   0.175503376962
+   3   0.000256131989
+   4   0.000000040027
+   5   0.000000000062
+   6   0.000000000000
+ CPU time [min]:     1.806                   Wall time [min]:     0.038
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.913                   Wall time [min]:     0.039
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     1.939                   Wall time [min]:     0.040
+ 
+ Gradient norm:      7.3275E-07
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000002402318
+ RMS of difference density:                            0.00000004128161
+ Gap [au]:  0.53982074
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  11 IS       -168.4468810472300220 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       10            3.4345E-10         3.7911E-08       1.0025E-06
+ ======================================================================
+ ITERATION STEP  12
+ CPU time [min]:     1.953                   Wall time [min]:     0.040
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.199706185072
+   2   0.194426534340
+   3   0.000923862500
+   4   0.000000192889
+   5   0.000000000133
+   6   0.000000000000
+ CPU time [min]:     1.977                   Wall time [min]:     0.040
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     2.085                   Wall time [min]:     0.042
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     2.110                   Wall time [min]:     0.042
+ 
+ Gradient norm:      1.8666E-07
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000000704975
+ RMS of difference density:                            0.00000001335786
+ Gap [au]:  0.53982078
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  12 IS       -168.4468810471951201 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       11           -3.4902E-11         1.6973E-08       5.4609E-07
+ Warning! The energy goes uphill (with respect to previous step).
+ ======================================================================
+ ITERATION STEP  13
+ CPU time [min]:     2.125                   Wall time [min]:     0.043
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.177891356588
+   2   0.170407061268
+   3   0.000226161171
+   4   0.000000085448
+   5   0.000000000204
+   6   0.000000000001
+   7   0.000000000000
+ CPU time [min]:     2.149                   Wall time [min]:     0.043
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     2.256                   Wall time [min]:     0.045
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     2.282                   Wall time [min]:     0.045
+ 
+ Gradient norm:      4.8039E-08
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000000139118
+ RMS of difference density:                            0.00000000280903
+ Gap [au]:  0.53982079
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  13 IS       -168.4468810470647213 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       12           -1.3040E-10         5.6586E-09       1.3862E-07
+ Warning! The energy goes uphill (with respect to previous step).
+ ======================================================================
+ ITERATION STEP  14
+ CPU time [min]:     2.296                   Wall time [min]:     0.046
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.179493293396
+   2   0.172724312390
+   3   0.000281975728
+   4   0.000000042118
+   5   0.000000000089
+   6   0.000000000001
+ CPU time [min]:     2.320                   Wall time [min]:     0.046
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     2.428                   Wall time [min]:     0.048
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     2.453                   Wall time [min]:     0.048
+ 
+ Gradient norm:      1.1571E-08
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000000030824
+ RMS of difference density:                            0.00000000047680
+ Gap [au]:  0.53982078
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  14 IS       -168.4468810469979303 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       13           -6.6791E-11         1.0829E-09       3.6469E-08
+ Warning! The energy goes uphill (with respect to previous step).
+ 
+ The SCF iteration has converged.
+ An extra iteration will be performed to calculate accurate SCF energy.
+ 
+ ======================================================================
+ ITERATION STEP  15
+ CPU time [min]:     2.469                   Wall time [min]:     0.048
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.244096738923
+   2   0.244720971991
+   3   0.003357776902
+   4   0.000000823062
+   5   0.000000000765
+   6   0.000000000004
+   7   0.000000000000
+ CPU time [min]:     2.493                   Wall time [min]:     0.049
+ 
+ Constructing local fitting domains...
+ Maximum number of atoms in fitting domains:   12
+ Average number of atoms in fitting domains:   12.0
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     2.649                   Wall time [min]:     0.051
+ 
+ Second step of Coulomb...
+   1% done.
+  14% done.
+  25% done.
+  37% done.
+  49% done.
+  60% done.
+  72% done.
+  83% done.
+ 100% done.
+ CPU time [min]:     2.674                   Wall time [min]:     0.052
+ 
+ Gradient norm:      1.0082E-04
+ RMS of [F,P]:                                         0.00000322599455
+ RMS of difference density:                            0.00000273709023
+ Gap [au]:  0.53984005
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  15 IS       -168.4473558019673760 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       14            4.7475E-04        -3.2257E-06      -1.0081E-04
+ Warning! The DIIS error goes uphill (with respect to previous step).
+ Warning! The DIIS error goes uphill (with respect to step  14 ).
+ Warning! The gradient goes uphill (with respect to previous step).
+ Warning! The gradient goes uphill (with respect to step  14 ).
+ ======================================================================
+ 
+ SUCCESS...
+ THE SCF ITERATION HAS CONVERGED!
+ 
+                   A   
+ FINAL ALPHA OCC:  15
+ FINAL BETA  OCC:  15
+ 
+ ***FINAL HARTREE-FOCK ENERGY:       -168.4473558019673760 [AU]
+ 
+ Orbital energies [au]:
+      Irrep         Alpha          Beta
+    1   A        -15.559738     -15.559738
+    2   A        -15.545919     -15.545919
+    3   A        -15.524394     -15.524394
+    4   A         -1.131541      -1.131541
+    5   A         -1.117431      -1.117431
+    6   A         -1.097872      -1.097872
+    7   A         -0.637963      -0.637963
+    8   A         -0.636182      -0.636182
+    9   A         -0.622275      -0.622275
+   10   A         -0.620438      -0.620438
+   11   A         -0.602641      -0.602641
+   12   A         -0.599266      -0.599266
+   13   A         -0.438530      -0.438530
+   14   A         -0.424144      -0.424144
+   15   A         -0.405852      -0.405852
+ 
+   16   A          0.133988       0.133988
+   17   A          0.186139       0.186139
+   18   A          0.211326       0.211326
+   19   A          0.230142       0.230142
+   20   A          0.250737       0.250737
+   21   A          0.277939       0.277939
+   22   A          0.341007       0.341007
+   23   A          0.351512       0.351512
+   24   A          0.374135       0.374135
+   25   A          0.711170       0.711170
+   26   A          0.717852       0.717852
+   27   A          0.725526       0.725526
+   28   A          0.730765       0.730765
+   29   A          0.753609       0.753609
+   30   A          0.788212       0.788212
+   31   A          0.871590       0.871590
+   32   A          0.900883       0.900883
+   33   A          0.912291       0.912291
+   34   A          1.001421       1.001421
+   35   A          1.018112       1.018112
+   36   A          1.038559       1.038559
+   37   A          1.072848       1.072848
+   38   A          1.082408       1.082408
+   39   A          1.101019       1.101019
+   40   A          1.116744       1.116744
+   41   A          1.120793       1.120793
+   42   A          1.127140       1.127140
+   43   A          1.172417       1.172417
+   44   A          1.192973       1.192973
+   45   A          1.309909       1.309909
+   46   A          1.439956       1.439956
+   47   A          1.453762       1.453762
+   48   A          1.463349       1.463349
+   49   A          1.467868       1.467868
+   50   A          1.478441       1.478441
+   51   A          1.532739       1.532739
+   52   A          1.854488       1.854488
+   53   A          1.860659       1.860659
+   54   A          1.884265       1.884265
+   55   A          1.942158       1.942158
+   56   A          1.970889       1.970889
+   57   A          1.995853       1.995853
+   58   A          2.043828       2.043828
+   59   A          2.057214       2.057214
+   60   A          2.067559       2.067559
+   61   A          2.074871       2.074871
+   62   A          2.095415       2.095415
+   63   A          2.150894       2.150894
+   64   A          2.394287       2.394287
+   65   A          2.404898       2.404898
+   66   A          2.414460       2.414460
+   67   A          2.420423       2.420423
+   68   A          2.440423       2.440423
+   69   A          2.458518       2.458518
+   70   A          2.740988       2.740988
+   71   A          2.745497       2.745497
+   72   A          2.780156       2.780156
+   73   A          3.134185       3.134185
+   74   A          3.136902       3.136902
+   75   A          3.151249       3.151249
+   76   A          3.155238       3.155238
+   77   A          3.172877       3.172877
+   78   A          3.176773       3.176773
+   79   A          3.246084       3.246084
+   80   A          3.259283       3.259283
+   81   A          3.292128       3.292128
+   82   A          3.672804       3.672804
+   83   A          3.675590       3.675590
+   84   A          3.699483       3.699483
+   85   A          3.708341       3.708341
+   86   A          3.717425       3.717425
+   87   A          3.759270       3.759270
+ 
+ RETURNING FROM SCF ALGORITHM
+ ======================================================================
+
+ ************************ 2026-02-26 19:17:04 *************************
+ Executing integ...
+
+ Allocation of 46.0 Gbytes of memory...
+ 
+ 
+ Number of atoms:                 12
+ Charge:                           0
+ Number of electrons:             30
+ Number of core electrons:         6
+ Spin multiplicity:                1
+ 
+                 Cartesian coordinates [bohr]      Atomic mass [AMU]  Z
+   1  N     6.82182577    2.87346447    7.72099687    14.003074       7
+   2  H     8.36625160    2.20896759    8.68871146     1.007825       1
+   3  H     7.48639849    3.84114800    6.17641118     1.007825       1
+   4  H     5.85401804    1.32911599    7.05654762     1.007825       1
+   5  N     7.72105127    6.82177201   12.56860613    14.003074       7
+   6  H     7.05646455    5.85409719   11.02403942     1.007825       1
+   7  H     8.68882825    8.36611725   11.90418158     1.007825       1
+   8  H     6.17659278    7.48627216   13.53633668     1.007825       1
+   9  N    12.56867272    7.72109067    6.82187243    14.003074       7
+  10  H    13.53645296    6.17673805    7.48629888     1.007825       1
+  11  H    11.02421872    7.05658759    5.85414160     1.007825       1
+  12  H    11.90408933    8.68876012    8.36643752     1.007825       1
+ 
+ This molecule is an asymmetric top.
+ 
+ Point group: C1  
+ Computational point group: C1  
+ 
+ Cartesian coordinates in standard orientation [bohr]
+   1  N    -2.32781524   -3.08227765   -0.05132632
+   2  H    -1.85648167   -2.59200630    1.76547236
+   3  H    -0.68360882   -3.57102787   -0.95770467
+   4  H    -3.42188505   -4.68086114    0.05210933
+   5  N    -2.22326848    3.23093654    0.12028700
+   6  H    -2.42853481    1.36142902   -0.35570017
+   7  H    -0.51022590    3.81505105   -0.57781745
+   8  H    -3.59616905    4.21818413   -0.83045013
+   9  N     4.60498072   -0.03755725   -0.03819779
+  10  H     4.39827603   -0.40343085    1.85560679
+  11  H     3.57394284   -1.37309790   -0.99564102
+  12  H     3.77582269    1.68207475   -0.38330547
+ 
+ Nuclear repulsion energy [au]:         78.052181594413
+ 
+ 
+ Basis set information:
+ 
+ Maximum angular momentum: g
+ Maximum number of contracted Gaussians:   11
+ Maximum number of primitive Gaussians:    14
+ Spherical harmonic GTOs are used.
+ 
+ 
+ Conventional basis set:
+ 
+   1  N  aug-cc-pvdz [ 10s 5p 2d | 4s 3p 2d ]
+   2  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   3  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   4  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   5  N  aug-cc-pvdz [ 10s 5p 2d | 4s 3p 2d ]
+   6  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   7  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   8  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   9  N  aug-cc-pvdz [ 10s 5p 2d | 4s 3p 2d ]
+  10  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+  11  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+  12  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N4s          1N1pz         1N1py         1N1px         1N2pz         1N2py         1N2px     
+    1    1N3pz         1N3py         1N3px         1N1d-2        1N1d-1        1N1d0         1N1d+1        1N1d+2        1N2d-2        1N2d-1    
+    2    1N2d0         1N2d+1        1N2d+2        2H1s          2H2s          2H3s          2H1pz         2H1py         2H1px         2H2pz     
+    3    2H2py         2H2px         3H1s          3H2s          3H3s          3H1pz         3H1py         3H1px         3H2pz         3H2py     
+    4    3H2px         4H1s          4H2s          4H3s          4H1pz         4H1py         4H1px         4H2pz         4H2py         4H2px     
+    5    5N1s          5N2s          5N3s          5N4s          5N1pz         5N1py         5N1px         5N2pz         5N2py         5N2px     
+    6    5N3pz         5N3py         5N3px         5N1d-2        5N1d-1        5N1d0         5N1d+1        5N1d+2        5N2d-2        5N2d-1    
+    7    5N2d0         5N2d+1        5N2d+2        6H1s          6H2s          6H3s          6H1pz         6H1py         6H1px         6H2pz     
+    8    6H2py         6H2px         7H1s          7H2s          7H3s          7H1pz         7H1py         7H1px         7H2pz         7H2py     
+    9    7H2px         8H1s          8H2s          8H3s          8H1pz         8H1py         8H1px         8H2pz         8H2py         8H2px     
+   10    9N1s          9N2s          9N3s          9N4s          9N1pz         9N1py         9N1px         9N2pz         9N2py         9N2px     
+   11    9N3pz         9N3py         9N3px         9N1d-2        9N1d-1        9N1d0         9N1d+1        9N1d+2        9N2d-2        9N2d-1    
+   12    9N2d0         9N2d+1        9N2d+2       10H1s         10H2s         10H3s         10H1pz        10H1py        10H1px        10H2pz     
+   13   10H2py        10H2px        11H1s         11H2s         11H3s         11H1pz        11H1py        11H1px        11H2pz        11H2py     
+   14   11H2px        12H1s         12H2s         12H3s         12H1pz        12H1py        12H1px        12H2pz        12H2py        12H2px     
+ 
+ Maximum number of basis functions per shell:   10
+ Total number of basis functions:    150
+ 
+ 
+ Fitting basis set for the SCF calculation:
+ 
+   1  N  aug-cc-pvdz-ri-jk [ 11s 8p 6d 3f | 11s 8p 6d 3f ]
+   2  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   3  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   4  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   5  N  aug-cc-pvdz-ri-jk [ 11s 8p 6d 3f | 11s 8p 6d 3f ]
+   6  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   7  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   8  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   9  N  aug-cc-pvdz-ri-jk [ 11s 8p 6d 3f | 11s 8p 6d 3f ]
+  10  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+  11  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+  12  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N4s          1N5s          1N6s          1N7s          1N8s          1N9s          1N10s     
+    1    1N11s         1N1pz         1N1py         1N1px         1N2pz         1N2py         1N2px         1N3pz         1N3py         1N3px     
+    2    1N4pz         1N4py         1N4px         1N5pz         1N5py         1N5px         1N6pz         1N6py         1N6px         1N7pz     
+    3    1N7py         1N7px         1N8pz         1N8py         1N8px         1N1d-2        1N1d-1        1N1d0         1N1d+1        1N1d+2    
+    4    1N2d-2        1N2d-1        1N2d0         1N2d+1        1N2d+2        1N3d-2        1N3d-1        1N3d0         1N3d+1        1N3d+2    
+    5    1N4d-2        1N4d-1        1N4d0         1N4d+1        1N4d+2        1N5d-2        1N5d-1        1N5d0         1N5d+1        1N5d+2    
+    6    1N6d-2        1N6d-1        1N6d0         1N6d+1        1N6d+2        1N1f-3        1N1f-2        1N1f-1        1N1f0         1N1f+1    
+    7    1N1f+2        1N1f+3        1N2f-3        1N2f-2        1N2f-1        1N2f0         1N2f+1        1N2f+2        1N2f+3        1N3f-3    
+    8    1N3f-2        1N3f-1        1N3f0         1N3f+1        1N3f+2        1N3f+3        2H1s          2H2s          2H3s          2H4s      
+    9    2H5s          2H1pz         2H1py         2H1px         2H2pz         2H2py         2H2px         2H3pz         2H3py         2H3px     
+   10    2H4pz         2H4py         2H4px         2H1d-2        2H1d-1        2H1d0         2H1d+1        2H1d+2        2H2d-2        2H2d-1    
+   11    2H2d0         2H2d+1        2H2d+2        2H3d-2        2H3d-1        2H3d0         2H3d+1        2H3d+2        3H1s          3H2s      
+   12    3H3s          3H4s          3H5s          3H1pz         3H1py         3H1px         3H2pz         3H2py         3H2px         3H3pz     
+   13    3H3py         3H3px         3H4pz         3H4py         3H4px         3H1d-2        3H1d-1        3H1d0         3H1d+1        3H1d+2    
+   14    3H2d-2        3H2d-1        3H2d0         3H2d+1        3H2d+2        3H3d-2        3H3d-1        3H3d0         3H3d+1        3H3d+2    
+   15    4H1s          4H2s          4H3s          4H4s          4H5s          4H1pz         4H1py         4H1px         4H2pz         4H2py     
+   16    4H2px         4H3pz         4H3py         4H3px         4H4pz         4H4py         4H4px         4H1d-2        4H1d-1        4H1d0     
+   17    4H1d+1        4H1d+2        4H2d-2        4H2d-1        4H2d0         4H2d+1        4H2d+2        4H3d-2        4H3d-1        4H3d0     
+   18    4H3d+1        4H3d+2        5N1s          5N2s          5N3s          5N4s          5N5s          5N6s          5N7s          5N8s      
+   19    5N9s          5N10s         5N11s         5N1pz         5N1py         5N1px         5N2pz         5N2py         5N2px         5N3pz     
+   20    5N3py         5N3px         5N4pz         5N4py         5N4px         5N5pz         5N5py         5N5px         5N6pz         5N6py     
+   21    5N6px         5N7pz         5N7py         5N7px         5N8pz         5N8py         5N8px         5N1d-2        5N1d-1        5N1d0     
+   22    5N1d+1        5N1d+2        5N2d-2        5N2d-1        5N2d0         5N2d+1        5N2d+2        5N3d-2        5N3d-1        5N3d0     
+   23    5N3d+1        5N3d+2        5N4d-2        5N4d-1        5N4d0         5N4d+1        5N4d+2        5N5d-2        5N5d-1        5N5d0     
+   24    5N5d+1        5N5d+2        5N6d-2        5N6d-1        5N6d0         5N6d+1        5N6d+2        5N1f-3        5N1f-2        5N1f-1    
+   25    5N1f0         5N1f+1        5N1f+2        5N1f+3        5N2f-3        5N2f-2        5N2f-1        5N2f0         5N2f+1        5N2f+2    
+   26    5N2f+3        5N3f-3        5N3f-2        5N3f-1        5N3f0         5N3f+1        5N3f+2        5N3f+3        6H1s          6H2s      
+   27    6H3s          6H4s          6H5s          6H1pz         6H1py         6H1px         6H2pz         6H2py         6H2px         6H3pz     
+   28    6H3py         6H3px         6H4pz         6H4py         6H4px         6H1d-2        6H1d-1        6H1d0         6H1d+1        6H1d+2    
+   29    6H2d-2        6H2d-1        6H2d0         6H2d+1        6H2d+2        6H3d-2        6H3d-1        6H3d0         6H3d+1        6H3d+2    
+   30    7H1s          7H2s          7H3s          7H4s          7H5s          7H1pz         7H1py         7H1px         7H2pz         7H2py     
+   31    7H2px         7H3pz         7H3py         7H3px         7H4pz         7H4py         7H4px         7H1d-2        7H1d-1        7H1d0     
+   32    7H1d+1        7H1d+2        7H2d-2        7H2d-1        7H2d0         7H2d+1        7H2d+2        7H3d-2        7H3d-1        7H3d0     
+   33    7H3d+1        7H3d+2        8H1s          8H2s          8H3s          8H4s          8H5s          8H1pz         8H1py         8H1px     
+   34    8H2pz         8H2py         8H2px         8H3pz         8H3py         8H3px         8H4pz         8H4py         8H4px         8H1d-2    
+   35    8H1d-1        8H1d0         8H1d+1        8H1d+2        8H2d-2        8H2d-1        8H2d0         8H2d+1        8H2d+2        8H3d-2    
+   36    8H3d-1        8H3d0         8H3d+1        8H3d+2        9N1s          9N2s          9N3s          9N4s          9N5s          9N6s      
+   37    9N7s          9N8s          9N9s          9N10s         9N11s         9N1pz         9N1py         9N1px         9N2pz         9N2py     
+   38    9N2px         9N3pz         9N3py         9N3px         9N4pz         9N4py         9N4px         9N5pz         9N5py         9N5px     
+   39    9N6pz         9N6py         9N6px         9N7pz         9N7py         9N7px         9N8pz         9N8py         9N8px         9N1d-2    
+   40    9N1d-1        9N1d0         9N1d+1        9N1d+2        9N2d-2        9N2d-1        9N2d0         9N2d+1        9N2d+2        9N3d-2    
+   41    9N3d-1        9N3d0         9N3d+1        9N3d+2        9N4d-2        9N4d-1        9N4d0         9N4d+1        9N4d+2        9N5d-2    
+   42    9N5d-1        9N5d0         9N5d+1        9N5d+2        9N6d-2        9N6d-1        9N6d0         9N6d+1        9N6d+2        9N1f-3    
+   43    9N1f-2        9N1f-1        9N1f0         9N1f+1        9N1f+2        9N1f+3        9N2f-3        9N2f-2        9N2f-1        9N2f0     
+   44    9N2f+1        9N2f+2        9N2f+3        9N3f-3        9N3f-2        9N3f-1        9N3f0         9N3f+1        9N3f+2        9N3f+3    
+   45   10H1s         10H2s         10H3s         10H4s         10H5s         10H1pz        10H1py        10H1px        10H2pz        10H2py     
+   46   10H2px        10H3pz        10H3py        10H3px        10H4pz        10H4py        10H4px        10H1d-2       10H1d-1       10H1d0     
+   47   10H1d+1       10H1d+2       10H2d-2       10H2d-1       10H2d0        10H2d+1       10H2d+2       10H3d-2       10H3d-1       10H3d0     
+   48   10H3d+1       10H3d+2       11H1s         11H2s         11H3s         11H4s         11H5s         11H1pz        11H1py        11H1px     
+   49   11H2pz        11H2py        11H2px        11H3pz        11H3py        11H3px        11H4pz        11H4py        11H4px        11H1d-2    
+   50   11H1d-1       11H1d0        11H1d+1       11H1d+2       11H2d-2       11H2d-1       11H2d0        11H2d+1       11H2d+2       11H3d-2    
+   51   11H3d-1       11H3d0        11H3d+1       11H3d+2       12H1s         12H2s         12H3s         12H4s         12H5s         12H1pz     
+   52   12H1py        12H1px        12H2pz        12H2py        12H2px        12H3pz        12H3py        12H3px        12H4pz        12H4py     
+   53   12H4px        12H1d-2       12H1d-1       12H1d0        12H1d+1       12H1d+2       12H2d-2       12H2d-1       12H2d0        12H2d+1    
+   54   12H2d+2       12H3d-2       12H3d-1       12H3d0        12H3d+1       12H3d+2    
+ 
+ Maximum number of basis functions per shell:   30
+ Total number of basis functions:    546
+ 
+ 
+ Fitting basis set for the correlation calculation:
+ 
+   1  N  aug-cc-pvdz-ri [ 8s 6p 5d 3f | 8s 6p 5d 3f ]
+   2  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   3  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   4  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   5  N  aug-cc-pvdz-ri [ 8s 6p 5d 3f | 8s 6p 5d 3f ]
+   6  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   7  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   8  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   9  N  aug-cc-pvdz-ri [ 8s 6p 5d 3f | 8s 6p 5d 3f ]
+  10  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+  11  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+  12  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N4s          1N5s          1N6s          1N7s          1N8s          1N1pz         1N1py     
+    1    1N1px         1N2pz         1N2py         1N2px         1N3pz         1N3py         1N3px         1N4pz         1N4py         1N4px     
+    2    1N5pz         1N5py         1N5px         1N6pz         1N6py         1N6px         1N1d-2        1N1d-1        1N1d0         1N1d+1    
+    3    1N1d+2        1N2d-2        1N2d-1        1N2d0         1N2d+1        1N2d+2        1N3d-2        1N3d-1        1N3d0         1N3d+1    
+    4    1N3d+2        1N4d-2        1N4d-1        1N4d0         1N4d+1        1N4d+2        1N5d-2        1N5d-1        1N5d0         1N5d+1    
+    5    1N5d+2        1N1f-3        1N1f-2        1N1f-1        1N1f0         1N1f+1        1N1f+2        1N1f+3        1N2f-3        1N2f-2    
+    6    1N2f-1        1N2f0         1N2f+1        1N2f+2        1N2f+3        1N3f-3        1N3f-2        1N3f-1        1N3f0         1N3f+1    
+    7    1N3f+2        1N3f+3        2H1s          2H2s          2H3s          2H4s          2H1pz         2H1py         2H1px         2H2pz     
+    8    2H2py         2H2px         2H3pz         2H3py         2H3px         2H1d-2        2H1d-1        2H1d0         2H1d+1        2H1d+2    
+    9    2H2d-2        2H2d-1        2H2d0         2H2d+1        2H2d+2        3H1s          3H2s          3H3s          3H4s          3H1pz     
+   10    3H1py         3H1px         3H2pz         3H2py         3H2px         3H3pz         3H3py         3H3px         3H1d-2        3H1d-1    
+   11    3H1d0         3H1d+1        3H1d+2        3H2d-2        3H2d-1        3H2d0         3H2d+1        3H2d+2        4H1s          4H2s      
+   12    4H3s          4H4s          4H1pz         4H1py         4H1px         4H2pz         4H2py         4H2px         4H3pz         4H3py     
+   13    4H3px         4H1d-2        4H1d-1        4H1d0         4H1d+1        4H1d+2        4H2d-2        4H2d-1        4H2d0         4H2d+1    
+   14    4H2d+2        5N1s          5N2s          5N3s          5N4s          5N5s          5N6s          5N7s          5N8s          5N1pz     
+   15    5N1py         5N1px         5N2pz         5N2py         5N2px         5N3pz         5N3py         5N3px         5N4pz         5N4py     
+   16    5N4px         5N5pz         5N5py         5N5px         5N6pz         5N6py         5N6px         5N1d-2        5N1d-1        5N1d0     
+   17    5N1d+1        5N1d+2        5N2d-2        5N2d-1        5N2d0         5N2d+1        5N2d+2        5N3d-2        5N3d-1        5N3d0     
+   18    5N3d+1        5N3d+2        5N4d-2        5N4d-1        5N4d0         5N4d+1        5N4d+2        5N5d-2        5N5d-1        5N5d0     
+   19    5N5d+1        5N5d+2        5N1f-3        5N1f-2        5N1f-1        5N1f0         5N1f+1        5N1f+2        5N1f+3        5N2f-3    
+   20    5N2f-2        5N2f-1        5N2f0         5N2f+1        5N2f+2        5N2f+3        5N3f-3        5N3f-2        5N3f-1        5N3f0     
+   21    5N3f+1        5N3f+2        5N3f+3        6H1s          6H2s          6H3s          6H4s          6H1pz         6H1py         6H1px     
+   22    6H2pz         6H2py         6H2px         6H3pz         6H3py         6H3px         6H1d-2        6H1d-1        6H1d0         6H1d+1    
+   23    6H1d+2        6H2d-2        6H2d-1        6H2d0         6H2d+1        6H2d+2        7H1s          7H2s          7H3s          7H4s      
+   24    7H1pz         7H1py         7H1px         7H2pz         7H2py         7H2px         7H3pz         7H3py         7H3px         7H1d-2    
+   25    7H1d-1        7H1d0         7H1d+1        7H1d+2        7H2d-2        7H2d-1        7H2d0         7H2d+1        7H2d+2        8H1s      
+   26    8H2s          8H3s          8H4s          8H1pz         8H1py         8H1px         8H2pz         8H2py         8H2px         8H3pz     
+   27    8H3py         8H3px         8H1d-2        8H1d-1        8H1d0         8H1d+1        8H1d+2        8H2d-2        8H2d-1        8H2d0     
+   28    8H2d+1        8H2d+2        9N1s          9N2s          9N3s          9N4s          9N5s          9N6s          9N7s          9N8s      
+   29    9N1pz         9N1py         9N1px         9N2pz         9N2py         9N2px         9N3pz         9N3py         9N3px         9N4pz     
+   30    9N4py         9N4px         9N5pz         9N5py         9N5px         9N6pz         9N6py         9N6px         9N1d-2        9N1d-1    
+   31    9N1d0         9N1d+1        9N1d+2        9N2d-2        9N2d-1        9N2d0         9N2d+1        9N2d+2        9N3d-2        9N3d-1    
+   32    9N3d0         9N3d+1        9N3d+2        9N4d-2        9N4d-1        9N4d0         9N4d+1        9N4d+2        9N5d-2        9N5d-1    
+   33    9N5d0         9N5d+1        9N5d+2        9N1f-3        9N1f-2        9N1f-1        9N1f0         9N1f+1        9N1f+2        9N1f+3    
+   34    9N2f-3        9N2f-2        9N2f-1        9N2f0         9N2f+1        9N2f+2        9N2f+3        9N3f-3        9N3f-2        9N3f-1    
+   35    9N3f0         9N3f+1        9N3f+2        9N3f+3       10H1s         10H2s         10H3s         10H4s         10H1pz        10H1py     
+   36   10H1px        10H2pz        10H2py        10H2px        10H3pz        10H3py        10H3px        10H1d-2       10H1d-1       10H1d0     
+   37   10H1d+1       10H1d+2       10H2d-2       10H2d-1       10H2d0        10H2d+1       10H2d+2       11H1s         11H2s         11H3s      
+   38   11H4s         11H1pz        11H1py        11H1px        11H2pz        11H2py        11H2px        11H3pz        11H3py        11H3px     
+   39   11H1d-2       11H1d-1       11H1d0        11H1d+1       11H1d+2       11H2d-2       11H2d-1       11H2d0        11H2d+1       11H2d+2    
+   40   12H1s         12H2s         12H3s         12H4s         12H1pz        12H1py        12H1px        12H2pz        12H2py        12H2px     
+   41   12H3pz        12H3py        12H3px        12H1d-2       12H1d-1       12H1d0        12H1d+1       12H1d+2       12H2d-2       12H2d-1    
+   42   12H2d0        12H2d+1       12H2d+2    
+ 
+ Maximum number of basis functions per shell:   30
+ Total number of basis functions:    423
+ 
+ 
+ Old basis set for SCF restart
+ 
+   1  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+   2  H  def2-svp [ 4s 1p | 2s 1p ]
+   3  H  def2-svp [ 4s 1p | 2s 1p ]
+   4  H  def2-svp [ 4s 1p | 2s 1p ]
+   5  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+   6  H  def2-svp [ 4s 1p | 2s 1p ]
+   7  H  def2-svp [ 4s 1p | 2s 1p ]
+   8  H  def2-svp [ 4s 1p | 2s 1p ]
+   9  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+  10  H  def2-svp [ 4s 1p | 2s 1p ]
+  11  H  def2-svp [ 4s 1p | 2s 1p ]
+  12  H  def2-svp [ 4s 1p | 2s 1p ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N1pz         1N1py         1N1px         1N2pz         1N2py         1N2px         1N1d-2    
+    1    1N1d-1        1N1d0         1N1d+1        1N1d+2        2H1s          2H2s          2H1pz         2H1py         2H1px         3H1s      
+    2    3H2s          3H1pz         3H1py         3H1px         4H1s          4H2s          4H1pz         4H1py         4H1px         5N1s      
+    3    5N2s          5N3s          5N1pz         5N1py         5N1px         5N2pz         5N2py         5N2px         5N1d-2        5N1d-1    
+    4    5N1d0         5N1d+1        5N1d+2        6H1s          6H2s          6H1pz         6H1py         6H1px         7H1s          7H2s      
+    5    7H1pz         7H1py         7H1px         8H1s          8H2s          8H1pz         8H1py         8H1px         9N1s          9N2s      
+    6    9N3s          9N1pz         9N1py         9N1px         9N2pz         9N2py         9N2px         9N1d-2        9N1d-1        9N1d0     
+    7    9N1d+1        9N1d+2       10H1s         10H2s         10H1pz        10H1py        10H1px        11H1s         11H2s         11H1pz     
+    8   11H1py        11H1px        12H1s         12H2s         12H1pz        12H1py        12H1px     
+ 
+ Maximum number of basis functions per shell:   30
+ Total number of basis functions:     87
+ 
+ 
+ Character table for point group C1:
+ 
+          E  
+    A     1
+ 
+ Number of basis functions per irrep:
+    A     150
+ 
+ 
+ Calculation of overlap integrals...
+ CPU time [min]:     0.182                   Wall time [min]:     0.005
+ 
+ Calculation of the square root of the overlap matrix...
+ Minimum eigenvalue of the overlap matrix: 0.100838E-02
+ CPU time [min]:     0.201                   Wall time [min]:     0.006
+ 
+ Calculation of kinetic energy integrals...
+ CPU time [min]:     0.203                   Wall time [min]:     0.006
+ Calculation of dipole moment integrals...
+ CPU time [min]:     0.204                   Wall time [min]:     0.006
+ Calculation of nuclear attraction integrals...
+ CPU time [min]:     0.206                   Wall time [min]:     0.006
+ Calculation of overlap integrals...
+ CPU time [min]:     0.208                   Wall time [min]:     0.006
+ 
+ Calculation of prescreening integrals...
+ CPU time [min]:     0.275                   Wall time [min]:     0.007
+ 
+ Calculation of two-center Coulomb integrals...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  53% done.
+  68% done.
+  80% done.
+  95% done.
+ 100% done.
+ CPU time [min]:     0.287                   Wall time [min]:     0.007
+ 
+ Cholesky decomposition of the two-center matrix...
+ Reciprocal of the condition number:  0.122770E-04
+ CPU time [min]:     0.303                   Wall time [min]:     0.007
+ 
+
+ ************************ 2026-02-26 19:17:04 *************************
+ Executing scf...
+
+ @scfsetup: integrals calculated directly
+            mrcc/integ direct run
+ @scfsetup: calculating on full matrices
+            not using symmetry adapted basis
+ @scfsetup: diis switched on
+ @scfsetup: number of steps to extrapolate from  10
+ @scfsetup: tolerance in energy deviation    0.100000E-07
+            tolerance in density deviation    0.100000E-08
+ @scfsetup: maximum number of iterations: 200
+ @scfsetup: restricted closed shell hf calc
+ @scfsetup: restarting scf from SCFDENSITIES file
+ @scfsetup: occupation set:
+            from initial orbitals
+ @scfsetup: Parameter-set for SCF acceleration: normal
+ @scfsetup: diis runs from iteration:   2
+ @scfsetup: diis runs to iteration: 200
+ @scfsetup: diis runs in every iteration
+ @scfsetup: diiswatch is disabled                   
+ @scfsetup: diis dtol criteria to switch on:      0.0000E+00
+           (or the iteration number below is reached)
+ @scfsetup: static damping scheme
+            iteration step criteria to turn damping off: 3
+ @scfsetup: dynamic level shifting
+            tolarance in HOMO-LUMO gap:  0.200
+            tolarance in density deviation:     0.0000E+00
+            iteration step criteria to turn level shifting off: 8
+ Allocation of 46.0 Gbytes of memory...
+ ======================================================================
+ ITERATION STEP   1
+ CPU time [min]:     0.038                   Wall time [min]:     0.009
+ 
+
+ SCF control                  : initial
+ Damping factor/level shift   : 0.000/0.200
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ Inverse square root: The matrix is not positive definite!
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   4.080341622753
+   2   1.740563708876
+   3   0.352781918026
+   4   0.010347932506
+   5   0.000299003460
+   6   0.000013403103
+   7   0.000000748382
+   8   0.000000058536
+   9   0.000000006400
+ CPU time [min]:     0.067                   Wall time [min]:     0.009
+ 
+ Constructing local fitting domains...
+ Maximum number of atoms in fitting domains:   12
+ Average number of atoms in fitting domains:   12.0
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     0.271                   Wall time [min]:     0.012
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     0.301                   Wall time [min]:     0.013
+ 
+ Gradient norm:      8.7542E-02
+ RMS of [F,P]:                                         0.00327813736210
+ RMS of difference density:                            0.00997101725339
+ Gap [au]:  0.43885975
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   1 IS       -168.5817475970429768 [AU]
+ ======================================================================
+ ITERATION STEP   2
+ CPU time [min]:     0.321                   Wall time [min]:     0.013
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.171259993841
+   2   0.172499540684
+   3   0.002616454210
+   4   0.000015959763
+   5   0.000001525398
+   6   0.000000153950
+   7   0.000000007599
+ CPU time [min]:     0.347                   Wall time [min]:     0.014
+ 
+ Constructing local fitting domains...
+ Maximum number of atoms in fitting domains:   12
+ Average number of atoms in fitting domains:   12.0
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     0.537                   Wall time [min]:     0.017
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     0.567                   Wall time [min]:     0.017
+ 
+ Gradient norm:      3.6572E-02
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00055413648283
+ RMS of difference density:                            0.00140365617422
+ Gap [au]:  0.44429723
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   2 IS       -168.6114419568640983 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        1            2.9694E-02         2.7240E-03       5.0970E-02
+        2            1.6861E+02         1.0000E-09       5.0970E-02
+ ======================================================================
+ ITERATION STEP   3
+ CPU time [min]:     0.586                   Wall time [min]:     0.017
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.162823917587
+   2   0.169566523692
+   3   0.007539851313
+   4   0.000031874867
+   5   0.000002666234
+   6   0.000000357713
+   7   0.000000049822
+   8   0.000000006980
+ CPU time [min]:     0.613                   Wall time [min]:     0.018
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     0.801                   Wall time [min]:     0.021
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     0.831                   Wall time [min]:     0.021
+ 
+ Gradient norm:      1.3147E-02
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00018735695842
+ RMS of difference density:                            0.00048304973631
+ Gap [au]:  0.44520326
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   3 IS       -168.6136564375646003 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        2            2.2145E-03         3.6678E-04       2.3425E-02
+ ======================================================================
+ ITERATION STEP   4
+ CPU time [min]:     0.851                   Wall time [min]:     0.022
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.172608066042
+   2   0.179159604690
+   3   0.002800944947
+   4   0.000131311262
+   5   0.000017060531
+   6   0.000002328738
+   7   0.000000321547
+   8   0.000000044556
+   9   0.000000006179
+ CPU time [min]:     0.877                   Wall time [min]:     0.022
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.065                   Wall time [min]:     0.025
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     1.095                   Wall time [min]:     0.025
+ 
+ Gradient norm:      2.7288E-03
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00005266435544
+ RMS of difference density:                            0.00010022876321
+ Gap [au]:  0.44393016
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   4 IS       -168.6140019981926059 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        3            3.4556E-04         1.3469E-04       1.0419E-02
+ ======================================================================
+ ITERATION STEP   5
+ CPU time [min]:     1.115                   Wall time [min]:     0.026
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.175670901632
+   2   0.182498215547
+   3   0.005481139803
+   4   0.000032335413
+   5   0.000004003349
+   6   0.000000550546
+   7   0.000000077559
+   8   0.000000011001
+   9   0.000000001563
+ CPU time [min]:     1.141                   Wall time [min]:     0.026
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.327                   Wall time [min]:     0.029
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     1.357                   Wall time [min]:     0.030
+ 
+ Gradient norm:      7.5859E-04
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00002442970016
+ RMS of difference density:                            0.00004775589661
+ Gap [au]:  0.44379234
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   5 IS       -168.6140216155141616 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        4            1.9617E-05         2.8235E-05       1.9702E-03
+ ======================================================================
+ ITERATION STEP   6
+ CPU time [min]:     1.377                   Wall time [min]:     0.030
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.157856518564
+   2   0.145851047880
+   3   0.001732222024
+   4   0.000040156416
+   5   0.000003273702
+   6   0.000000375089
+   7   0.000000049402
+   8   0.000000006909
+   9   0.000000000980
+  10   0.000000000140
+  11   0.000000000020
+  12   0.000000000003
+  13   0.000000000000
+ CPU time [min]:     1.404                   Wall time [min]:     0.030
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.592                   Wall time [min]:     0.033
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     1.622                   Wall time [min]:     0.034
+ 
+ Gradient norm:      1.5067E-04
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000329151059
+ RMS of difference density:                            0.00000807339358
+ Gap [au]:  0.44372485
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   6 IS       -168.6140251350581707 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        5            3.5195E-06         2.1138E-05       6.0793E-04
+ ======================================================================
+ ITERATION STEP   7
+ CPU time [min]:     1.642                   Wall time [min]:     0.034
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.146614466345
+   2   0.139430706437
+   3   0.001623708129
+   4   0.000031226445
+   5   0.000002129998
+   6   0.000000210481
+   7   0.000000026531
+   8   0.000000003656
+   9   0.000000000516
+  10   0.000000000073
+  11   0.000000000010
+  12   0.000000000001
+  13   0.000000000000
+ CPU time [min]:     1.669                   Wall time [min]:     0.035
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     1.856                   Wall time [min]:     0.038
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     1.886                   Wall time [min]:     0.038
+ 
+ Gradient norm:      2.6150E-05
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000071336078
+ RMS of difference density:                            0.00000207270806
+ Gap [au]:  0.44371610
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   7 IS       -168.6140251982076279 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        6            6.3149E-08         2.5781E-06       1.2452E-04
+ ======================================================================
+ ITERATION STEP   8
+ CPU time [min]:     1.906                   Wall time [min]:     0.038
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.183678968755
+   2   0.187913638765
+   3   0.002733319180
+   4   0.000047214758
+   5   0.000004494134
+   6   0.000000566100
+   7   0.000000078395
+   8   0.000000010149
+   9   0.000000001108
+  10   0.000000000155
+  11   0.000000000022
+  12   0.000000000003
+  13   0.000000000000
+ CPU time [min]:     1.934                   Wall time [min]:     0.039
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     2.122                   Wall time [min]:     0.042
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     2.152                   Wall time [min]:     0.042
+ 
+ Gradient norm:      9.2862E-06
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000022693634
+ RMS of difference density:                            0.00000050152143
+ Gap [au]:  0.44372021
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   8 IS       -168.6140252031154603 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        7            4.9078E-09         4.8642E-07       1.6864E-05
+ ======================================================================
+ ITERATION STEP   9
+ CPU time [min]:     2.173                   Wall time [min]:     0.043
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.147525869439
+   2   0.139969901256
+   3   0.001875003103
+   4   0.000035938078
+   5   0.000002170765
+   6   0.000000198705
+   7   0.000000024012
+   8   0.000000003262
+   9   0.000000000458
+  10   0.000000000065
+  11   0.000000000009
+  12   0.000000000001
+  13   0.000000000000
+ CPU time [min]:     2.200                   Wall time [min]:     0.043
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     2.388                   Wall time [min]:     0.046
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     2.418                   Wall time [min]:     0.047
+ 
+ Gradient norm:      3.9845E-06
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000008478558
+ RMS of difference density:                            0.00000014381985
+ Gap [au]:  0.44371735
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP   9 IS       -168.6140252036385050 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        8            5.2304E-10         1.4215E-07       5.3017E-06
+ ======================================================================
+ ITERATION STEP  10
+ CPU time [min]:     2.439                   Wall time [min]:     0.047
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.208787271443
+   2   0.198852856409
+   3   0.005823046971
+   4   0.000048541876
+   5   0.000004039952
+   6   0.000000472775
+   7   0.000000062843
+   8   0.000000008696
+   9   0.000000001232
+  10   0.000000000176
+  11   0.000000000025
+  12   0.000000000004
+  13   0.000000000001
+ CPU time [min]:     2.466                   Wall time [min]:     0.047
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     2.653                   Wall time [min]:     0.050
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     2.683                   Wall time [min]:     0.051
+ 
+ Gradient norm:      6.9223E-07
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000001645509
+ RMS of difference density:                            0.00000004349411
+ Gap [au]:  0.44371764
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  10 IS       -168.6140252036846618 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+        9            4.6157E-11         6.8330E-08       3.2923E-06
+ ======================================================================
+ ITERATION STEP  11
+ CPU time [min]:     2.704                   Wall time [min]:     0.051
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.148155860084
+   2   0.139794440496
+   3   0.001862442499
+   4   0.000044078462
+   5   0.000003071275
+   6   0.000000316557
+   7   0.000000040273
+   8   0.000000005545
+   9   0.000000000780
+  10   0.000000000111
+  11   0.000000000016
+  12   0.000000000002
+  13   0.000000000000
+ CPU time [min]:     2.731                   Wall time [min]:     0.052
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     2.919                   Wall time [min]:     0.055
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     2.949                   Wall time [min]:     0.055
+ 
+ Gradient norm:      1.4943E-07
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000000315494
+ RMS of difference density:                            0.00000000802740
+ Gap [au]:  0.44371766
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  11 IS       -168.6140252036871061 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       10            2.4443E-12         1.3300E-08       5.4279E-07
+ ======================================================================
+ ITERATION STEP  12
+ CPU time [min]:     2.969                   Wall time [min]:     0.055
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.187408907121
+   2   0.187519562165
+   3   0.003396497783
+   4   0.000047191798
+   5   0.000003151989
+   6   0.000000315435
+   7   0.000000038885
+   8   0.000000005308
+   9   0.000000000740
+  10   0.000000000105
+  11   0.000000000015
+  12   0.000000000002
+  13   0.000000000000
+ CPU time [min]:     2.995                   Wall time [min]:     0.056
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     3.182                   Wall time [min]:     0.059
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     3.212                   Wall time [min]:     0.059
+ 
+ Gradient norm:      3.3779E-08
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000000074279
+ RMS of difference density:                            0.00000000160484
+ Gap [au]:  0.44371767
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  12 IS       -168.6140252036871630 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       11            5.6843E-14         2.4121E-09       1.1565E-07
+ ======================================================================
+ ITERATION STEP  13
+ CPU time [min]:     3.232                   Wall time [min]:     0.060
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.147779472980
+   2   0.138560199761
+   3   0.001671191910
+   4   0.000038240339
+   5   0.000002685979
+   6   0.000000280978
+   7   0.000000036102
+   8   0.000000005010
+   9   0.000000000709
+  10   0.000000000098
+  11   0.000000000013
+  12   0.000000000002
+  13   0.000000000000
+ CPU time [min]:     3.259                   Wall time [min]:     0.060
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     3.443                   Wall time [min]:     0.063
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     3.473                   Wall time [min]:     0.063
+ 
+ Gradient norm:      7.4206E-09
+ DIIS is running in this iteration step.
+ RMS of [F,P]:                                         0.00000000019476
+ RMS of difference density:                            0.00000000051633
+ Gap [au]:  0.44371767
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  13 IS       -168.6140252036869356 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       12           -2.2737E-13         5.4802E-10       2.6358E-08
+ Warning! The energy goes uphill (with respect to previous step).
+ 
+ The SCF iteration has converged.
+ An extra iteration will be performed to calculate accurate SCF energy.
+ 
+ ======================================================================
+ ITERATION STEP  14
+ CPU time [min]:     3.494                   Wall time [min]:     0.064
+ 
+
+ SCF control                  : diis
+ Damping factor/level shift   : 0.000/0.000
+ DIIS [start/end/frequency]   :   2 /200 /  1
+
+ Constructing Fock-matrix...
+ 
+ Pipek-Mezey localization...
+ Step  Convergence
+   1   0.185906422407
+   2   0.193600456498
+   3   0.003612879074
+   4   0.000109790925
+   5   0.000012766403
+   6   0.000001736275
+   7   0.000000245026
+   8   0.000000034822
+   9   0.000000004930
+  10   0.000000000692
+  11   0.000000000099
+  12   0.000000000014
+  13   0.000000000002
+  14   0.000000000000
+ CPU time [min]:     3.522                   Wall time [min]:     0.064
+ 
+ Constructing local fitting domains...
+ Local fitting domains are unchanged.
+ 
+ First step of Coulomb + first step of exchange...
+ Exchange contribution is evaluated for MOs 1 to 15.
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ Fitting and assembly step of exchange...
+ CPU time [min]:     3.711                   Wall time [min]:     0.067
+ 
+ Second step of Coulomb...
+   1% done.
+  13% done.
+  24% done.
+  37% done.
+  48% done.
+  67% done.
+  78% done.
+  92% done.
+ 100% done.
+ CPU time [min]:     3.741                   Wall time [min]:     0.068
+ 
+ Gradient norm:      2.1410E-09
+ RMS of [F,P]:                                         0.00000000007111
+ RMS of difference density:                            0.00000000011882
+ Gap [au]:  0.44371767
+ ALPHA OCC:  15
+ BETA  OCC:  15
+ 
+ ***HARTREE-FOCK ENERGY IN STEP  14 IS       -168.6140252036870777 [AU]
+ 
+ Step comparison  Energy Drift [au]  DIIS error drift  Gradient drift
+       13            1.4211E-13         1.2366E-10       5.2796E-09
+ ======================================================================
+ 
+ SUCCESS...
+ THE SCF ITERATION HAS CONVERGED!
+ 
+                   A   
+ FINAL ALPHA OCC:  15
+ FINAL BETA  OCC:  15
+ 
+ ***FINAL HARTREE-FOCK ENERGY:       -168.6140252036870777 [AU]
+ 
+ Orbital energies [au]:
+      Irrep         Alpha          Beta
+    1   A        -15.570044     -15.570044
+    2   A        -15.561072     -15.561072
+    3   A        -15.542969     -15.542969
+    4   A         -1.151824      -1.151824
+    5   A         -1.141227      -1.141227
+    6   A         -1.124487      -1.124487
+    7   A         -0.642512      -0.642512
+    8   A         -0.640268      -0.640268
+    9   A         -0.629838      -0.629838
+   10   A         -0.627480      -0.627480
+   11   A         -0.612527      -0.612527
+   12   A         -0.609188      -0.609188
+   13   A         -0.443756      -0.443756
+   14   A         -0.431777      -0.431777
+   15   A         -0.415472      -0.415472
+ 
+   16   A          0.028246       0.028246
+   17   A          0.046852       0.046852
+   18   A          0.051594       0.051594
+   19   A          0.056677       0.056677
+   20   A          0.070334       0.070334
+   21   A          0.078321       0.078321
+   22   A          0.082492       0.082492
+   23   A          0.091897       0.091897
+   24   A          0.106500       0.106500
+   25   A          0.154319       0.154319
+   26   A          0.166073       0.166073
+   27   A          0.183120       0.183120
+   28   A          0.197653       0.197653
+   29   A          0.202999       0.202999
+   30   A          0.210496       0.210496
+   31   A          0.211054       0.211054
+   32   A          0.212373       0.212373
+   33   A          0.228568       0.228568
+   34   A          0.240231       0.240231
+   35   A          0.244950       0.244950
+   36   A          0.247179       0.247179
+   37   A          0.262437       0.262437
+   38   A          0.276494       0.276494
+   39   A          0.295278       0.295278
+   40   A          0.308733       0.308733
+   41   A          0.320179       0.320179
+   42   A          0.326537       0.326537
+   43   A          0.350335       0.350335
+   44   A          0.367972       0.367972
+   45   A          0.373218       0.373218
+   46   A          0.385568       0.385568
+   47   A          0.411729       0.411729
+   48   A          0.432666       0.432666
+   49   A          0.449680       0.449680
+   50   A          0.464991       0.464991
+   51   A          0.477419       0.477419
+   52   A          0.491004       0.491004
+   53   A          0.502192       0.502192
+   54   A          0.518266       0.518266
+   55   A          0.518607       0.518607
+   56   A          0.543878       0.543878
+   57   A          0.549785       0.549785
+   58   A          0.558798       0.558798
+   59   A          0.573266       0.573266
+   60   A          0.576714       0.576714
+   61   A          0.596952       0.596952
+   62   A          0.603603       0.603603
+   63   A          0.616397       0.616397
+   64   A          0.641975       0.641975
+   65   A          0.643878       0.643878
+   66   A          0.654322       0.654322
+   67   A          0.667705       0.667705
+   68   A          0.675550       0.675550
+   69   A          0.697298       0.697298
+   70   A          0.714334       0.714334
+   71   A          0.730286       0.730286
+   72   A          0.749281       0.749281
+   73   A          0.760720       0.760720
+   74   A          0.803525       0.803525
+   75   A          0.807789       0.807789
+   76   A          0.830363       0.830363
+   77   A          0.849711       0.849711
+   78   A          0.887502       0.887502
+   79   A          0.899295       0.899295
+   80   A          0.913858       0.913858
+   81   A          0.930623       0.930623
+   82   A          0.957668       0.957668
+   83   A          0.974812       0.974812
+   84   A          0.979018       0.979018
+   85   A          1.005132       1.005132
+   86   A          1.047960       1.047960
+   87   A          1.055915       1.055915
+   88   A          1.185403       1.185403
+   89   A          1.186256       1.186256
+   90   A          1.206950       1.206950
+   91   A          1.214703       1.214703
+   92   A          1.254535       1.254535
+   93   A          1.293148       1.293148
+   94   A          1.326979       1.326979
+   95   A          1.362101       1.362101
+   96   A          1.394784       1.394784
+   97   A          1.478534       1.478534
+   98   A          1.490624       1.490624
+   99   A          1.641165       1.641165
+  100   A          1.815414       1.815414
+  101   A          1.818060       1.818060
+  102   A          1.839116       1.839116
+  103   A          1.850780       1.850780
+  104   A          1.866239       1.866239
+  105   A          1.936424       1.936424
+  106   A          1.950167       1.950167
+  107   A          1.964122       1.964122
+  108   A          1.984787       1.984787
+  109   A          2.050588       2.050588
+  110   A          2.074759       2.074759
+  111   A          2.083107       2.083107
+  112   A          2.087508       2.087508
+  113   A          2.113732       2.113732
+  114   A          2.130089       2.130089
+  115   A          2.157327       2.157327
+  116   A          2.184134       2.184134
+  117   A          2.217223       2.217223
+  118   A          2.334924       2.334924
+  119   A          2.356178       2.356178
+  120   A          2.362106       2.362106
+  121   A          2.373153       2.373153
+  122   A          2.376145       2.376145
+  123   A          2.382675       2.382675
+  124   A          2.390647       2.390647
+  125   A          2.402183       2.402183
+  126   A          2.408889       2.408889
+  127   A          2.413310       2.413310
+  128   A          2.434833       2.434833
+  129   A          2.458183       2.458183
+  130   A          2.526869       2.526869
+  131   A          2.543931       2.543931
+  132   A          2.588896       2.588896
+  133   A          2.666574       2.666574
+  134   A          2.682628       2.682628
+  135   A          2.763372       2.763372
+  136   A          2.894844       2.894844
+  137   A          2.898923       2.898923
+  138   A          2.914116       2.914116
+  139   A          2.919144       2.919144
+  140   A          2.939030       2.939030
+  141   A          2.959684       2.959684
+  142   A          3.110942       3.110942
+  143   A          3.135604       3.135604
+  144   A          3.169456       3.169456
+  145   A          3.499955       3.499955
+  146   A          3.520885       3.520885
+  147   A          3.536853       3.536853
+  148   A          3.548112       3.548112
+  149   A          3.563345       3.563345
+  150   A          3.613924       3.613924
+ 
+ RETURNING FROM SCF ALGORITHM
+ ======================================================================
+
+ ************************ 2026-02-26 19:17:10 *************************
+ Executing orbloc...
+
+ Allocation of 46.0 Gbytes of memory...
+
+ Localization of occupied orbitals...
+ Localization type: Boys
+ Localization algorithm: Jacobi
+ 
+ Step   Convergence
+   1   3.474669147805
+   2   0.614788057444
+   3   0.002146184793
+   4   0.000014438075
+   5   0.000000272330
+   6   0.000000004378
+   7   0.000000000054
+
+ Localization succeeded.
+
+ File MOCOEF is overwritten with localized orbitals.
+ 
+ CPU time [min]:     0.219                   Wall time [min]:     0.017
+
+ ************************ 2026-02-26 19:17:11 *************************
+ Executing integ...
+
+ Allocation of 46.0 Gbytes of memory...
+ 
+ 
+ Basis set information:
+ 
+ Maximum angular momentum: g
+ Maximum number of contracted Gaussians:   11
+ Maximum number of primitive Gaussians:    14
+ Spherical harmonic GTOs are used.
+ 
+ 
+ Conventional basis set:
+ 
+   1  N  aug-cc-pvdz [ 10s 5p 2d | 4s 3p 2d ]
+   2  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   3  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   4  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   5  N  aug-cc-pvdz [ 10s 5p 2d | 4s 3p 2d ]
+   6  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   7  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   8  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+   9  N  aug-cc-pvdz [ 10s 5p 2d | 4s 3p 2d ]
+  10  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+  11  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+  12  H  aug-cc-pvdz [ 5s 2p | 3s 2p ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N4s          1N1pz         1N1py         1N1px         1N2pz         1N2py         1N2px     
+    1    1N3pz         1N3py         1N3px         1N1d-2        1N1d-1        1N1d0         1N1d+1        1N1d+2        1N2d-2        1N2d-1    
+    2    1N2d0         1N2d+1        1N2d+2        2H1s          2H2s          2H3s          2H1pz         2H1py         2H1px         2H2pz     
+    3    2H2py         2H2px         3H1s          3H2s          3H3s          3H1pz         3H1py         3H1px         3H2pz         3H2py     
+    4    3H2px         4H1s          4H2s          4H3s          4H1pz         4H1py         4H1px         4H2pz         4H2py         4H2px     
+    5    5N1s          5N2s          5N3s          5N4s          5N1pz         5N1py         5N1px         5N2pz         5N2py         5N2px     
+    6    5N3pz         5N3py         5N3px         5N1d-2        5N1d-1        5N1d0         5N1d+1        5N1d+2        5N2d-2        5N2d-1    
+    7    5N2d0         5N2d+1        5N2d+2        6H1s          6H2s          6H3s          6H1pz         6H1py         6H1px         6H2pz     
+    8    6H2py         6H2px         7H1s          7H2s          7H3s          7H1pz         7H1py         7H1px         7H2pz         7H2py     
+    9    7H2px         8H1s          8H2s          8H3s          8H1pz         8H1py         8H1px         8H2pz         8H2py         8H2px     
+   10    9N1s          9N2s          9N3s          9N4s          9N1pz         9N1py         9N1px         9N2pz         9N2py         9N2px     
+   11    9N3pz         9N3py         9N3px         9N1d-2        9N1d-1        9N1d0         9N1d+1        9N1d+2        9N2d-2        9N2d-1    
+   12    9N2d0         9N2d+1        9N2d+2       10H1s         10H2s         10H3s         10H1pz        10H1py        10H1px        10H2pz     
+   13   10H2py        10H2px        11H1s         11H2s         11H3s         11H1pz        11H1py        11H1px        11H2pz        11H2py     
+   14   11H2px        12H1s         12H2s         12H3s         12H1pz        12H1py        12H1px        12H2pz        12H2py        12H2px     
+ 
+ Maximum number of basis functions per shell:   10
+ Total number of basis functions:    150
+ 
+ 
+ Fitting basis set for the SCF calculation:
+ 
+   1  N  aug-cc-pvdz-ri-jk [ 11s 8p 6d 3f | 11s 8p 6d 3f ]
+   2  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   3  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   4  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   5  N  aug-cc-pvdz-ri-jk [ 11s 8p 6d 3f | 11s 8p 6d 3f ]
+   6  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   7  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   8  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+   9  N  aug-cc-pvdz-ri-jk [ 11s 8p 6d 3f | 11s 8p 6d 3f ]
+  10  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+  11  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+  12  H  aug-cc-pvdz-ri-jk [ 5s 4p 3d | 5s 4p 3d ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N4s          1N5s          1N6s          1N7s          1N8s          1N9s          1N10s     
+    1    1N11s         1N1pz         1N1py         1N1px         1N2pz         1N2py         1N2px         1N3pz         1N3py         1N3px     
+    2    1N4pz         1N4py         1N4px         1N5pz         1N5py         1N5px         1N6pz         1N6py         1N6px         1N7pz     
+    3    1N7py         1N7px         1N8pz         1N8py         1N8px         1N1d-2        1N1d-1        1N1d0         1N1d+1        1N1d+2    
+    4    1N2d-2        1N2d-1        1N2d0         1N2d+1        1N2d+2        1N3d-2        1N3d-1        1N3d0         1N3d+1        1N3d+2    
+    5    1N4d-2        1N4d-1        1N4d0         1N4d+1        1N4d+2        1N5d-2        1N5d-1        1N5d0         1N5d+1        1N5d+2    
+    6    1N6d-2        1N6d-1        1N6d0         1N6d+1        1N6d+2        1N1f-3        1N1f-2        1N1f-1        1N1f0         1N1f+1    
+    7    1N1f+2        1N1f+3        1N2f-3        1N2f-2        1N2f-1        1N2f0         1N2f+1        1N2f+2        1N2f+3        1N3f-3    
+    8    1N3f-2        1N3f-1        1N3f0         1N3f+1        1N3f+2        1N3f+3        2H1s          2H2s          2H3s          2H4s      
+    9    2H5s          2H1pz         2H1py         2H1px         2H2pz         2H2py         2H2px         2H3pz         2H3py         2H3px     
+   10    2H4pz         2H4py         2H4px         2H1d-2        2H1d-1        2H1d0         2H1d+1        2H1d+2        2H2d-2        2H2d-1    
+   11    2H2d0         2H2d+1        2H2d+2        2H3d-2        2H3d-1        2H3d0         2H3d+1        2H3d+2        3H1s          3H2s      
+   12    3H3s          3H4s          3H5s          3H1pz         3H1py         3H1px         3H2pz         3H2py         3H2px         3H3pz     
+   13    3H3py         3H3px         3H4pz         3H4py         3H4px         3H1d-2        3H1d-1        3H1d0         3H1d+1        3H1d+2    
+   14    3H2d-2        3H2d-1        3H2d0         3H2d+1        3H2d+2        3H3d-2        3H3d-1        3H3d0         3H3d+1        3H3d+2    
+   15    4H1s          4H2s          4H3s          4H4s          4H5s          4H1pz         4H1py         4H1px         4H2pz         4H2py     
+   16    4H2px         4H3pz         4H3py         4H3px         4H4pz         4H4py         4H4px         4H1d-2        4H1d-1        4H1d0     
+   17    4H1d+1        4H1d+2        4H2d-2        4H2d-1        4H2d0         4H2d+1        4H2d+2        4H3d-2        4H3d-1        4H3d0     
+   18    4H3d+1        4H3d+2        5N1s          5N2s          5N3s          5N4s          5N5s          5N6s          5N7s          5N8s      
+   19    5N9s          5N10s         5N11s         5N1pz         5N1py         5N1px         5N2pz         5N2py         5N2px         5N3pz     
+   20    5N3py         5N3px         5N4pz         5N4py         5N4px         5N5pz         5N5py         5N5px         5N6pz         5N6py     
+   21    5N6px         5N7pz         5N7py         5N7px         5N8pz         5N8py         5N8px         5N1d-2        5N1d-1        5N1d0     
+   22    5N1d+1        5N1d+2        5N2d-2        5N2d-1        5N2d0         5N2d+1        5N2d+2        5N3d-2        5N3d-1        5N3d0     
+   23    5N3d+1        5N3d+2        5N4d-2        5N4d-1        5N4d0         5N4d+1        5N4d+2        5N5d-2        5N5d-1        5N5d0     
+   24    5N5d+1        5N5d+2        5N6d-2        5N6d-1        5N6d0         5N6d+1        5N6d+2        5N1f-3        5N1f-2        5N1f-1    
+   25    5N1f0         5N1f+1        5N1f+2        5N1f+3        5N2f-3        5N2f-2        5N2f-1        5N2f0         5N2f+1        5N2f+2    
+   26    5N2f+3        5N3f-3        5N3f-2        5N3f-1        5N3f0         5N3f+1        5N3f+2        5N3f+3        6H1s          6H2s      
+   27    6H3s          6H4s          6H5s          6H1pz         6H1py         6H1px         6H2pz         6H2py         6H2px         6H3pz     
+   28    6H3py         6H3px         6H4pz         6H4py         6H4px         6H1d-2        6H1d-1        6H1d0         6H1d+1        6H1d+2    
+   29    6H2d-2        6H2d-1        6H2d0         6H2d+1        6H2d+2        6H3d-2        6H3d-1        6H3d0         6H3d+1        6H3d+2    
+   30    7H1s          7H2s          7H3s          7H4s          7H5s          7H1pz         7H1py         7H1px         7H2pz         7H2py     
+   31    7H2px         7H3pz         7H3py         7H3px         7H4pz         7H4py         7H4px         7H1d-2        7H1d-1        7H1d0     
+   32    7H1d+1        7H1d+2        7H2d-2        7H2d-1        7H2d0         7H2d+1        7H2d+2        7H3d-2        7H3d-1        7H3d0     
+   33    7H3d+1        7H3d+2        8H1s          8H2s          8H3s          8H4s          8H5s          8H1pz         8H1py         8H1px     
+   34    8H2pz         8H2py         8H2px         8H3pz         8H3py         8H3px         8H4pz         8H4py         8H4px         8H1d-2    
+   35    8H1d-1        8H1d0         8H1d+1        8H1d+2        8H2d-2        8H2d-1        8H2d0         8H2d+1        8H2d+2        8H3d-2    
+   36    8H3d-1        8H3d0         8H3d+1        8H3d+2        9N1s          9N2s          9N3s          9N4s          9N5s          9N6s      
+   37    9N7s          9N8s          9N9s          9N10s         9N11s         9N1pz         9N1py         9N1px         9N2pz         9N2py     
+   38    9N2px         9N3pz         9N3py         9N3px         9N4pz         9N4py         9N4px         9N5pz         9N5py         9N5px     
+   39    9N6pz         9N6py         9N6px         9N7pz         9N7py         9N7px         9N8pz         9N8py         9N8px         9N1d-2    
+   40    9N1d-1        9N1d0         9N1d+1        9N1d+2        9N2d-2        9N2d-1        9N2d0         9N2d+1        9N2d+2        9N3d-2    
+   41    9N3d-1        9N3d0         9N3d+1        9N3d+2        9N4d-2        9N4d-1        9N4d0         9N4d+1        9N4d+2        9N5d-2    
+   42    9N5d-1        9N5d0         9N5d+1        9N5d+2        9N6d-2        9N6d-1        9N6d0         9N6d+1        9N6d+2        9N1f-3    
+   43    9N1f-2        9N1f-1        9N1f0         9N1f+1        9N1f+2        9N1f+3        9N2f-3        9N2f-2        9N2f-1        9N2f0     
+   44    9N2f+1        9N2f+2        9N2f+3        9N3f-3        9N3f-2        9N3f-1        9N3f0         9N3f+1        9N3f+2        9N3f+3    
+   45   10H1s         10H2s         10H3s         10H4s         10H5s         10H1pz        10H1py        10H1px        10H2pz        10H2py     
+   46   10H2px        10H3pz        10H3py        10H3px        10H4pz        10H4py        10H4px        10H1d-2       10H1d-1       10H1d0     
+   47   10H1d+1       10H1d+2       10H2d-2       10H2d-1       10H2d0        10H2d+1       10H2d+2       10H3d-2       10H3d-1       10H3d0     
+   48   10H3d+1       10H3d+2       11H1s         11H2s         11H3s         11H4s         11H5s         11H1pz        11H1py        11H1px     
+   49   11H2pz        11H2py        11H2px        11H3pz        11H3py        11H3px        11H4pz        11H4py        11H4px        11H1d-2    
+   50   11H1d-1       11H1d0        11H1d+1       11H1d+2       11H2d-2       11H2d-1       11H2d0        11H2d+1       11H2d+2       11H3d-2    
+   51   11H3d-1       11H3d0        11H3d+1       11H3d+2       12H1s         12H2s         12H3s         12H4s         12H5s         12H1pz     
+   52   12H1py        12H1px        12H2pz        12H2py        12H2px        12H3pz        12H3py        12H3px        12H4pz        12H4py     
+   53   12H4px        12H1d-2       12H1d-1       12H1d0        12H1d+1       12H1d+2       12H2d-2       12H2d-1       12H2d0        12H2d+1    
+   54   12H2d+2       12H3d-2       12H3d-1       12H3d0        12H3d+1       12H3d+2    
+ 
+ Maximum number of basis functions per shell:   30
+ Total number of basis functions:    546
+ 
+ 
+ Fitting basis set for the correlation calculation:
+ 
+   1  N  aug-cc-pvdz-ri [ 8s 6p 5d 3f | 8s 6p 5d 3f ]
+   2  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   3  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   4  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   5  N  aug-cc-pvdz-ri [ 8s 6p 5d 3f | 8s 6p 5d 3f ]
+   6  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   7  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   8  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+   9  N  aug-cc-pvdz-ri [ 8s 6p 5d 3f | 8s 6p 5d 3f ]
+  10  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+  11  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+  12  H  aug-cc-pvdz-ri [ 4s 3p 2d | 4s 3p 2d ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N4s          1N5s          1N6s          1N7s          1N8s          1N1pz         1N1py     
+    1    1N1px         1N2pz         1N2py         1N2px         1N3pz         1N3py         1N3px         1N4pz         1N4py         1N4px     
+    2    1N5pz         1N5py         1N5px         1N6pz         1N6py         1N6px         1N1d-2        1N1d-1        1N1d0         1N1d+1    
+    3    1N1d+2        1N2d-2        1N2d-1        1N2d0         1N2d+1        1N2d+2        1N3d-2        1N3d-1        1N3d0         1N3d+1    
+    4    1N3d+2        1N4d-2        1N4d-1        1N4d0         1N4d+1        1N4d+2        1N5d-2        1N5d-1        1N5d0         1N5d+1    
+    5    1N5d+2        1N1f-3        1N1f-2        1N1f-1        1N1f0         1N1f+1        1N1f+2        1N1f+3        1N2f-3        1N2f-2    
+    6    1N2f-1        1N2f0         1N2f+1        1N2f+2        1N2f+3        1N3f-3        1N3f-2        1N3f-1        1N3f0         1N3f+1    
+    7    1N3f+2        1N3f+3        2H1s          2H2s          2H3s          2H4s          2H1pz         2H1py         2H1px         2H2pz     
+    8    2H2py         2H2px         2H3pz         2H3py         2H3px         2H1d-2        2H1d-1        2H1d0         2H1d+1        2H1d+2    
+    9    2H2d-2        2H2d-1        2H2d0         2H2d+1        2H2d+2        3H1s          3H2s          3H3s          3H4s          3H1pz     
+   10    3H1py         3H1px         3H2pz         3H2py         3H2px         3H3pz         3H3py         3H3px         3H1d-2        3H1d-1    
+   11    3H1d0         3H1d+1        3H1d+2        3H2d-2        3H2d-1        3H2d0         3H2d+1        3H2d+2        4H1s          4H2s      
+   12    4H3s          4H4s          4H1pz         4H1py         4H1px         4H2pz         4H2py         4H2px         4H3pz         4H3py     
+   13    4H3px         4H1d-2        4H1d-1        4H1d0         4H1d+1        4H1d+2        4H2d-2        4H2d-1        4H2d0         4H2d+1    
+   14    4H2d+2        5N1s          5N2s          5N3s          5N4s          5N5s          5N6s          5N7s          5N8s          5N1pz     
+   15    5N1py         5N1px         5N2pz         5N2py         5N2px         5N3pz         5N3py         5N3px         5N4pz         5N4py     
+   16    5N4px         5N5pz         5N5py         5N5px         5N6pz         5N6py         5N6px         5N1d-2        5N1d-1        5N1d0     
+   17    5N1d+1        5N1d+2        5N2d-2        5N2d-1        5N2d0         5N2d+1        5N2d+2        5N3d-2        5N3d-1        5N3d0     
+   18    5N3d+1        5N3d+2        5N4d-2        5N4d-1        5N4d0         5N4d+1        5N4d+2        5N5d-2        5N5d-1        5N5d0     
+   19    5N5d+1        5N5d+2        5N1f-3        5N1f-2        5N1f-1        5N1f0         5N1f+1        5N1f+2        5N1f+3        5N2f-3    
+   20    5N2f-2        5N2f-1        5N2f0         5N2f+1        5N2f+2        5N2f+3        5N3f-3        5N3f-2        5N3f-1        5N3f0     
+   21    5N3f+1        5N3f+2        5N3f+3        6H1s          6H2s          6H3s          6H4s          6H1pz         6H1py         6H1px     
+   22    6H2pz         6H2py         6H2px         6H3pz         6H3py         6H3px         6H1d-2        6H1d-1        6H1d0         6H1d+1    
+   23    6H1d+2        6H2d-2        6H2d-1        6H2d0         6H2d+1        6H2d+2        7H1s          7H2s          7H3s          7H4s      
+   24    7H1pz         7H1py         7H1px         7H2pz         7H2py         7H2px         7H3pz         7H3py         7H3px         7H1d-2    
+   25    7H1d-1        7H1d0         7H1d+1        7H1d+2        7H2d-2        7H2d-1        7H2d0         7H2d+1        7H2d+2        8H1s      
+   26    8H2s          8H3s          8H4s          8H1pz         8H1py         8H1px         8H2pz         8H2py         8H2px         8H3pz     
+   27    8H3py         8H3px         8H1d-2        8H1d-1        8H1d0         8H1d+1        8H1d+2        8H2d-2        8H2d-1        8H2d0     
+   28    8H2d+1        8H2d+2        9N1s          9N2s          9N3s          9N4s          9N5s          9N6s          9N7s          9N8s      
+   29    9N1pz         9N1py         9N1px         9N2pz         9N2py         9N2px         9N3pz         9N3py         9N3px         9N4pz     
+   30    9N4py         9N4px         9N5pz         9N5py         9N5px         9N6pz         9N6py         9N6px         9N1d-2        9N1d-1    
+   31    9N1d0         9N1d+1        9N1d+2        9N2d-2        9N2d-1        9N2d0         9N2d+1        9N2d+2        9N3d-2        9N3d-1    
+   32    9N3d0         9N3d+1        9N3d+2        9N4d-2        9N4d-1        9N4d0         9N4d+1        9N4d+2        9N5d-2        9N5d-1    
+   33    9N5d0         9N5d+1        9N5d+2        9N1f-3        9N1f-2        9N1f-1        9N1f0         9N1f+1        9N1f+2        9N1f+3    
+   34    9N2f-3        9N2f-2        9N2f-1        9N2f0         9N2f+1        9N2f+2        9N2f+3        9N3f-3        9N3f-2        9N3f-1    
+   35    9N3f0         9N3f+1        9N3f+2        9N3f+3       10H1s         10H2s         10H3s         10H4s         10H1pz        10H1py     
+   36   10H1px        10H2pz        10H2py        10H2px        10H3pz        10H3py        10H3px        10H1d-2       10H1d-1       10H1d0     
+   37   10H1d+1       10H1d+2       10H2d-2       10H2d-1       10H2d0        10H2d+1       10H2d+2       11H1s         11H2s         11H3s      
+   38   11H4s         11H1pz        11H1py        11H1px        11H2pz        11H2py        11H2px        11H3pz        11H3py        11H3px     
+   39   11H1d-2       11H1d-1       11H1d0        11H1d+1       11H1d+2       11H2d-2       11H2d-1       11H2d0        11H2d+1       11H2d+2    
+   40   12H1s         12H2s         12H3s         12H4s         12H1pz        12H1py        12H1px        12H2pz        12H2py        12H2px     
+   41   12H3pz        12H3py        12H3px        12H1d-2       12H1d-1       12H1d0        12H1d+1       12H1d+2       12H2d-2       12H2d-1    
+   42   12H2d0        12H2d+1       12H2d+2    
+ 
+ Maximum number of basis functions per shell:   30
+ Total number of basis functions:    423
+ 
+ 
+ Old basis set for SCF restart
+ 
+   1  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+   2  H  def2-svp [ 4s 1p | 2s 1p ]
+   3  H  def2-svp [ 4s 1p | 2s 1p ]
+   4  H  def2-svp [ 4s 1p | 2s 1p ]
+   5  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+   6  H  def2-svp [ 4s 1p | 2s 1p ]
+   7  H  def2-svp [ 4s 1p | 2s 1p ]
+   8  H  def2-svp [ 4s 1p | 2s 1p ]
+   9  N  def2-svp [ 7s 4p 1d | 3s 2p 1d ]
+  10  H  def2-svp [ 4s 1p | 2s 1p ]
+  11  H  def2-svp [ 4s 1p | 2s 1p ]
+  12  H  def2-svp [ 4s 1p | 2s 1p ]
+ 
+ Basis functions:
+            1             2             3             4             5             6             7             8             9            10
+    0    1N1s          1N2s          1N3s          1N1pz         1N1py         1N1px         1N2pz         1N2py         1N2px         1N1d-2    
+    1    1N1d-1        1N1d0         1N1d+1        1N1d+2        2H1s          2H2s          2H1pz         2H1py         2H1px         3H1s      
+    2    3H2s          3H1pz         3H1py         3H1px         4H1s          4H2s          4H1pz         4H1py         4H1px         5N1s      
+    3    5N2s          5N3s          5N1pz         5N1py         5N1px         5N2pz         5N2py         5N2px         5N1d-2        5N1d-1    
+    4    5N1d0         5N1d+1        5N1d+2        6H1s          6H2s          6H1pz         6H1py         6H1px         7H1s          7H2s      
+    5    7H1pz         7H1py         7H1px         8H1s          8H2s          8H1pz         8H1py         8H1px         9N1s          9N2s      
+    6    9N3s          9N1pz         9N1py         9N1px         9N2pz         9N2py         9N2px         9N1d-2        9N1d-1        9N1d0     
+    7    9N1d+1        9N1d+2       10H1s         10H2s         10H1pz        10H1py        10H1px        11H1s         11H2s         11H1pz     
+    8   11H1py        11H1px        12H1s         12H2s         12H1pz        12H1py        12H1px     
+ 
+ Maximum number of basis functions per shell:   30
+ Total number of basis functions:     87
+ 
+ 
+ Calculation of two-center Coulomb integrals...
+   1% done.
+  12% done.
+  25% done.
+  38% done.
+  53% done.
+  70% done.
+  81% done.
+  95% done.
+ 100% done.
+ CPU time [min]:     0.012                   Wall time [min]:     0.004
+ 
+
+ ************************ 2026-02-26 19:17:11 *************************
+ Executing drpa...
+
+ Three-index integral transformation
+ Allocation of 46.0 Gbytes of memory...
+ 
+ 
+ Constructing PAOs...
+ PAO norm tolerance:     1.0000E-05
+ Kept PAOs:    147   135  108.8889
+ CPU time [min]:     0.005                   Wall time [min]:     0.003
+ 
+ Executing the Boughton-Pulay algorithm...
+  with occ/virt MO completeness:    0.9990000000    0.9800000000
+ 
+   MO  Natoms  Completeness   Atoms
+    1    3     0.999100        9   11   12
+    2    3     0.999406        5    6    8
+    3    4     0.999061        1    3    4    6
+    4    4     0.999876        5    6    7    8
+    5    4     0.999818        9   10   11   12
+    6    4     0.999683        1    2    3    4
+    7    4     0.999973        9   10   11   12
+    8    4     0.999894        1    2    3    4
+    9    3     0.999396        1    3    4
+   10    4     0.999199        5    6    7    8
+   11    4     0.999797        5    6    7    8
+   12    4     0.999823        9   10   11   12
+ 
+   13    4     0.995628        1    2    3    4
+   14    4     0.998391        1    2    3    4
+   15    3     0.981377        1    2    5
+   16    3     0.996632        1    2    3
+   17    4     0.995052        1    2    3    4
+   18    3     0.986892        1    3    4
+   19    2     0.982028        1    2
+   20    2     0.983002        1    4
+   21    3     0.994976        1    3    4
+   22    1     0.983091        1
+   23    2     0.982103        1    5
+   24    3     0.983082        1    3   11
+   25    1     0.999426        1
+   26    1     0.999882        1
+   27    1     0.999139        1
+   28    1     0.999570        1
+   29    1     0.999502        1
+   30    1     0.998018        1
+   31    1     0.998574        1
+   32    1     0.993594        1
+   33    1     0.999220        1
+   34    1     0.986366        1
+   35    2     0.993443        1    2
+   36    2     0.983354        1    2
+   37    5     0.984002        1    2    3    6   11
+   38    2     0.999464        1    2
+   39    2     0.998609        1    2
+   40    2     0.998574        1    2
+   41    2     0.987892        1    2
+   42    3     0.990145        1    2    5
+   43    4     0.993547        1    2    3    4
+   44    2     0.992251        1    3
+   45    2     0.982437        1    3
+   46    4     0.987627        1    3    6   11
+   47    2     0.998574        1    3
+   48    2     0.998634        1    3
+   49    2     0.998911        1    3
+   50    2     0.988798        1    3
+   51    2     0.981801        1    3
+   52    3     0.992147        1    3    9
+   53    2     0.996519        1    4
+   54    2     0.996637        1    4
+   55    2     0.982819        1    4
+   56    3     0.999628        1    2    4
+   57    2     0.999539        1    4
+   58    2     0.998524        1    4
+   59    2     0.993217        1    4
+   60    2     0.996961        1    4
+   61    2     0.988759        1    4
+   62    4     0.997826        5    6    7    8
+   63    4     0.999302        5    6    7    8
+   64    3     0.982614        1    5    6
+   65    4     0.996723        5    6    7    8
+   66    4     0.994442        5    6    7    8
+   67    3     0.996747        5    7    8
+   68    2     0.984406        5    8
+   69    3     0.992414        5    6    8
+   70    3     0.998520        5    7    8
+   71    1     0.987399        5
+   72    2     0.981962        1    5
+   73    3     0.982371        5    7   12
+   74    1     0.999577        5
+   75    1     0.999617        5
+   76    1     0.999913        5
+   77    1     0.999382        5
+   78    1     0.999309        5
+   79    1     0.998171        5
+   80    1     0.998741        5
+   81    1     0.997898        5
+   82    1     0.998958        5
+   83    1     0.993563        5
+   84    3     0.997080        1    5    6
+   85    3     0.993746        1    5    6
+   86    4     0.988376        1    5    6   12
+   87    2     0.999134        5    6
+   88    2     0.990488        5    6
+   89    2     0.998274        5    6
+   90    3     0.992242        2    5    6
+   91    4     0.982706        1    4    5    6
+   92    4     0.982547        5    6    7    8
+   93    2     0.992735        5    7
+   94    2     0.983878        5    7
+   95    4     0.990978        1    5    7   12
+   96    2     0.999369        5    7
+   97    2     0.998165        5    7
+   98    2     0.998656        5    7
+   99    2     0.997885        5    7
+  100    2     0.980732        5    7
+  101    3     0.987055        5    7    9
+  102    2     0.997095        5    8
+  103    2     0.996283        5    8
+  104    3     0.992999        1    5    8
+  105    2     0.999532        5    8
+  106    2     0.998325        5    8
+  107    2     0.998788        5    8
+  108    2     0.999333        5    8
+  109    2     0.990434        5    8
+  110    2     0.989040        5    8
+  111    4     0.999515        9   10   11   12
+  112    4     0.999642        9   10   11   12
+  113    3     0.983013        9   11   12
+  114    3     0.993530        9   10   11
+  115    3     0.992669        9   11   12
+  116    4     0.988863        9   10   11   12
+  117    3     0.997112        9   10   11
+  118    3     0.997070        9   11   12
+  119    2     0.984073        9   11
+  120    1     0.988876        9
+  121    3     0.980284        9   11   12
+  122    3     0.994557        1    5    9
+  123    1     0.999254        9
+  124    1     0.999679        9
+  125    1     0.999213        9
+  126    1     0.999776        9
+  127    1     0.999893        9
+  128    1     0.997982        9
+  129    1     0.999407        9
+  130    1     0.998382        9
+  131    1     0.999506        9
+  132    1     0.999520        9
+  133    2     0.997860        9   10
+  134    2     0.996098        9   10
+  135    3     0.980221        5    9   10
+  136    2     0.999484        9   10
+  137    2     0.998398        9   10
+  138    2     0.999013        9   10
+  139    2     0.989519        9   10
+  140    2     0.991279        9   10
+  141    2     0.994331        9   10
+  142    2     0.993676        9   11
+  143    2     0.984796        9   11
+  144    8     0.980491        4    5    6    8    9   10   11   12
+  145    2     0.998554        9   11
+  146    2     0.998638        9   11
+  147    2     0.999381        9   11
+  148    2     0.988538        9   11
+  149    2     0.980972        9   11
+  150    3     0.991078        3    9   11
+  151    2     0.993558        9   12
+  152    2     0.984850        9   12
+  153    3     0.984058        5    9   12
+  154    2     0.983108       10   12
+  155    2     0.998914        9   12
+  156    2     0.999208        9   12
+  157    2     0.990205        9   12
+  158    2     0.980207        9   12
+  159    3     0.990907        7    9   12
+ CPU time [min]:     0.035                   Wall time [min]:     0.003
+ 
+ C1 point group was detected
+ 
+ Constructing orbital domains...
+ CPU time [min]:     0.073                   Wall time [min]:     0.004
+ 
+ Dimensions of the primary domains:     Minimum / Average / Maximum
+ 
+ Number of atoms in domain:                   8       9.5        11
+ Number of atoms in occ BP domain:            3       3.8         4
+ Number of atoms in PAO BP domain:            1       2.3         8
+ Number of atomic orbitals:                 100     126.3       141
+ Number of PAOs:                             40      46.8        49
+ 
+ Prescreening pairs...
+ CPU time [min]:     0.095                   Wall time [min]:     0.004
+ 
+ Occupied LMO domain definition with Boughton-Pulay completeness:    0.9999500000
+ 
+   MO  Natoms  Completeness   Atoms
+    1    8     0.999951        1    3    6    7    9   10   11   12
+    2    6     0.999984        1    5    6    7    8   12
+    3    7     0.999984        1    2    3    4    5    6    8
+    4    6     0.999994        1    5    6    7    8    9
+    5    9     0.999999        1    3    4    5    7    9   10   11   12
+    6    8     0.999977        1    2    3    4    5    6    7   11
+    7    7     0.999990        3    5    7    9   10   11   12
+    8    8     0.999962        1    2    3    4    5    7    8   11
+    9    9     0.999966        1    2    3    4    6    9   10   11   12
+   10   11     0.999999        1    2    3    4    5    6    7    8    9   11   12
+   11    7     0.999955        2    5    6    7    8    9   12
+   12   10     0.999999        1    3    5    6    7    8    9   10   11   12
+ 
+ Executing the Boughton-Pulay algorithm...
+  with occ MO completeness:    0.9850000000
+ 
+   MO  Natoms  Completeness   Atoms
+    1    1     0.997937        9
+    2    1     0.998416        5
+    3    1     0.997017        1
+    4    2     0.998998        5    8
+    5    2     0.998960        9   11
+    6    2     0.998711        1    4
+    7    2     0.999081        9   10
+    8    2     0.999013        1    2
+    9    2     0.998899        1    3
+   10    2     0.998209        5    6
+   11    2     0.998942        5    7
+   12    2     0.998957        9   12
+ CPU time [min]:     0.114                   Wall time [min]:     0.005
+ 
+ Dimensions of the occupied LMO domains:  Minimum / Average / Maximum
+ 
+ Number of atoms in domain:                   6       8.0        11
+ Number of atomic orbitals:                  82     104.7       141
+ 
+ Total number of pairs:   66
+ Number of distant pairs: 0 (0.0%)
+ Sum of multipole based pair energies:      0.0000000000
+ 
+ CPU time [min]:     0.119                   Wall time [min]:     0.005
+ Number of strong pairs: 66 (100.0%)
+ chtol from minp:   1.000000000000000E-006
+        1.99 MB memory is used for domain independent quantities
+ 
+ Calculating the contribution of occupied LMOs...
+    using local fitting domains
+ 
+ MO:     1
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050833293414
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        57  (42.22%)
+ Number of Cholesky vectors:      8
+ MP2 energy in LIS [au]:         -0.050793221238
+ Correction for frozen LNO [au]: -0.000040072176     (0.079%)
+ Number of NAFs:                176  (41.61%)
+ CPU time [min]:     1.262                   Wall time [min]:     0.025
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    57   176
+     28.32 MB is the minimal memory requirement for (T)
+     16.74 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.304410627453
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050789908144
+ 
+ CPU time [min]:     1.326                   Wall time [min]:     0.026
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.147188334636       -0.328062480309
+ Iteration  2        0.041045010848       -0.337418817537
+ Iteration  3        0.009985882075       -0.338412835033
+ Iteration  4        0.003231249786       -0.338423144621
+ Iteration  5        0.000901831355       -0.338440392675
+ Iteration  6        0.000302104384       -0.338441692718
+ Iteration  7        0.000100231212       -0.338439460547
+ Iteration  8        0.000037307967       -0.338439055259
+ 
+ CCSD iteration has converged in  8 steps.
+       57.90 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      1.002E-02            D1 diagnostic:      2.518E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054058304985
+ 
+ CPU time [min]:     1.739                   Wall time [min]:     0.033
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       37.25 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001549381746
+ CCSD(T) correlation energy [au]:       -0.055607686731
+ 
+ CPU time [min]:     2.034                   Wall time [min]:     0.038
+ 
+ MO:     2
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.051064944103
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        56  (41.48%)
+ Number of Cholesky vectors:      8
+ MP2 energy in LIS [au]:         -0.051039174778
+ Correction for frozen LNO [au]: -0.000025769325     (0.050%)
+ Number of NAFs:                172  (40.66%)
+ CPU time [min]:     2.999                   Wall time [min]:     0.055
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    56   172
+     27.02 MB is the minimal memory requirement for (T)
+     16.08 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.296474311816
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.051035968045
+ 
+ CPU time [min]:     3.060                   Wall time [min]:     0.056
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.143927601557       -0.319289521367
+ Iteration  2        0.040432805288       -0.328281726212
+ Iteration  3        0.010046522108       -0.329285512316
+ Iteration  4        0.003158260288       -0.329273153797
+ Iteration  5        0.000805955388       -0.329293233157
+ Iteration  6        0.000250293777       -0.329293000977
+ Iteration  7        0.000070410753       -0.329290793540
+ 
+ CCSD iteration has converged in  7 steps.
+       54.46 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      9.636E-03            D1 diagnostic:      2.481E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054223299141
+ 
+ CPU time [min]:     3.405                   Wall time [min]:     0.061
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       35.54 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001569431314
+ CCSD(T) correlation energy [au]:       -0.055792730455
+ 
+ CPU time [min]:     3.691                   Wall time [min]:     0.066
+ 
+ MO:     3
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.051257698662
+ Number of occupied LNOs:        11  (91.67%)
+ Number of virtual  LNOs:        62  (45.93%)
+ Number of Cholesky vectors:      8
+ MP2 energy in LIS [au]:         -0.051225508402
+ Correction for frozen LNO [au]: -0.000032190260     (0.063%)
+ Number of NAFs:                192  (45.39%)
+ CPU time [min]:     4.708                   Wall time [min]:     0.085
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    11    62   192
+     36.24 MB is the minimal memory requirement for (T)
+     21.32 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.386084008692
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.051222869970
+ 
+ CPU time [min]:     4.794                   Wall time [min]:     0.086
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.156784164373       -0.408161934794
+ Iteration  2        0.045326905687       -0.418548582170
+ Iteration  3        0.012054430521       -0.420082299764
+ Iteration  4        0.003496428486       -0.420080395660
+ Iteration  5        0.000908044890       -0.420103915963
+ Iteration  6        0.000276758517       -0.420105619629
+ Iteration  7        0.000089512864       -0.420102364524
+ 
+ CCSD iteration has converged in  7 steps.
+       78.71 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      9.460E-03            D1 diagnostic:      2.466E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054453874017
+ 
+ CPU time [min]:     5.274                   Wall time [min]:     0.094
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       49.89 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001612172413
+ CCSD(T) correlation energy [au]:       -0.056066046429
+ 
+ CPU time [min]:     5.669                   Wall time [min]:     0.101
+ 
+ MO:     4
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050243768206
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        53  (39.26%)
+ Number of Cholesky vectors:      8
+ MP2 energy in LIS [au]:         -0.050218925337
+ Correction for frozen LNO [au]: -0.000024842869     (0.049%)
+ Number of NAFs:                162  (38.30%)
+ CPU time [min]:     6.574                   Wall time [min]:     0.116
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    53   162
+     23.50 MB is the minimal memory requirement for (T)
+     14.32 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.296013700791
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050212703016
+ 
+ CPU time [min]:     6.634                   Wall time [min]:     0.117
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.146169529522       -0.319010980730
+ Iteration  2        0.040925887245       -0.328260584180
+ Iteration  3        0.009734560931       -0.329194264233
+ Iteration  4        0.002990341883       -0.329195031931
+ Iteration  5        0.000746810999       -0.329215420848
+ Iteration  6        0.000224849407       -0.329214972878
+ Iteration  7        0.000064068302       -0.329213560772
+ 
+ CCSD iteration has converged in  7 steps.
+       45.11 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      9.149E-03            D1 diagnostic:      2.497E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054164528183
+ 
+ CPU time [min]:     6.981                   Wall time [min]:     0.123
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       30.84 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001385779588
+ CCSD(T) correlation energy [au]:       -0.055550307771
+ 
+ CPU time [min]:     7.261                   Wall time [min]:     0.128
+ 
+ MO:     5
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050273769635
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        54  (40.00%)
+ Number of Cholesky vectors:      7
+ MP2 energy in LIS [au]:         -0.050251306951
+ Correction for frozen LNO [au]: -0.000022462685     (0.045%)
+ Number of NAFs:                167  (39.48%)
+ CPU time [min]:     8.181                   Wall time [min]:     0.143
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    54   167
+     24.75 MB is the minimal memory requirement for (T)
+     14.97 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.291020135892
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050244304473
+ 
+ CPU time [min]:     8.242                   Wall time [min]:     0.144
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.143864264456       -0.313603390752
+ Iteration  2        0.040103170214       -0.322471531579
+ Iteration  3        0.009720362150       -0.323422879574
+ Iteration  4        0.003042801902       -0.323428284840
+ Iteration  5        0.000836097726       -0.323448519816
+ Iteration  6        0.000275537982       -0.323450181052
+ Iteration  7        0.000089119342       -0.323447966109
+ 
+ CCSD iteration has converged in  7 steps.
+       48.14 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      8.912E-03            D1 diagnostic:      2.429E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054251418615
+ 
+ CPU time [min]:     8.575                   Wall time [min]:     0.150
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       32.43 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001384469718
+ CCSD(T) correlation energy [au]:       -0.055635888332
+ 
+ CPU time [min]:     8.855                   Wall time [min]:     0.155
+ 
+ MO:     6
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050192507219
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        53  (39.26%)
+ Number of Cholesky vectors:      7
+ MP2 energy in LIS [au]:         -0.050155073029
+ Correction for frozen LNO [au]: -0.000037434190     (0.075%)
+ Number of NAFs:                166  (39.24%)
+ CPU time [min]:     9.751                   Wall time [min]:     0.170
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    53   166
+     23.77 MB is the minimal memory requirement for (T)
+     14.51 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.298657805529
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050147427547
+ 
+ CPU time [min]:     9.810                   Wall time [min]:     0.171
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.142956997843       -0.321242036000
+ Iteration  2        0.040001588620       -0.330190152201
+ Iteration  3        0.009569314849       -0.331156047165
+ Iteration  4        0.002827813862       -0.331164476767
+ Iteration  5        0.000693131106       -0.331181836504
+ Iteration  6        0.000204339631       -0.331180429399
+ Iteration  7        0.000058241037       -0.331179335209
+ 
+ CCSD iteration has converged in  7 steps.
+       45.28 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      8.659E-03            D1 diagnostic:      2.305E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054110438763
+ 
+ CPU time [min]:    10.137                   Wall time [min]:     0.176
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       31.02 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001377757765
+ CCSD(T) correlation energy [au]:       -0.055488196529
+ 
+ CPU time [min]:    10.422                   Wall time [min]:     0.181
+ 
+ MO:     7
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050063343706
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        50  (37.04%)
+ Number of Cholesky vectors:      8
+ MP2 energy in LIS [au]:         -0.050044165410
+ Correction for frozen LNO [au]: -0.000019178296     (0.038%)
+ Number of NAFs:                156  (36.88%)
+ CPU time [min]:    11.284                   Wall time [min]:     0.196
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    50   156
+     20.58 MB is the minimal memory requirement for (T)
+     12.88 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.256454843716
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050035903557
+ 
+ CPU time [min]:    11.342                   Wall time [min]:     0.197
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.132706162052       -0.275023986052
+ Iteration  2        0.036410543266       -0.282332192960
+ Iteration  3        0.009193559749       -0.283186315639
+ Iteration  4        0.002781350091       -0.283179576335
+ Iteration  5        0.000747652021       -0.283204519456
+ Iteration  6        0.000222306706       -0.283207837900
+ Iteration  7        0.000070266731       -0.283205838049
+ 
+ CCSD iteration has converged in  7 steps.
+       37.26 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      7.272E-03            D1 diagnostic:      2.370E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054027935587
+ 
+ CPU time [min]:    11.659                   Wall time [min]:     0.202
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       26.76 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001366482283
+ CCSD(T) correlation energy [au]:       -0.055394417871
+ 
+ CPU time [min]:    11.915                   Wall time [min]:     0.206
+ 
+ MO:     8
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050242535806
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        54  (40.00%)
+ Number of Cholesky vectors:      8
+ MP2 energy in LIS [au]:         -0.050220286152
+ Correction for frozen LNO [au]: -0.000022249654     (0.044%)
+ Number of NAFs:                167  (39.48%)
+ CPU time [min]:    12.827                   Wall time [min]:     0.222
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    54   167
+     24.75 MB is the minimal memory requirement for (T)
+     14.97 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.287120938723
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050213203480
+ 
+ CPU time [min]:    12.888                   Wall time [min]:     0.223
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.140374934026       -0.309369480767
+ Iteration  2        0.039365631677       -0.318278777723
+ Iteration  3        0.009526333292       -0.319200070735
+ Iteration  4        0.002991369389       -0.319182296724
+ Iteration  5        0.000733935102       -0.319200640310
+ Iteration  6        0.000227249929       -0.319200098631
+ Iteration  7        0.000067294325       -0.319198413845
+ 
+ CCSD iteration has converged in  7 steps.
+       48.14 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      9.475E-03            D1 diagnostic:      2.475E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054168983859
+ 
+ CPU time [min]:    13.224                   Wall time [min]:     0.228
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       32.43 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001384498809
+ CCSD(T) correlation energy [au]:       -0.055553482668
+ 
+ CPU time [min]:    13.504                   Wall time [min]:     0.233
+ 
+ MO:     9
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050368231062
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        57  (42.22%)
+ Number of Cholesky vectors:      8
+ MP2 energy in LIS [au]:         -0.050346263415
+ Correction for frozen LNO [au]: -0.000021967647     (0.044%)
+ Number of NAFs:                177  (41.84%)
+ CPU time [min]:    14.478                   Wall time [min]:     0.250
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    57   177
+     28.39 MB is the minimal memory requirement for (T)
+     16.79 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.303536524120
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050339920186
+ 
+ CPU time [min]:    14.540                   Wall time [min]:     0.251
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.145323083957       -0.327979621905
+ Iteration  2        0.040266016467       -0.337438147320
+ Iteration  3        0.009619754284       -0.338401764709
+ Iteration  4        0.003031715028       -0.338409136657
+ Iteration  5        0.000773000835       -0.338428702671
+ Iteration  6        0.000240632623       -0.338428218414
+ Iteration  7        0.000072048644       -0.338426240828
+ 
+ CCSD iteration has converged in  7 steps.
+       57.94 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      9.094E-03            D1 diagnostic:      2.377E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054312822021
+ 
+ CPU time [min]:    14.905                   Wall time [min]:     0.257
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       37.30 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001393038848
+ CCSD(T) correlation energy [au]:       -0.055705860870
+ 
+ CPU time [min]:    15.215                   Wall time [min]:     0.262
+ 
+ MO:    10
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050412937328
+ Number of occupied LNOs:        11  (91.67%)
+ Number of virtual  LNOs:        59  (43.70%)
+ Number of Cholesky vectors:      7
+ MP2 energy in LIS [au]:         -0.050388382754
+ Correction for frozen LNO [au]: -0.000024554574     (0.049%)
+ Number of NAFs:                183  (43.26%)
+ CPU time [min]:    16.214                   Wall time [min]:     0.280
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    11    59   183
+     31.97 MB is the minimal memory requirement for (T)
+     19.18 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.381602770172
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050383609480
+ 
+ CPU time [min]:    16.280                   Wall time [min]:     0.281
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.154560540508       -0.404479623185
+ Iteration  2        0.044321844390       -0.414777087643
+ Iteration  3        0.011812667441       -0.416274758479
+ Iteration  4        0.003402401383       -0.416270563168
+ Iteration  5        0.000837855715       -0.416291867550
+ Iteration  6        0.000242213021       -0.416293412023
+ Iteration  7        0.000073966398       -0.416291190821
+ 
+ CCSD iteration has converged in  7 steps.
+       66.28 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      9.518E-03            D1 diagnostic:      2.501E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054222734027
+ 
+ CPU time [min]:    16.716                   Wall time [min]:     0.288
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       43.85 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001427309374
+ CCSD(T) correlation energy [au]:       -0.055650043400
+ 
+ CPU time [min]:    17.100                   Wall time [min]:     0.294
+ 
+ MO:    11
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050451095734
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        56  (41.48%)
+ Number of Cholesky vectors:      8
+ MP2 energy in LIS [au]:         -0.050428264388
+ Correction for frozen LNO [au]: -0.000022831347     (0.045%)
+ Number of NAFs:                173  (40.90%)
+ CPU time [min]:    18.073                   Wall time [min]:     0.311
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    56   173
+     27.09 MB is the minimal memory requirement for (T)
+     16.13 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.304076560105
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050422779647
+ 
+ CPU time [min]:    18.135                   Wall time [min]:     0.312
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.146407734773       -0.327845679582
+ Iteration  2        0.040319541276       -0.336926562567
+ Iteration  3        0.009810325895       -0.337876414882
+ Iteration  4        0.003083771745       -0.337882655753
+ Iteration  5        0.000783114289       -0.337904136328
+ Iteration  6        0.000241035440       -0.337903467043
+ Iteration  7        0.000069738980       -0.337901448817
+ 
+ CCSD iteration has converged in  7 steps.
+       54.51 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      9.023E-03            D1 diagnostic:      2.398E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054396530478
+ 
+ CPU time [min]:    18.492                   Wall time [min]:     0.317
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       35.59 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001401241453
+ CCSD(T) correlation energy [au]:       -0.055797771931
+ 
+ CPU time [min]:    18.778                   Wall time [min]:     0.322
+ 
+ MO:    12
+ Number of atoms in domain:      12
+    Number of atoms in PCD:      12
+ Number of atomic orbitals:     150
+ Number of atoms for local DF:   12
+ Number of fitting functions:   423 (100.00%)
+ Number of occupied orbitals:    12
+ Number of virtual  orbitals:   135
+ Number of Cholesky vectors:      8
+ MP2 energy in ED [au]:          -0.050185473697
+ Number of occupied LNOs:        10  (83.33%)
+ Number of virtual  LNOs:        54  (40.00%)
+ Number of Cholesky vectors:      7
+ MP2 energy in LIS [au]:         -0.050164078051
+ Correction for frozen LNO [au]: -0.000021395645     (0.043%)
+ Number of NAFs:                168  (39.72%)
+ CPU time [min]:    19.722                   Wall time [min]:     0.338
+ 
+
+ Direct DF-CCSD(T) calculation
+ 
+ Convergence criterion:  1.0E-05
+ 
+ Number of occupied/virtual/auxiliary orbitals:    10    54   168
+     24.82 MB is the minimal memory requirement for (T)
+     15.02 MB is the minimal memory requirement for CCSD
+ 
+ MP2 correlation energy [au]:       -0.292620209678
+ 
+ LMP2 domain correlation energy contribution [au]:       -0.050156701616
+ 
+ CPU time [min]:    19.782                   Wall time [min]:     0.339
+ 
+ 
+ Starting CCSD iterations...
+ 
+                     Residual norm       Correlation Energy
+ Iteration  1        0.143869758621       -0.315090460654
+ Iteration  2        0.039934550405       -0.323855079223
+ Iteration  3        0.009630892590       -0.324779262531
+ Iteration  4        0.002967144796       -0.324789305884
+ Iteration  5        0.000810084064       -0.324810730816
+ Iteration  6        0.000260455159       -0.324812950138
+ Iteration  7        0.000083186085       -0.324810989817
+ 
+ CCSD iteration has converged in  7 steps.
+       48.18 MB memory was utilized by CCSD
+ 
+ T1 diagnostic:      8.878E-03            D1 diagnostic:      2.404E-02
+ 
+ T1 contribution [au]:                         0.000000000000
+ CCSD correlation energy [au]:                -0.054156707487
+ 
+ CPU time [min]:    20.121                   Wall time [min]:     0.345
+ 
+ Calculation of (T) correction...
+ 
+ Laplace threshold, nquadmin:  1.00E-03   4
+ Number of quadrature points:    4
+ 
+       32.48 MB memory is utilized for (T)
+
+ 0%       25%       50%       75%       100%
+ |---------|---------|---------|---------| 
+ 
+ (T) correction [au]:                   -0.001379393178
+ CCSD(T) correlation energy [au]:       -0.055536100665
+ 
+ CPU time [min]:    20.397                   Wall time [min]:     0.349
+ 
+ **********************************************************************
+ Dimensions of the extended domains:    Minimum / Average / Maximum
+ 
+ Number of atoms in domain:                  12      12.0        12
+ Number of atomic orbitals:                 150     150.0       150
+ Number of fitting functions:               423     423.0       423
+ Number of occupied localized MOs:           12      12.0        12
+ Number of PAOs:                            135     135.0       135
+ Number of occupied LNOs:                    10      10.2        11
+ Number of virtual  LNOs:                    50      55.4        62
+ Number of NAFs:                            156     171.6       192
+ 
+ **********************************************************************
+ Distant (and weak) pair contributions, corrections
+ 
+ Sum of pair energies [au]:                     0.000000000000    (0.000%)
+ Sum of energy corrections [au]:               -0.000314948667    (0.052%)
+ Pair energies + LNO corrections [au]:         -0.000314948667
+ Sum of LMP2 contributions [au]:               -0.605589598572
+ 
+ **********************************************************************
+  Time of manipulations in the EDs:      max CPU/Wall [s]  all CPU/Wall [min]
+ 
+ PD construction & multipole pair E       7.02     0.15     0.12     0.00
+ Construct MO basis of the ED             1.37     0.02     0.20     0.00
+ (mu,nu|P) evaluation & trf 2 (ai|P)      7.91     0.13     1.47     0.02
+ Evaluate MP2 energy of the ED            0.47     0.01     0.09     0.00
+ Transformations to the LNO basis         1.00     0.02     0.19     0.00
+ Build W_PQ (Jai or Jpi part)             1.18     0.03     0.06     0.00
+ Evaluate MP2 energy of the LIS           0.16     0.00     0.02     0.00
+ (mu,nu|P) evaluation & trf 2 J(abQ)     42.74     0.77     6.98     0.12
+ Total of the above for all EDs          54.83     0.98     9.01     0.15
+ 
+ **********************************************************************
+ Maximum memory requirement [MB]:       
+ 
+ PD construction & multipole pair E          3.0
+ AO integral evaluation in the EDs         315.2
+ (mu,nu|P) evaluation & trf 2 (aI|P)       362.2
+ Evaluate MP2 energy in the EDs             20.8
+ Transformation to the LNO basis            13.0
+ (mu,nu|P) to Jab transformation           324.6
+ Evaluate MP2 energy in the LIS             15.6
+ Minimum requirement for LIS CCSD           21.3
+ Actually allocated  for LIS CCSD           78.7
+ Minimum requirement for LIS (T)            36.3
+ Actually allocated  for LIS (T)            49.9
+ 
+ ======================================================================
+ ======================================================================
+ 
+ 
+ 
+ ======================================================================
+ ======================================================================
+ 
+ Final local CC results:
+ 
+ Minimum number of correlated electrons:        20       ( 83.3%)
+ Maximum number of correlated electrons:        22       ( 91.7%)
+ Average number of correlated electrons:        20.3     ( 84.7%)
+ Minimum number of correlated orbitals:         60       ( 40.8%)
+ Maximum number of correlated orbitals:         73       ( 49.7%)
+ Average number of correlated orbitals:         65.6     ( 44.6%)
+ 
+ CPU time for integral calculations [min]:                  0.311
+ Wall time for integral calculations [min]:                 0.007
+ 
+ CPU time for SCF calculation [min]:                        3.934
+ Wall time for SCF calculation [min]:                       0.084
+ 
+ CPU time for orbital localization [min]:                   0.219
+ Wall time for orbital localization [min]:                  0.017
+ 
+ CPU time for integral transformations [min]:              11.800
+ Wall time for integral transformations [min]:              0.207
+ 
+ Reference energy [au]:                                  -168.614025203687
+ 
+ LMP2 correlation energy [au]:                             -0.605589598572
+ Total LMP2 energy [au]:                                 -169.219614802259
+ 
+ Total MP2 correction for dropped NAFs [au]:               -0.000069350745
+ Total MP2 correction [au]:                                -0.000384299412
+ 
+ CPU time for CCSD calculations [min]:                      5.031
+ Total CPU time for CCSD [min]:                            21.294
+ Wall time for CCSD calculations [min]:                     0.081
+ Total wall time for CCSD [min]:                            0.396
+ 
+ CCSD correlation energy [au]:                             -0.650547577162
+ Total CCSD energy [au]:                                 -169.264572780850
+ CCSD correlation energy + 0.5 MP2 corrections [au]:       -0.650739726868
+ Total LNO-CCSD energy with MP2 corrections [au]:        -169.264764930555
+ 
+ CPU time for (T) corrections [min]:                        3.612
+ Total CPU time for CCSD(T) [min]:                         24.906
+ Wall time for (T) corrections [min]:                       0.062
+ Total wall time for CCSD(T) [min]:                         0.458
+ 
+ Total (T) correlation energy contribution [au]:           -0.017230956489
+ Total (T) correlation energy+0.5 MP2 correction [au]:     -0.017423106195
+ CCSD(T) correlation energy [au]:                          -0.667778533651
+ Total CCSD(T) energy [au]:                              -169.281803737338
+ CCSD(T) correlation energy + MP2 corrections [au]:        -0.668162833063
+ Total LNO-CCSD(T) energy with MP2 corrections [au]:     -169.282188036750
+ 
+ ======================================================================
+ ======================================================================
+ 
+ ************************ 2026-02-26 19:17:32 *************************
+                      Normal termination of mrcc.
+ **********************************************************************
