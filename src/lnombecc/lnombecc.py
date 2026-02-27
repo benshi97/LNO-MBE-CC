@@ -602,9 +602,10 @@ def analyze_periodic_hf_outputs(
         
         # Extract the final energy from the OUTCAR file (look for "free  energy   TOTEN" in the OUTCAR)
         with open(output_file, "r") as f:
-            for line in f:
-                if "free  energy   TOTEN" in line:
-                    energy = float(line.split()[4])
+            # search in reverse
+            for line in reversed(list(f)):
+                if "energy  without entropy=" in line:
+                    energy = float(line.split()[-1])
                     energies[calc_key] = energy
                     break
     
