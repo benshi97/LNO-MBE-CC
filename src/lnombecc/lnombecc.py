@@ -16,8 +16,8 @@ from ase.db import connect
 from quacc import change_settings, flow, get_settings
 from quacc.calculators.mrcc.io import read_mrcc_outputs, write_mrcc
 from quacc.calculators.mrcc.mrcc import MRCC, MrccProfile
-from quacc.recipes.mrcc.core import static_job
-from quacc.recipes.vasp.core import static_job
+from quacc.recipes.mrcc.core import static_job as mrcc_static_job
+from quacc.recipes.vasp.core import static_job as vasp_static_job
 
 from lnombecc.data import (
     calculation_defaults,
@@ -407,7 +407,7 @@ def run_periodic_hf(
                 "GZIP_FILES": False,
             }
             ), lnombecc_preset_path() as preset_path:
-            static_job(
+            vasp_static_job(
                 struct,
                 preset=str(preset_path),
                 **calc_parameters
@@ -737,7 +737,7 @@ def run_mrcc_calculation(struct, calc_parameters, calc_folder):
             "GZIP_FILES": False,
         }
         ):
-        static_job(struct, **calc_parameters)
+        mrcc_static_job(struct, **calc_parameters)
     cleanup_folder(calc_folder)
 
 

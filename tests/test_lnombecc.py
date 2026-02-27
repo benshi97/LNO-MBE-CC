@@ -7,7 +7,7 @@ from ase.db import connect
 import pytest
 import re
 import lnombecc.lnombecc as mod
-from lnombecc.lnombecc import create_fragments, setup_lnombecc_inputs, get_cbs_extrapolation
+from lnombecc.lnombecc import create_fragments, setup_lnombecc_inputs, run_periodic_hf, run_lnombecc, get_cbs_extrapolation
 from lnombecc.data import calculation_defaults
 from numpy.testing import assert_allclose
 from pathlib import Path
@@ -120,8 +120,21 @@ def test_create_and_write(tmp_path, monkeypatch):
     # Assert periodic_HF folder does NOT exist
     assert not (outdir / "periodic_HF").exists()
 
-def test_run_periodic_hf_mrcc(tmp_path):
+def test_run_periodic_hf_mrcc():
+
+    run_periodic_hf(
+        run_directory=FILE_DIR / "data/LNOMBECC_calcs",
+        calculators_periodic_filepath=FILE_DIR / "data/calculators_periodic.npy"
+    )
+
+    run_lnombecc(
+        run_directory=FILE_DIR / "data/LNOMBECC_calcs",
+        calculators_1b_filepath=FILE_DIR / "data/calculators_1b.npy",
+        calculators_2b_filepath=FILE_DIR / "data/calculators_2b.npy",
+        calculators_3b_filepath=FILE_DIR / "data/calculators_3b.npy"
+    )
     
+
 
 
 
