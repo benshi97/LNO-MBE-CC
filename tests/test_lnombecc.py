@@ -1,13 +1,8 @@
 from __future__ import annotations
 
-import gzip
-from copy import deepcopy
 from pathlib import Path
-from ase.db import connect
 
-import numpy as np
-import pytest
-from numpy.testing import assert_allclose, assert_equal
+from ase.db import connect
 
 from lnombecc.lnombecc import create_fragments
 
@@ -47,6 +42,6 @@ def test_fragment_db_lengths(tmp_path,monkeypatch):
 
     # ---- Assertions ----
     # Adjust these expected values to your known test system
-    assert n1b == 2 
+    assert n1b == 2
     assert n2b == 27
     assert n3b == 136

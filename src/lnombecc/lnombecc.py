@@ -3,26 +3,27 @@ from __future__ import annotations
 import json
 import shutil
 import subprocess
+from contextlib import contextmanager
+from importlib import resources
+from logging import getLogger
 from pathlib import Path
-from ase.db import connect
+from typing import Literal
+
 import ase.io
 import numpy as np
-
-from typing import Literal
-from logging import getLogger
-
-from importlib import resources
-from contextlib import contextmanager
-
-from lnombecc.data import calculation_defaults, vasp_calculation_defaults, vasp_calculation_setup
-from quacc import get_settings, change_settings, flow
-
-from quacc.calculators.mrcc.mrcc import MrccProfile, MRCC
-from quacc.calculators.mrcc.io import write_mrcc, read_mrcc_outputs
-from quacc.recipes.mrcc.core import static_job
-
 from ase.calculators.vasp import Vasp as ASE_Vasp
+from ase.db import connect
+from quacc import change_settings, flow, get_settings
+from quacc.calculators.mrcc.io import read_mrcc_outputs, write_mrcc
+from quacc.calculators.mrcc.mrcc import MRCC, MrccProfile
+from quacc.recipes.mrcc.core import static_job
 from quacc.recipes.vasp.core import static_job
+
+from lnombecc.data import (
+    calculation_defaults,
+    vasp_calculation_defaults,
+    vasp_calculation_setup,
+)
 
 LOGGER = getLogger(__name__)
 
@@ -58,36 +59,36 @@ def create_fragments(
     poscar_filepath = Path(poscar_filepath)
 
     # Remove temporary directory if it already exists
-    if Path('./tmp_pMBE').exists():
-        shutil.rmtree('./tmp_pMBE')
+    if Path("./tmp_pMBE").exists():
+        shutil.rmtree("./tmp_pMBE")
 
     # Make a temporary directory to store the pMBE input and output files
-    Path('./tmp_pMBE/system').mkdir(exist_ok=True,parents=True)
+    Path("./tmp_pMBE/system").mkdir(exist_ok=True,parents=True)
 
     # Copy the POSCAR file to the temporary directory
-    shutil.copy(poscar_filepath, './tmp_pMBE/system/POSCAR')
+    shutil.copy(poscar_filepath, "./tmp_pMBE/system/POSCAR")
 
     # Generate the .json file used in pMBE
     config = {
-        "file_path": str(Path('./tmp_pMBE')),
+        "file_path": str(Path("./tmp_pMBE")),
         "crys_names": ["system"],
         "nb_term": 2,
         "cutoff": twob_cutoff,
         "mult_cutoff": threeb_cutoff,
         "full_unit_cell": full_uc,
-        "out_path": str(Path('./tmp_pMBE'))
+        "out_path": str(Path("./tmp_pMBE"))
     }
-    
+
     # Write the 2B JSON file
-    json_2b_filepath = Path('./input.json')
+    json_2b_filepath = Path("./input.json")
     with open(json_2b_filepath, "w") as f:
         json.dump(config, f, indent=4)
 
     subprocess.run(["pmbe", str(json_2b_filepath)], check=True)
-    
+
     # Write the 3B JSON file
     config["nb_term"] = 3
-    json_3b_filepath = Path('./input.json')
+    json_3b_filepath = Path("./input.json")
     with open(json_3b_filepath, "w") as f:
         json.dump(config, f, indent=4)
 
@@ -110,22 +111,22 @@ def create_fragments(
 
     if include_periodic_hf:
         # Set up the periodic HF database
-        with connect('system_periodic.db',append=False) as db:
+        with connect("system_periodic.db",append=False) as db:
             # Add vacuum to the gas structure to avoid issues with the periodic HF calculation
             vac_gas_structure = gas_structure.copy()
             vac_gas_structure.set_pbc(True)
             vac_gas_structure.center(vacuum=7.5)
-            db.write(vac_gas_structure, name='gas_phase')
-            db.write(ase.io.read("./tmp_pMBE/system/POSCAR"), name='periodic_system')
+            db.write(vac_gas_structure, name="gas_phase")
+            db.write(ase.io.read("./tmp_pMBE/system/POSCAR"), name="periodic_system")
 
 
-    with connect('system_1b.db',append=False) as db:
-        db.write(gas_structure, name='gas_phase', key_value_pairs={'fragment': 'gas_phase'})
+    with connect("system_1b.db",append=False) as db:
+        db.write(gas_structure, name="gas_phase", key_value_pairs={"fragment": "gas_phase"})
         for i, fragment_structure in enumerate(fragment_structure_list):
-            db. write(fragment_structure, name=f'fragment_{i}', key_value_pairs={'fragment': f'fragment_{i}'})
+            db. write(fragment_structure, name=f"fragment_{i}", key_value_pairs={"fragment": f"fragment_{i}"})
             if i == 0 and not full_uc:
                 break
-    
+
     # Copy ./tmp_pMBE/*system_2b_*_filtered.db to ./system_2b_filtered.db
     src_dir = Path("./tmp_pMBE")
     pattern = "*system_2b_*_filtered.db"
@@ -149,7 +150,7 @@ def create_fragments(
     shutil.copy(src_file, dst_file)
 
     # Remove the temporary directory
-    shutil.rmtree('./tmp_pMBE')
+    shutil.rmtree("./tmp_pMBE")
 
 def setup_lnombecc_inputs(
     one_body_db_filepath: str | Path = "./system_1b.db",
@@ -209,9 +210,9 @@ def setup_lnombecc_inputs(
                 one_body_calculators[row_idx][calc_key] = struct
                 if write_inputs_dir is not None:
                     Path(write_inputs_dir,"1B_calcs",folder, str(calc_key)).mkdir(exist_ok=True, parents=True)
-                    write_mrcc(Path(write_inputs_dir, "1B_calcs", folder, str(calc_key)) / f"MINP", struct,inputs)
+                    write_mrcc(Path(write_inputs_dir, "1B_calcs", folder, str(calc_key)) / "MINP", struct,inputs)
 
-    
+
     two_body_calculators = {}
     with connect(two_body_db_filepath) as db:
         num_rows = db.count()
@@ -245,7 +246,7 @@ def setup_lnombecc_inputs(
                     two_body_calculators[row_idx][sub_calc][calc_key] = struct
                     if write_inputs_dir is not None:
                         Path(write_inputs_dir,"2B_calcs",folder,str(sub_calc),str(calc_key)).mkdir(exist_ok=True, parents=True)
-                        write_mrcc(Path(write_inputs_dir, "2B_calcs", folder,str(sub_calc),str(calc_key)) / f"MINP", struct,inputs)
+                        write_mrcc(Path(write_inputs_dir, "2B_calcs", folder,str(sub_calc),str(calc_key)) / "MINP", struct,inputs)
 
     three_body_calculators = {}
     with connect(three_body_db_filepath) as db:
@@ -284,7 +285,7 @@ def setup_lnombecc_inputs(
                     three_body_calculators[row_idx][sub_calc][calc_key] = struct
                     if write_inputs_dir is not None:
                         Path(write_inputs_dir,"3B_calcs",folder,str(sub_calc),str(calc_key)).mkdir(exist_ok=True, parents=True)
-                        write_mrcc(Path(write_inputs_dir, "3B_calcs", folder,str(sub_calc),str(calc_key)) / f"MINP", struct,inputs)
+                        write_mrcc(Path(write_inputs_dir, "3B_calcs", folder,str(sub_calc),str(calc_key)) / "MINP", struct,inputs)
 
     if include_periodic_hf:
         periodic_calculators = {}
@@ -308,8 +309,8 @@ def setup_lnombecc_inputs(
         periodic_calculators["crystal"] = periodic_structure
         periodic_calculators["molecule"] = gas_structure
         np.save("calculators_periodic.npy", periodic_calculators, allow_pickle=True)
-        
-        
+
+
     # Save the calculators to an npy file
     np.save("calculators_1b.npy", one_body_calculators, allow_pickle=True)
     np.save("calculators_2b.npy", two_body_calculators, allow_pickle=True)
@@ -394,7 +395,7 @@ def run_periodic_hf(
 
         # Skip the calculation if "aborting loop because EDIFF is reached"
         if (calc_folder / "OUTCAR").exists():
-            with open(calc_folder / "OUTCAR", "r") as f:
+            with open(calc_folder / "OUTCAR") as f:
                 if any("aborting loop because EDIFF is reached" in line for line in f):
                     LOGGER.info(f"Skipping calculation for {calc_key}.")
                     continue
@@ -404,14 +405,13 @@ def run_periodic_hf(
                 "RESULTS_DIR": calc_folder,
                 "CREATE_UNIQUE_DIR": False,
                 "GZIP_FILES": False,
-            }        
-            ):
-            with lnombecc_preset_path() as preset_path:
-                static_job(
-                    struct,
-                    preset=str(preset_path),
-                    **calc_parameters
-                )
+            }
+            ), lnombecc_preset_path() as preset_path:
+            static_job(
+                struct,
+                preset=str(preset_path),
+                **calc_parameters
+            )
 
 def analyze_lnombecc_outputs(
     run_directory: str | Path = "./LNOMBECC_calcs",
@@ -446,9 +446,9 @@ def analyze_lnombecc_outputs(
     }
 
     if calculation_type == "lattice":
-        basis_family = 'acc'
+        basis_family = "acc"
     elif calculation_type == "relative":
-        basis_family = 'mixcc'
+        basis_family = "mixcc"
 
     # Analyse the 1B outputs
     calculators_1b = np.load(calculators_1b_filepath, allow_pickle=True).item()
@@ -458,15 +458,15 @@ def analyze_lnombecc_outputs(
         method_calc_energies = {calc_key: {} for calc_key in calc_dict.keys()}
         for calc_key, struct in calc_dict.items():
             calc_folder = Path(run_directory, "1B_calcs", struct.info["folder"], str(calc_key))
-            output_file = Path(calc_folder, f"mrcc.out")
+            output_file = Path(calc_folder, "mrcc.out")
             if not output_file.exists():
                 raise FileNotFoundError(f"Output file {output_file} does not exist.")
 
-            with open(output_file, "r") as f:
+            with open(output_file) as f:
                 last_lines = f.readlines()[-5:]
                 if not any("Normal termination of mrcc." in line for line in last_lines):
                     raise ValueError(f"Calculation in {calc_folder} did not finish normally. Please check the output file.")
-            
+
             method_calc_energies[calc_key] = read_mrcc_outputs(output_file)
 
         mp2_cbs_energy = get_cbs_extrapolation(
@@ -484,7 +484,7 @@ def analyze_lnombecc_outputs(
             delta_cc_mp2_energy = calc_2_delta + 0.5*(calc_2_delta - calc_1_delta)
         elif calculation_type == "relative":
             delta_cc_mp2_energy = method_calc_energies[1]["ccsdt_corr_energy"] - method_calc_energies[1]["mp2_corr_energy"]
-        
+
         energies_1b += [mp2_cbs_energy + delta_cc_mp2_energy]
     elatt_contributions["1B"] = np.mean(energies_1b[1:]) - energies_1b[0]
 
@@ -493,20 +493,20 @@ def analyze_lnombecc_outputs(
     for row_idx, sub_calc_dict in calculators_2b.items():
         # print(sub_calc_dict[0][1])
         count = sub_calc_dict[0][1].info["count"]
-        sub_calc_energies = {sub_calc: 0 for sub_calc in sub_calc_dict.keys()}
+        sub_calc_energies = dict.fromkeys(sub_calc_dict.keys(), 0)
         for sub_calc, calc_dict in sub_calc_dict.items(): # sub_calc is the index for the different fragment calculations (e.g., dimer with ghost atoms on monomer 1, dimer with ghost atoms on monomer 2, etc.)
             method_calc_energies = {calc_key: {} for calc_key in calc_dict.keys()}
             for calc_key, struct in calc_dict.items():
                 calc_folder = Path(run_directory, "2B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
-                output_file = Path(calc_folder, f"mrcc.out")
+                output_file = Path(calc_folder, "mrcc.out")
                 if not output_file.exists():
                     raise FileNotFoundError(f"Output file {output_file} does not exist.")
 
-                with open(output_file, "r") as f:
+                with open(output_file) as f:
                     last_lines = f.readlines()[-5:]
                     if not any("Normal termination of mrcc." in line for line in last_lines):
                         raise ValueError(f"Calculation in {calc_folder} did not finish normally. Please check the output file.")
-                
+
                 method_calc_energies[calc_key] = read_mrcc_outputs(output_file)
             mp2_cbs_energy = get_cbs_extrapolation(
                 hf_X=0.0,
@@ -532,20 +532,20 @@ def analyze_lnombecc_outputs(
     calculators_3b = np.load(calculators_3b_filepath, allow_pickle=True).item()
     for row_idx, sub_calc_dict in calculators_3b.items():
         count = sub_calc_dict[0][1].info["count"]
-        sub_calc_energies = {sub_calc: 0 for sub_calc in sub_calc_dict.keys()}
+        sub_calc_energies = dict.fromkeys(sub_calc_dict.keys(), 0)
         for sub_calc, calc_dict in sub_calc_dict.items(): # sub_calc is the index for the different fragment calculations (e.g., trimer with ghost atoms on monomer 1, trimer with ghost atoms on monomer 2, etc.)
             method_calc_energies = {calc_key: {} for calc_key in calc_dict.keys()}
             for calc_key, struct in calc_dict.items():
                 calc_folder = Path(run_directory, "3B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
-                output_file = Path(calc_folder, f"mrcc.out")
+                output_file = Path(calc_folder, "mrcc.out")
                 if not output_file.exists():
                     raise FileNotFoundError(f"Output file {output_file} does not exist.")
 
-                with open(output_file, "r") as f:
+                with open(output_file) as f:
                     last_lines = f.readlines()[-5:]
                     if not any("Normal termination of mrcc." in line for line in last_lines):
                         raise ValueError(f"Calculation in {calc_folder} did not finish normally. Please check the output file.")
-                
+
                 method_calc_energies[calc_key] = read_mrcc_outputs(output_file)
             mp2_cbs_energy = get_cbs_extrapolation(
                 hf_X=0.0,
@@ -591,23 +591,23 @@ def analyze_periodic_hf_outputs(
     energies = {}
     for calc_key, struct in periodic_calculators.items():
         calc_folder = Path(run_directory, "periodic_HF", calc_key)
-        output_file = Path(calc_folder, f"OUTCAR")
+        output_file = Path(calc_folder, "OUTCAR")
         if not output_file.exists():
             raise FileNotFoundError(f"Output file {output_file} does not exist.")
 
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             if not any("aborting loop because EDIFF is reached" in line for line in f.readlines()):
                 raise ValueError(f"Calculation for {calc_key} did not finish normally. Please check the output file.")
-        
+
         # Extract the final energy from the OUTCAR file (look for "free  energy   TOTEN" in the OUTCAR)
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             # search in reverse
             for line in reversed(list(f)):
                 if "energy  without entropy=" in line:
                     energy = float(line.split()[-1])
                     energies[calc_key] = energy
                     break
-    
+
     num_monomers = float(len(periodic_calculators["crystal"].get_chemical_symbols())) / float(len(periodic_calculators["molecule"].get_chemical_symbols()))
     periodic_hf_elatt = energies["crystal"]/num_monomers - energies["molecule"]
     return periodic_hf_elatt
@@ -723,9 +723,9 @@ def cleanup_folder(folder: str | Path = "."):
 
 @flow
 def run_mrcc_calculation(struct, calc_parameters, calc_folder):
-    output_file = Path(calc_folder, f"mrcc.out")
+    output_file = Path(calc_folder, "mrcc.out")
     if output_file.exists():
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             last_lines = f.readlines()[-5:]
             if any("Normal termination of mrcc." in line for line in last_lines):
                 LOGGER.info(f"Calculation in {calc_folder} is already finished. Skipping.")
@@ -735,7 +735,7 @@ def run_mrcc_calculation(struct, calc_parameters, calc_folder):
             "RESULTS_DIR": calc_folder,
             "CREATE_UNIQUE_DIR": False,
             "GZIP_FILES": False,
-        }        
+        }
         ):
         static_job(struct, **calc_parameters)
     cleanup_folder(calc_folder)

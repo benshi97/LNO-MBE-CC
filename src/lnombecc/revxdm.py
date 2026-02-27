@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 from logging import getLogger
 
 from ase.calculators.aims import Aims, AimsProfile

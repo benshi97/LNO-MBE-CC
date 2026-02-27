@@ -1,13 +1,6 @@
 from __future__ import annotations
 
-import gzip
-from copy import deepcopy
 from pathlib import Path
-from ase.db import connect
-
-import numpy as np
-import pytest
-from numpy.testing import assert_allclose, assert_equal
 
 from lnombecc.data import calculation_defaults
 

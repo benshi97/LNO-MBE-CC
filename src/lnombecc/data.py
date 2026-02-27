@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 from copy import deepcopy
 
 COMMON = {
@@ -65,12 +66,12 @@ elatt_calculation_defaults = {
 }
 
 calculation_defaults = {
-    'lattice': {
+    "lattice": {
     "1B": build_body({1: "aug-cc-pVQZ", 2: "aug-cc-pVQZ", 3: "aug-cc-pVQZ", 4: "aug-cc-pV5Z"}),
     "2B": build_body({1: "aug-cc-pVTZ", 2: "aug-cc-pVTZ", 3: "aug-cc-pVTZ", 4: "aug-cc-pVQZ"}),
     "3B": build_body({1: "aug-cc-pVDZ", 2: "aug-cc-pVDZ", 3: "aug-cc-pVDZ", 4: "aug-cc-pVTZ"}),
 },
-    'relative': {
+    "relative": {
     "1B": build_body(
         {1: "aug'-cc-pVQZ", 2: None, 3: "aug'-cc-pVQZ", 4: "aug'-cc-pV5Z"},
         extra_overrides={"iesttol": 0.0},
@@ -106,14 +107,14 @@ vasp_calculation_defaults = {
 }
 
 vasp_calculation_setup = {
-    'H': '_h',
-    'B': '_h',
-    'C': '_h',
-    'N': '_h',
-    'O': '_h',
-    'F': '_h',
-    'P': '_h',
-    'S': '_h',
-    'Cl': '_h',
-    'Br': '_sv_GW'
+    "H": "_h",
+    "B": "_h",
+    "C": "_h",
+    "N": "_h",
+    "O": "_h",
+    "F": "_h",
+    "P": "_h",
+    "S": "_h",
+    "Cl": "_h",
+    "Br": "_sv_GW"
 }
