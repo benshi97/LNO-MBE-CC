@@ -567,6 +567,50 @@ def analyze_lnombecc_outputs(
     elatt_contributions["3B"] = np.sum(energies_3b)
     return elatt_contributions
 
+def analyze_periodic_hf_outputs(
+    run_directory: str | Path = "./LNOMBECC_calcs",
+    calculators_periodic_filepath: str | Path = "calculators_periodic.npy",
+) -> dict[str, float]:
+    """
+    Analyze the outputs of the periodic HF calculations and extract the energies.
+    
+    Parameters
+    ----------
+    run_directory : str | Path, optional
+        The directory where the calculation outputs are stored, by default "./LNOMBECC_calcs".
+    calculators_periodic_filepath : str | Path, optional
+        The file path to the npy file containing the calculators for the periodic HF calculations, by default "calculators_periodic.npy".
+
+    Returns
+    -------
+    dict[str, float]
+        A dictionary containing the periodic HF energies for the crystal and gas phase structures.
+    """
+
+    periodic_calculators = np.load(calculators_periodic_filepath, allow_pickle=True).item()
+    energies = {}
+    for calc_key, struct in periodic_calculators.items():
+        calc_folder = Path(run_directory, "periodic_HF", calc_key)
+        output_file = Path(calc_folder, f"OUTCAR")
+        if not output_file.exists():
+            raise FileNotFoundError(f"Output file {output_file} does not exist.")
+
+        with open(output_file, "r") as f:
+            last_lines = f.readlines()[-5:]
+            if not any("aborting loop because EDIFF is reached" in line for line in last_lines):
+                raise ValueError(f"Calculation for {calc_key} did not finish normally. Please check the output file.")
+        
+        # Extract the final energy from the OUTCAR file (look for "free  energy   TOTEN" in the OUTCAR)
+        with open(output_file, "r") as f:
+            for line in f:
+                if "free  energy   TOTEN" in line:
+                    energy = float(line.split()[4])
+                    energies[calc_key] = energy
+                    break
+    
+    num_monomers = float(len(periodic_calculators["crystal"].get_chemical_symbols())) / float(len(periodic_calculators["molecule"].get_chemical_symbols()))
+    periodic_hf_elatt = energies["crystal"]/num_monomers - energies["molecule"]
+    return periodic_hf_elatt
 
 
 def get_cbs_extrapolation(
