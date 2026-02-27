@@ -596,8 +596,7 @@ def analyze_periodic_hf_outputs(
             raise FileNotFoundError(f"Output file {output_file} does not exist.")
 
         with open(output_file, "r") as f:
-            last_lines = f.readlines()[-5:]
-            if not any("aborting loop because EDIFF is reached" in line for line in last_lines):
+            if not any("aborting loop because EDIFF is reached" in line for line in f.readlines()):
                 raise ValueError(f"Calculation for {calc_key} did not finish normally. Please check the output file.")
         
         # Extract the final energy from the OUTCAR file (look for "free  energy   TOTEN" in the OUTCAR)
