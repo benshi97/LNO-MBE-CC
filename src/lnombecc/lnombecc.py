@@ -320,8 +320,6 @@ def run_lnombecc(
     calculators_1b_filepath: str | Path = "calculators_1b.npy",
     calculators_2b_filepath: str | Path = "calculators_2b.npy",
     calculators_3b_filepath: str | Path = "calculators_3b.npy",
-    include_periodic_hf: bool = False,
-    calculators_periodic_filepath: str | Path = "calculators_periodic.npy",
     ):
     """
     Run the LNO-MBE-CCSD(T) calculations for the 1-body, 2-body and 3-body fragments.
@@ -339,51 +337,69 @@ def run_lnombecc(
     -------
     None
     """
-    # calculators_1b = np.load(calculators_1b_filepath, allow_pickle=True).item()
-    # calculators_2b = np.load(calculators_2b_filepath, allow_pickle=True).item()
-    # calculators_3b = np.load(calculators_3b_filepath, allow_pickle=True).item()
+    calculators_1b = np.load(calculators_1b_filepath, allow_pickle=True).item()
+    calculators_2b = np.load(calculators_2b_filepath, allow_pickle=True).item()
+    calculators_3b = np.load(calculators_3b_filepath, allow_pickle=True).item()
 
-    # for row_idx, calc_dict in calculators_1b.items():
-    #     for calc_key, struct in calc_dict.items():
-    #         calc_folder = Path(run_directory, "1B_calcs", struct.info["folder"], str(calc_key))
-    #         calc_parameters = struct.calc.parameters
-    #         run_mrcc_calculation(calculators_1b[row_idx][calc_key], calc_parameters, calc_folder)
-
-
-    # for row_idx, sub_calc_dict in calculators_2b.items():
-    #     for sub_calc, calc_dict in sub_calc_dict.items():
-    #         for calc_key, struct in calc_dict.items():
-    #             calc_folder = Path(run_directory, "2B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
-    #             calc_parameters = struct.calc.parameters
-    #             run_mrcc_calculation(calculators_2b[row_idx][sub_calc][calc_key], calc_parameters, calc_folder)
-
-
-    # for row_idx, sub_calc_dict in calculators_3b.items():
-    #     for sub_calc, calc_dict in sub_calc_dict.items():
-    #         for calc_key, struct in calc_dict.items():
-    #             calc_folder = Path(run_directory, "3B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
-    #             calc_parameters = struct.calc.parameters
-    #             run_mrcc_calculation(calculators_3b[row_idx][sub_calc][calc_key], calc_parameters, calc_folder)
-
-    if include_periodic_hf:
-        periodic_calculators = np.load(calculators_periodic_filepath, allow_pickle=True).item()
-        for calc_key, struct in periodic_calculators.items():
-            calc_folder = Path(run_directory, "periodic_HF", calc_key)
+    for row_idx, calc_dict in calculators_1b.items():
+        for calc_key, struct in calc_dict.items():
+            calc_folder = Path(run_directory, "1B_calcs", struct.info["folder"], str(calc_key))
             calc_parameters = struct.calc.parameters
+            run_mrcc_calculation(calculators_1b[row_idx][calc_key], calc_parameters, calc_folder)
 
-            with change_settings(
-                {
-                    "RESULTS_DIR": calc_folder,
-                    "CREATE_UNIQUE_DIR": False,
-                    "GZIP_FILES": False,
-                }        
-                ):
-                with lnombecc_preset_path() as preset_path:
-                    static_job(
-                        struct,
-                        preset=str(preset_path),
-                        **calc_parameters,
-                    )
+
+    for row_idx, sub_calc_dict in calculators_2b.items():
+        for sub_calc, calc_dict in sub_calc_dict.items():
+            for calc_key, struct in calc_dict.items():
+                calc_folder = Path(run_directory, "2B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
+                calc_parameters = struct.calc.parameters
+                run_mrcc_calculation(calculators_2b[row_idx][sub_calc][calc_key], calc_parameters, calc_folder)
+
+
+    for row_idx, sub_calc_dict in calculators_3b.items():
+        for sub_calc, calc_dict in sub_calc_dict.items():
+            for calc_key, struct in calc_dict.items():
+                calc_folder = Path(run_directory, "3B_calcs", struct.info["folder"], str(sub_calc), str(calc_key))
+                calc_parameters = struct.calc.parameters
+                run_mrcc_calculation(calculators_3b[row_idx][sub_calc][calc_key], calc_parameters, calc_folder)
+
+def run_periodic_hf(
+    run_directory: str | Path = "./LNOMBECC_calcs",
+    calculators_periodic_filepath: str | Path = "calculators_periodic.npy",
+):
+    """
+    Run the periodic HF calculations for the crystal and gas phase structures.
+    
+    Parameters
+    ----------
+    run_directory : str | Path, optional
+        The directory to run the calculations in, by default "./LNOMBECC_calcs".
+    calculators_periodic_filepath : str | Path, optional
+        The file path to the npy file containing the calculators for the periodic HF calculations, by default "calculators_periodic.npy".
+
+    Returns
+    -------
+    None
+    """
+
+    periodic_calculators = np.load(calculators_periodic_filepath, allow_pickle=True).item()
+    for calc_key, struct in periodic_calculators.items():
+        calc_folder = Path(run_directory, "periodic_HF", calc_key)
+        calc_parameters = struct.calc.parameters
+
+        with change_settings(
+            {
+                "RESULTS_DIR": calc_folder,
+                "CREATE_UNIQUE_DIR": False,
+                "GZIP_FILES": False,
+            }        
+            ):
+            with lnombecc_preset_path() as preset_path:
+                static_job(
+                    struct,
+                    preset=str(preset_path),
+                    **calc_parameters,
+                )
 
 def analyze_lnombecc_outputs(
     run_directory: str | Path = "./LNOMBECC_calcs",
