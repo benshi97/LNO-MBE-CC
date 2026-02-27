@@ -21,7 +21,7 @@ from quacc.calculators.mrcc.mrcc import MrccProfile, MRCC
 from quacc.calculators.mrcc.io import write_mrcc, read_mrcc_outputs
 from quacc.recipes.mrcc.core import static_job
 
-from ase.calculators.vasp import Vasp
+from ase.calculators.vasp import Vasp as ASE_Vasp
 from quacc.recipes.vasp.core import static_job
 
 LOGGER = getLogger(__name__)
@@ -291,11 +291,11 @@ def setup_lnombecc_inputs(
         # Set up the calculators for the periodic HF calculation
         with connect("system_periodic.db") as db:
             periodic_structure = db.get_atoms(id=2) # get the periodic structure (assuming it's the second entry in the database)
-            periodic_structure.calc = Vasp(**vasp_calculation_defaults, setups=vasp_calculation_setup)
+            periodic_structure.calc = ASE_Vasp(**vasp_calculation_defaults, setups=vasp_calculation_setup)
             periodic_structure.info["folder"] = "periodic_HF/crystal"
 
             gas_structure = db.get_atoms(id=1) # get the gas phase structure (assuming it's the first entry in the database)
-            gas_structure.calc = Vasp(**vasp_calculation_defaults, setups=vasp_calculation_setup)
+            gas_structure.calc = ASE_Vasp(**vasp_calculation_defaults, setups=vasp_calculation_setup)
             gas_structure.info["folder"] = "periodic_HF/molecule"
 
             if write_inputs_dir is not None:
@@ -398,8 +398,7 @@ def run_periodic_hf(
                 static_job(
                     struct,
                     preset=str(preset_path),
-                    **calc_parameters,
-                    kspacing=0.25,
+                    **calc_parameters
                 )
 
 def analyze_lnombecc_outputs(
