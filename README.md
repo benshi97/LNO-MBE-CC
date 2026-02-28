@@ -4,7 +4,7 @@
 
 - `LNO-MBE-CCSD(T)` is highly flexible, combining the many-body expansion with [MRCC](https://mrcc.hu/), together with periodic solid-state calculations in [VASP](https://www.vasp.at/)
 
-- `LNO-MBE-CCSD(T)` is powered by [QuAcc](https://github.com/Quantum-Accelerators/quacc) that can be efficiently dispatched locally or on HPCs.
+- `LNO-MBE-CCSD(T)` is powered by [QuAcc](https://github.com/Quantum-Accelerators/quacc), allowing it to be efficiently dispatched locally or on HPCs.
 
 ## Installation
 
@@ -169,7 +169,7 @@ hf_elatt = analyze_periodic_hf_outputs(
     calculators_periodic_filepath="calculators_periodic.npy",
 )
 
-print("Fragment contributions (eV or Hartree depending on parsers):")
+print("Fragment contributions (eV):")
 print(frag_contribs)
 
 print("Periodic HF correction:")
