@@ -1,4 +1,4 @@
-# LNO-MBE-CCSD(T) - Efficient Modelling of Molecular Crystals
+# LNO-MBE-CCSD(T) - Efficient Modeling of Molecular Crystals
 
 `LNO-MBE-CCSD(T)` is a computational framework for performing efficient and accurate predictions of molecular crystals:
 
