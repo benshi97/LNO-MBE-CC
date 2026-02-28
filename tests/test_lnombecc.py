@@ -1,19 +1,24 @@
 from __future__ import annotations
 
-from pathlib import Path
-
-from ase.db import connect
-
-import pytest
 import re
-import lnombecc.lnombecc as mod
-from lnombecc.lnombecc import create_fragments, setup_lnombecc_inputs, run_periodic_hf, run_lnombecc, get_cbs_extrapolation
-from lnombecc.data import calculation_defaults
-from numpy.testing import assert_allclose
 from pathlib import Path
 
+import numpy as np
+import pytest
+from ase.db import connect
+from numpy.testing import assert_allclose
 
-
+import lnombecc.lnombecc as mod
+from lnombecc.data import calculation_defaults
+from lnombecc.lnombecc import (
+    analyze_lnombecc_outputs,
+    analyze_periodic_hf_outputs,
+    create_fragments,
+    get_cbs_extrapolation,
+    run_lnombecc,
+    run_periodic_hf,
+    setup_lnombecc_inputs,
+)
 
 FILE_DIR = Path(__file__).parent
 
@@ -120,7 +125,7 @@ def test_create_and_write(tmp_path, monkeypatch):
     # Assert periodic_HF folder does NOT exist
     assert not (outdir / "periodic_HF").exists()
 
-def test_run_periodic_hf_mrcc():
+def test_run_lnombecc_periodic_hf():
 
     run_periodic_hf(
         run_directory=FILE_DIR / "data/LNOMBECC_calcs",
@@ -133,8 +138,24 @@ def test_run_periodic_hf_mrcc():
         calculators_2b_filepath=FILE_DIR / "data/calculators_2b.npy",
         calculators_3b_filepath=FILE_DIR / "data/calculators_3b.npy"
     )
-    
 
+def test_analyze_lnombecc_periodic_hf():
+
+    periodic_hf_elatt = analyze_periodic_hf_outputs(
+        run_directory=FILE_DIR / "data/LNOMBECC_calcs",
+        calculators_periodic_filepath=FILE_DIR / "data/calculators_periodic.npy")
+
+    lnombecc_elatt = analyze_lnombecc_outputs(
+        run_directory=FILE_DIR / "data/LNOMBECC_calcs",
+        calculators_1b_filepath=FILE_DIR / "data/calculators_1b.npy",
+        calculators_2b_filepath=FILE_DIR / "data/calculators_2b.npy",
+        calculators_3b_filepath=FILE_DIR / "data/calculators_3b.npy"
+    )
+
+    assert np.isclose(periodic_hf_elatt, -0.093841577500001, rtol=1e-5, atol=1e-7)
+    assert np.isclose(lnombecc_elatt["1B"], -0.010775053988799854, rtol=1e-5, atol=1e-7)
+    assert np.isclose(lnombecc_elatt["2B"], -0.29135135812023716, rtol=1e-5, atol=1e-7)
+    assert np.isclose(lnombecc_elatt["3B"], 0.014853126064387823, rtol=1e-5, atol=1e-7)
 
 
 
