@@ -213,4 +213,4 @@ In the companion repository found at [benshi97/Data_LNOMBECC](https://github.com
 
 ## License
 
-`LNO-MBE-CCSD(T)` is released under a [BSD 3-Clause license](https://github.com/quantum-accelerators/quacc/blob/main/LICENSE.md).
+`LNO-MBE-CCSD(T)` is released under a [BSD 3-Clause license](https://github.com/benshi97/LNO-MBE-CC/blob/main/LICENSE.md).
