@@ -49,23 +49,19 @@ def test_calculation_defaults():
 
 
 def test_create_and_write(tmp_path, monkeypatch):
-    # Work inside temporary directory
-    poscar_src = Path("data/POSCAR")  # <-- provide a small test POSCAR
     poscar = tmp_path / "POSCAR"
-    poscar.write_text(poscar_src.read_text())
+    poscar.write_text((FILE_DIR / "data" / "POSCAR").read_text())
 
-    # Optional gas file
-    gas_src = Path("data/geometry.in")  # or remove gas argument below
     gas = tmp_path / "geometry.in"
-    gas.write_text(gas_src.read_text())
+    gas.write_text((FILE_DIR / "data" / "geometry.in").read_text())
 
     # Change working directory to tmp_path
     monkeypatch.chdir(tmp_path)
 
     # Run fragment creation (assumes pmbe is available in your test env)
     create_fragments(
-        poscar_filepath="./POSCAR",
-        gas_filepath="./geometry.in",
+        poscar_filepath=poscar,
+        gas_filepath=gas,
     )
 
     # --- Check databases exist and sizes ---
