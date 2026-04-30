@@ -29,11 +29,17 @@ git clone https://github.com/benshi97/LNO-MBE-CC.git
 pip install -e .
 ```
 
-where this command is run in the root directory. All dependences (i.e., QuAcc) will be automatically installed. By using the `-e` flag, the package will be installed in editable mode, meaning that changes to the code will be reflected in the installed package. Installation should only take a few minutes.
+where this command is run in the root directory. All dependences (i.e., QuAcc) will be automatically installed. By using the `-e` flag, the package will be installed in editable mode, meaning that changes to the code will be reflected in the installed package. The installation time should only be a few minutes.
 
 Note: You also will need to have [pMBE](https://github.com/kmherman/pMBE) installed to run the code. This can be installed after `LNO-MBE-CCSD(T)` is installed (another simple `pip install`).
 
 ## Requirements
+
+`LNO-MBE-CCSD(T)` requires only a standard computer with e.g., 16 GB of RAM. The CCSD(T) calculations in MRCC can require more RAM depending on the size of system studied.
+
+This package is supported for both macOS and Linux. The package has been tested on the following systems:
++ Apple: macOS 15 Sequoia
++ Linux: Ubuntu 22.04.5
 
 ### Python packages
 - `numpy`
@@ -46,6 +52,8 @@ Note: You also will need to have [pMBE](https://github.com/kmherman/pMBE) instal
 - `pmbe` (pMBE command-line tool) — required for `create_fragments`
 - `mrcc` executable — required for fragment calculations
 - `vasp_[gam,std]` executable — required for periodic HF calculations (optional)
+
+To perform CCSD(T) calculations, [MRCC](https://mrcc.hu/) (>= 2025) must also be installed; free for academics. Calculations with the periodic Hartree-Fock currently supports [VASP](https://vasp.at/), which requires the purchase of a license.
 
 ## Environment setup
 
@@ -60,6 +68,7 @@ export PATH="/path/to/mrcc/bin:$PATH"
 # --- VASP ---
 export QUACC_VASP_PARALLEL_CMD="mpirun"        # or srun, etc.
 export QUACC_VASP_PP_PATH="/path/to/vasp/pseudopotentials"
+export VASP_PP_PATH="/path/to/vasp/pseudopotentials"
 ```
 ---
 
@@ -178,3 +187,30 @@ print(hf_elatt)
 print("Total lattice energy (fragments + HF correction):")
 print(frag_contribs["1B"] + frag_contribs["2B"] + frag_contribs["3B"] + hf_elatt)
 ```
+
+## Demo
+
+We provide a demonstration for running LNO-MBE-CCSD(T) in [`example/run_workflow.py`](example/run_workflow.py). It features pre-calculated CCSD(T) and (periodic) HF data for the ammonia crystal, found in `example/LNOMBECC_calcs`. As this workflow is restarting from completed calculations, it does not perform any quantum chemistry calculations. If the user would like to perform these calculations, please move or delete the example/LNOMBECC_calcs folder and follow the guidance within the demo to initialise these calculations. The expected output from this demonstration should be:
+```
+Fragment contributions (eV):
+{'1B': -0.010775053988799854, '2B': -0.29135135812023716, '3B': 0.014853126064387823}
+
+Periodic HF correction:
+-0.093841577500001
+
+Total lattice energy (fragments + HF correction):
+-0.3811148635446502
+```
+
+## Citation and Reproducing Data
+
+If you use `LNO-MBE-CCSD(T)` in your work, please cite it as follows:
+
+- Efficient first-principles modeling of complex molecular crystals at sub-chemical accuracy, [arXiv:2603.02180](https://arxiv.org/abs/2603.02180)
+
+In the companion repository found at [benshi97/Data_LNOMBECC](https://github.com/benshi97/Data_LNOMBECC), we have compiled the data and outputs for **all** of the calculations in [arXiv:2603.02180](https://arxiv.org/abs/2603.02180) with detailed explanation/codes for analysing and reproducing **all** the outcomes. This can be viewed online on [Colab](https://colab.research.google.com/github/benshi97/Data_LNOMBECC/blob/master/analyse.ipynb).
+
+
+## License
+
+`LNO-MBE-CCSD(T)` is released under a [BSD 3-Clause license](https://github.com/quantum-accelerators/quacc/blob/main/LICENSE.md).
