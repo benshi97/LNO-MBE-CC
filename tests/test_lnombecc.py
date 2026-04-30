@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import re
+import shutil
 from pathlib import Path
 
+import ase.io
 import numpy as np
 import pytest
 from ase.db import connect
@@ -55,14 +57,36 @@ def test_create_and_write(tmp_path, monkeypatch):
     gas = tmp_path / "geometry.in"
     gas.write_text((FILE_DIR / "data" / "geometry.in").read_text())
 
+    pmbe_calls = []
+
+    def fake_run_pmbe(command, check):
+        assert command[0] == "pmbe"
+        assert check is True
+        pmbe_calls.append(command)
+
+        pmbe_dir = tmp_path / "tmp_pMBE"
+        with connect(FILE_DIR / "data" / "system_1b.db") as db:
+            ase.io.write(pmbe_dir / "system_fragments.xyz", [db.get_atoms(id=2)])
+
+        shutil.copy(
+            FILE_DIR / "data" / "system_2b.db",
+            pmbe_dir / "test_system_2b_0_filtered.db",
+        )
+        shutil.copy(
+            FILE_DIR / "data" / "system_3b.db",
+            pmbe_dir / "test_system_3b_0_filtered.db",
+        )
+
+    monkeypatch.setattr(mod.subprocess, "run", fake_run_pmbe)
+
     # Change working directory to tmp_path
     monkeypatch.chdir(tmp_path)
 
-    # Run fragment creation (assumes pmbe is available in your test env)
     create_fragments(
         poscar_filepath=poscar,
         gas_filepath=gas,
     )
+    assert len(pmbe_calls) == 2
 
     # --- Check databases exist and sizes ---
     with connect(tmp_path / "system_1b.db") as db1:
@@ -75,8 +99,8 @@ def test_create_and_write(tmp_path, monkeypatch):
         n3b = len(db3)
 
     assert n1b == 2
-    assert n2b == 27
-    assert n3b == 136
+    assert n2b == 9
+    assert n3b == 27
 
     # -------------------------------------------------------------------------
     # Patch write_mrcc so we can reliably inspect the written MINP contents
