@@ -190,7 +190,7 @@ print(frag_contribs["1B"] + frag_contribs["2B"] + frag_contribs["3B"] + hf_elatt
 
 ## Demo
 
-We provide a demonstration for running LNO-MBE-CCSD(T) in [`example/run_workflow.py`](example/run_workflow.py). It features pre-calculated CCSD(T) and (periodic) HF data for the ammonia crystal, found in `example/LNOMBECC_calcs`. As this workflow is restarting from completed calculations, it does not perform any quantum chemistry calculations. If the user would like to perform these calculations, please move or delete the example/LNOMBECC_calcs folder and follow the guidance within the demo to initialise these calculations. The expected output from this demonstration should be:
+We provide a demonstration for running LNO-MBE-CCSD(T) in [`example/run_workflow.py`](example/run_workflow.py). It features pre-calculated CCSD(T) and (periodic) HF data for the ammonia crystal, found in `example/LNOMBECC_calcs`. As this workflow is restarting from completed calculations, it does not perform any quantum chemistry calculations and should only take a few minutes to run. If the user would like to perform these calculations, please move or delete the example/LNOMBECC_calcs folder and follow the guidance within the demo to initialise these calculations; this can take a couple of days to run. The expected output from this demonstration should be:
 ```
 Fragment contributions (eV):
 {'1B': -0.010775053988799854, '2B': -0.29135135812023716, '3B': 0.014853126064387823}
